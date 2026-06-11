@@ -56,7 +56,7 @@ const STATUS_CFG = {
 };
 
 const CAT_COLORS = {
-  "Senior":    { bg: "#eef1f7", color: "#15213f", border: "#cdd5e6" },
+  "Senior":    { bg: "#fdecea", color: "#ec5a4d", border: "#f6d4d0" },
   "Under-23":  { bg: "#eff6ff", color: "#3b82f6", border: "#bfdbfe" },
   "Under-19":  { bg: "#f5f0ff", color: "#7c3aed", border: "#ddd6fe" },
   "Under-16":  { bg: "#f0faf0", color: "#2e7d32", border: "#b8e6b8" },
@@ -66,7 +66,7 @@ const CAT_COLORS = {
 
 const EVENT_TYPE_COLORS = {
   Match:      { bg: "#fff0f0", color: "#cc3333", border: "#ffc5c5" },
-  Practice:   { bg: "#eef1f7", color: "#15213f", border: "#cdd5e6" },
+  Practice:   { bg: "#fdecea", color: "#ec5a4d", border: "#f6d4d0" },
   Trial:      { bg: "#eff6ff", color: "#3b82f6", border: "#bfdbfe" },
   Assessment: { bg: "#f0faf0", color: "#2e7d32", border: "#b8e6b8" },
 };
@@ -76,7 +76,7 @@ const card = (x = {}) => ({ backgroundColor: "#fff", borderRadius: "10px", borde
 
 function FormBar({ value, color }) {
   const pct = Math.max(value, 2);
-  const col = value >= 80 ? "#2e7d32" : value >= 60 ? "#15213f" : "#cc3333";
+  const col = value >= 80 ? "#2e7d32" : value >= 60 ? "#ec5a4d" : "#cc3333";
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
       <div style={{ flex: 1, height: "6px", backgroundColor: "#f0f0f0", borderRadius: "4px", overflow: "hidden" }}>
@@ -153,11 +153,11 @@ function PlayerTable({ players, onPlayerClick }) {
             <Search size={14} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "#aaa" }} />
             <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search players, roles, teams..."
               style={{ width: "100%", padding: "8px 12px 8px 34px", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-              onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
           </div>
 
           <button onClick={() => setShowFilters(v => !v)}
-            style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 14px", border: `1.5px solid ${showFilters ? "#15213f" : "#e0e0e0"}`, borderRadius: "8px", backgroundColor: showFilters ? "#eef1f7" : "#fff", color: showFilters ? "#15213f" : "#666", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>
+            style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 14px", border: `1.5px solid ${showFilters ? "#ec5a4d" : "#e0e0e0"}`, borderRadius: "8px", backgroundColor: showFilters ? "#fdecea" : "#fff", color: showFilters ? "#ec5a4d" : "#666", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}>
             <Filter size={13} /> Filters {showFilters ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
           </button>
 
@@ -180,7 +180,7 @@ function PlayerTable({ players, onPlayerClick }) {
                 <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
                   {f.options.map(o => (
                     <button key={o} onClick={() => f.set(o)}
-                      style={{ padding: "4px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "600", cursor: "pointer", border: `1.5px solid ${f.value === o ? "#15213f" : "#e0e0e0"}`, backgroundColor: f.value === o ? "#eef1f7" : "#f9f9f9", color: f.value === o ? "#15213f" : "#666", transition: "all 0.12s" }}>
+                      style={{ padding: "4px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "600", cursor: "pointer", border: `1.5px solid ${f.value === o ? "#ec5a4d" : "#e0e0e0"}`, backgroundColor: f.value === o ? "#fdecea" : "#f9f9f9", color: f.value === o ? "#ec5a4d" : "#666", transition: "all 0.12s" }}>
                       {o}
                     </button>
                   ))}
@@ -228,7 +228,7 @@ function PlayerTable({ players, onPlayerClick }) {
                   {/* Name */}
                   <td style={{ padding: "12px 14px", borderBottom: "1px solid #f5f5f5" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: p.status === "Injured" ? "#fff0f0" : "#eef1f7", border: `1.5px solid ${p.status === "Injured" ? "#ffc5c5" : "#cdd5e6"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: p.status === "Injured" ? "#cc3333" : "#15213f", flexShrink: 0 }}>
+                      <div style={{ width: "34px", height: "34px", borderRadius: "50%", backgroundColor: p.status === "Injured" ? "#fff0f0" : "#fdecea", border: `1.5px solid ${p.status === "Injured" ? "#ffc5c5" : "#f6d4d0"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: p.status === "Injured" ? "#cc3333" : "#ec5a4d", flexShrink: 0 }}>
                         {p.name.split(" ").map(w => w[0]).join("").slice(0, 2)}
                       </div>
                       <div>
@@ -267,9 +267,9 @@ function PlayerTable({ players, onPlayerClick }) {
                   {/* Action */}
                   <td style={{ padding: "12px 14px", borderBottom: "1px solid #f5f5f5" }}>
                     <button onClick={() => onPlayerClick(p)}
-                      style={{ display: "flex", alignItems: "center", gap: "5px", padding: "5px 12px", backgroundColor: "#eef1f7", color: "#15213f", border: "1px solid #cdd5e6", borderRadius: "7px", fontSize: "12px", fontWeight: "700", cursor: "pointer", whiteSpace: "nowrap" }}
-                      onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#cdd5e6")}
-                      onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#eef1f7")}
+                      style={{ display: "flex", alignItems: "center", gap: "5px", padding: "5px 12px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0", borderRadius: "7px", fontSize: "12px", fontWeight: "700", cursor: "pointer", whiteSpace: "nowrap" }}
+                      onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#f6d4d0")}
+                      onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#fdecea")}
                     ><Eye size={11} /> View</button>
                   </td>
                 </tr>
@@ -301,7 +301,7 @@ function PlayerModal({ player, onClose }) {
       <div style={{ ...card(), width: "100%", maxWidth: "480px", overflow: "hidden" }}>
         {/* Header */}
         <div style={{ background: "linear-gradient(135deg, #1a2340, #2d3a5c)", padding: "22px 24px", display: "flex", alignItems: "center", gap: "14px" }}>
-          <div style={{ width: "50px", height: "50px", borderRadius: "50%", backgroundColor: player.status === "Injured" ? "#cc3333" : "#15213f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>
+          <div style={{ width: "50px", height: "50px", borderRadius: "50%", backgroundColor: player.status === "Injured" ? "#cc3333" : "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>
             {player.name.split(" ").map(w => w[0]).join("").slice(0, 2)}
           </div>
           <div style={{ flex: 1 }}>
@@ -376,20 +376,20 @@ export default function Dashboard() {
   ];
 
   const statusColors = {
-    active:    { bg: "#eef1f7", text: "#15213f" },
+    active:    { bg: "#fdecea", text: "#ec5a4d" },
     completed: { bg: "#f0faf0", text: "#2e7d32" },
     pending:   { bg: "#fff8e1", text: "#f9a825" },
     injured:   { bg: "#fff0f0", text: "#cc3333" },
   };
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#f4f6f9" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "#f3f4f6" }}>
       {/* Top nav tabs */}
       <div style={{ backgroundColor: "#fff", borderBottom: "1px solid #e8e8e8", padding: "0 28px" }}>
         <div style={{ display: "flex", gap: "0", maxWidth: "1200px", margin: "0 auto" }}>
           {TABS.map(tab => (
             <button key={tab.key} onClick={() => setActiveTab(tab.key)}
-              style={{ display: "flex", alignItems: "center", gap: "7px", padding: "16px 20px", border: "none", backgroundColor: "transparent", fontSize: "13px", fontWeight: "700", cursor: "pointer", color: activeTab === tab.key ? "#15213f" : "#888", borderBottom: activeTab === tab.key ? "3px solid #15213f" : "3px solid transparent", transition: "all 0.15s" }}>
+              style={{ display: "flex", alignItems: "center", gap: "7px", padding: "16px 20px", border: "none", backgroundColor: "transparent", fontSize: "13px", fontWeight: "700", cursor: "pointer", color: activeTab === tab.key ? "#ec5a4d" : "#888", borderBottom: activeTab === tab.key ? "3px solid #ec5a4d" : "3px solid transparent", transition: "all 0.15s" }}>
               <tab.icon size={15} /> {tab.label}
             </button>
           ))}
@@ -406,7 +406,7 @@ export default function Dashboard() {
 
             {/* Top stat cards */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))", gap: "16px", marginBottom: "24px" }}>
-              <StatCard label="Total Players"     value={total}     icon={Users}        color="#15213f" sub={`${male} male · ${female} female`}             onClick={() => setActiveTab("players")} />
+              <StatCard label="Total Players"     value={total}     icon={Users}        color="#ec5a4d" sub={`${male} male · ${female} female`}             onClick={() => setActiveTab("players")} />
               <StatCard label="Available"         value={available} icon={CheckCircle2} color="#2e7d32" sub={`${Math.round((available/total)*100)}% of squad`} onClick={() => setActiveTab("players")} />
               <StatCard label="Injured"           value={injured}   icon={AlertTriangle}color="#cc3333" sub="Requires attention"                              onClick={() => setActiveTab("players")} />
               <StatCard label="Resting / Rehab"   value={resting}   icon={Clock}        color="#f9a825" sub="Managed load"                                    onClick={() => setActiveTab("players")} />
@@ -418,8 +418,8 @@ export default function Dashboard() {
               {/* Category breakdown */}
               <div style={card({ padding: "0", overflow: "hidden" })}>
                 <div style={{ padding: "16px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Award size={15} style={{ color: "#15213f" }} /> Age Categories</span>
-                  <button onClick={() => setActiveTab("players")} style={{ fontSize: "12px", color: "#15213f", background: "none", border: "none", cursor: "pointer", fontWeight: "600" }}>View all →</button>
+                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Award size={15} style={{ color: "#ec5a4d" }} /> Age Categories</span>
+                  <button onClick={() => setActiveTab("players")} style={{ fontSize: "12px", color: "#ec5a4d", background: "none", border: "none", cursor: "pointer", fontWeight: "600" }}>View all →</button>
                 </div>
                 <div style={{ padding: "16px 22px", display: "flex", flexDirection: "column", gap: "12px" }}>
                   {categoryCounts.map(({ cat, count, cfg }) => {
@@ -460,7 +460,7 @@ export default function Dashboard() {
               {/* Availability breakdown */}
               <div style={card({ padding: "0", overflow: "hidden" })}>
                 <div style={{ padding: "16px 22px", borderBottom: "1px solid #f0f0f0" }}>
-                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Target size={15} style={{ color: "#15213f" }} /> Squad Availability</span>
+                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Target size={15} style={{ color: "#ec5a4d" }} /> Squad Availability</span>
                 </div>
 
                 {/* Donut visual */}
@@ -533,12 +533,12 @@ export default function Dashboard() {
               {/* Recent activity */}
               <div style={card({ overflow: "hidden" })}>
                 <div style={{ padding: "16px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Activity size={15} style={{ color: "#15213f" }} /> Recent Activity</span>
-                  <span style={{ fontSize: "12px", color: "#15213f", cursor: "pointer", fontWeight: "600" }}>View all</span>
+                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Activity size={15} style={{ color: "#ec5a4d" }} /> Recent Activity</span>
+                  <span style={{ fontSize: "12px", color: "#ec5a4d", cursor: "pointer", fontWeight: "600" }}>View all</span>
                 </div>
                 {RECENT_ACTIVITY.map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", padding: "12px 22px", borderBottom: i < RECENT_ACTIVITY.length - 1 ? "1px solid #f5f5f5" : "none", gap: "12px" }}>
-                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "#eef1f7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: "#15213f", flexShrink: 0 }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "#fdecea", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: "#ec5a4d", flexShrink: 0 }}>
                       {item.name[0]}
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
@@ -556,16 +556,16 @@ export default function Dashboard() {
               {/* Upcoming events */}
               <div style={card({ overflow: "hidden" })}>
                 <div style={{ padding: "16px 22px", borderBottom: "1px solid #f0f0f0" }}>
-                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Calendar size={15} style={{ color: "#15213f" }} /> Upcoming Events</span>
+                  <span style={{ fontWeight: "700", fontSize: "14px", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}><Calendar size={15} style={{ color: "#ec5a4d" }} /> Upcoming Events</span>
                 </div>
                 <div style={{ padding: "10px 22px" }}>
                   {UPCOMING_EVENTS.map((ev, i) => {
                     const typeCfg = EVENT_TYPE_COLORS[ev.type] || EVENT_TYPE_COLORS.Practice;
                     return (
                       <div key={i} style={{ display: "flex", alignItems: "center", gap: "14px", padding: "11px 0", borderBottom: i < UPCOMING_EVENTS.length - 1 ? "1px solid #f5f5f5" : "none" }}>
-                        <div style={{ minWidth: "48px", textAlign: "center", padding: "6px 8px", backgroundColor: "#eef1f7", border: "1px solid #cdd5e6", borderRadius: "8px" }}>
-                          <div style={{ fontSize: "11px", fontWeight: "800", color: "#15213f", lineHeight: 1.2 }}>{ev.date.split(" ")[0]}</div>
-                          <div style={{ fontSize: "10px", color: "#15213f", fontWeight: "600" }}>{ev.date.split(" ")[1]}</div>
+                        <div style={{ minWidth: "48px", textAlign: "center", padding: "6px 8px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "8px" }}>
+                          <div style={{ fontSize: "11px", fontWeight: "800", color: "#ec5a4d", lineHeight: 1.2 }}>{ev.date.split(" ")[0]}</div>
+                          <div style={{ fontSize: "10px", color: "#ec5a4d", fontWeight: "600" }}>{ev.date.split(" ")[1]}</div>
                         </div>
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ fontSize: "13px", fontWeight: "700", color: "#222", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{ev.event}</div>
@@ -601,9 +601,9 @@ export default function Dashboard() {
         {activeTab === "players" && (
           <>
             <div style={{ marginBottom: "22px" }}>
-              <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>All Players</h1>
+              <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>All Players</h1>
               <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>Filter, sort and view full squad details</p>
-              <div style={{ width: "32px", height: "3px", backgroundColor: "#15213f", borderRadius: "2px", marginTop: "6px" }} />
+              <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
             </div>
             <PlayerTable players={PLAYERS} onPlayerClick={setModalPlayer} />
           </>

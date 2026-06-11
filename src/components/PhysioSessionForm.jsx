@@ -63,7 +63,7 @@ const TextArea = ({ value, onChange, placeholder, rows = 4 }) => (
       outline: "none", resize: "vertical", boxSizing: "border-box",
       fontFamily: "inherit",
     }}
-    onFocus={(e) => (e.target.style.borderColor = "#15213f")}
+    onFocus={(e) => (e.target.style.borderColor = "#ec5a4d")}
     onBlur={(e)  => (e.target.style.borderColor = "#d0d0d0")}
   />
 );
@@ -80,7 +80,7 @@ const TextInput = ({ value, onChange, placeholder }) => (
       fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9",
       outline: "none", boxSizing: "border-box",
     }}
-    onFocus={(e) => (e.target.style.borderColor = "#15213f")}
+    onFocus={(e) => (e.target.style.borderColor = "#ec5a4d")}
     onBlur={(e)  => (e.target.style.borderColor = "#d0d0d0")}
   />
 );
@@ -93,7 +93,7 @@ const SingleUpload = ({ file, onFile, onRemove }) => {
         <button type="button" onClick={() => ref.current.click()}
           style={{
             display: "flex", alignItems: "center", gap: "6px",
-            padding: "6px 14px", backgroundColor: "#15213f",
+            padding: "6px 14px", backgroundColor: "#ec5a4d",
             color: "#fff", border: "none", borderRadius: "6px",
             fontSize: "12px", fontWeight: "700", cursor: "pointer",
           }}>
@@ -104,10 +104,10 @@ const SingleUpload = ({ file, onFile, onRemove }) => {
       ) : (
         <div style={{
           display: "inline-flex", alignItems: "center", gap: "7px",
-          padding: "5px 10px", backgroundColor: "#eef1f7",
-          border: "1px solid #cdd5e6", borderRadius: "6px",
+          padding: "5px 10px", backgroundColor: "#fdecea",
+          border: "1px solid #f6d4d0", borderRadius: "6px",
         }}>
-          <FileText size={13} style={{ color: "#15213f" }} />
+          <FileText size={13} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "12px", color: "#b05a00", fontWeight: "600" }}>{file.name}</span>
           <button type="button" onClick={onRemove}
             style={{ background: "none", border: "none", cursor: "pointer", padding: "0", display: "flex" }}>
@@ -126,10 +126,10 @@ const MultiUpload = ({ files, onAdd, onRemove, max = 4 }) => {
       {files.map((f, i) => (
         <div key={i} style={{
           display: "inline-flex", alignItems: "center", gap: "6px",
-          padding: "5px 10px", backgroundColor: "#eef1f7",
-          border: "1px solid #cdd5e6", borderRadius: "6px",
+          padding: "5px 10px", backgroundColor: "#fdecea",
+          border: "1px solid #f6d4d0", borderRadius: "6px",
         }}>
-          <FileText size={12} style={{ color: "#15213f" }} />
+          <FileText size={12} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "11px", color: "#b05a00", fontWeight: "600" }}>{f.name}</span>
           <button type="button" onClick={() => onRemove(i)}
             style={{ background: "none", border: "none", cursor: "pointer", padding: "0", display: "flex" }}>
@@ -141,7 +141,7 @@ const MultiUpload = ({ files, onAdd, onRemove, max = 4 }) => {
         <button type="button" onClick={() => ref.current.click()}
           style={{
             display: "inline-flex", alignItems: "center", gap: "5px",
-            padding: "5px 12px", backgroundColor: "#15213f",
+            padding: "5px 12px", backgroundColor: "#ec5a4d",
             color: "#fff", border: "none", borderRadius: "6px",
             fontSize: "12px", fontWeight: "700", cursor: "pointer",
           }}>
@@ -170,8 +170,8 @@ const TagInput = ({ tags, onChange }) => {
         {tags.map((t) => (
           <span key={t} style={{
             display: "inline-flex", alignItems: "center", gap: "5px",
-            padding: "3px 9px", backgroundColor: "#eef1f7",
-            border: "1px solid #cdd5e6", borderRadius: "20px",
+            padding: "3px 9px", backgroundColor: "#fdecea",
+            border: "1px solid #f6d4d0", borderRadius: "20px",
             fontSize: "12px", fontWeight: "600", color: "#b05a00",
           }}>
             {t}
@@ -216,25 +216,25 @@ const RadioOpt = ({ label, value, current, onChange, desc }) => {
       style={{
         display: "flex", alignItems: "flex-start", gap: "10px",
         padding: "12px 16px",
-        border: `1.5px solid ${active ? "#15213f" : "#e0e0e0"}`,
+        border: `1.5px solid ${active ? "#ec5a4d" : "#e0e0e0"}`,
         borderRadius: "9px", cursor: "pointer",
-        backgroundColor: active ? "#eef1f7" : "#fff",
+        backgroundColor: active ? "#fdecea" : "#fff",
         transition: "all 0.15s", flex: 1, minWidth: "180px",
       }}
-      onMouseEnter={(e) => { if (!active) e.currentTarget.style.borderColor = "#15213f"; }}
+      onMouseEnter={(e) => { if (!active) e.currentTarget.style.borderColor = "#ec5a4d"; }}
       onMouseLeave={(e) => { if (!active) e.currentTarget.style.borderColor = "#e0e0e0"; }}
     >
       <div style={{
         width: "18px", height: "18px", borderRadius: "50%",
-        border: `2px solid ${active ? "#15213f" : "#ccc"}`,
-        backgroundColor: active ? "rgba(21,33,63,0.1)" : "transparent",
+        border: `2px solid ${active ? "#ec5a4d" : "#ccc"}`,
+        backgroundColor: active ? "rgba(236,90,77,0.1)" : "transparent",
         display: "flex", alignItems: "center", justifyContent: "center",
         flexShrink: 0, marginTop: "1px",
       }}>
-        {active && <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#15213f" }} />}
+        {active && <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#ec5a4d" }} />}
       </div>
       <div>
-        <div style={{ fontSize: "13px", fontWeight: "700", color: active ? "#15213f" : "#333" }}>{label}</div>
+        <div style={{ fontSize: "13px", fontWeight: "700", color: active ? "#ec5a4d" : "#333" }}>{label}</div>
         {desc && <div style={{ fontSize: "11px", color: "#888", marginTop: "2px" }}>{desc}</div>}
       </div>
     </div>
@@ -250,7 +250,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
     <div style={{
       display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px",
     }}>
-      <div style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#15213f", flexShrink: 0 }} />
+      <div style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#ec5a4d", flexShrink: 0 }} />
       <span style={{ fontSize: "12px", fontWeight: "700", color: "#555", textTransform: "uppercase", letterSpacing: "0.5px", whiteSpace: "nowrap" }}>
         {label}
       </span>
@@ -277,13 +277,13 @@ const WorkoutSelector = ({ selected, onChange }) => {
               onClick={() => toggle(ex.id)}
               style={{
                 padding: "12px 14px", borderRadius: "9px",
-                border: on ? "2px solid #15213f" : "1.5px solid #e0e0e0",
-                backgroundColor: on ? "#eef1f7" : "#fafafa",
+                border: on ? "2px solid #ec5a4d" : "1.5px solid #e0e0e0",
+                backgroundColor: on ? "#fdecea" : "#fafafa",
                 cursor: "pointer", transition: "all 0.15s", position: "relative",
-                boxShadow: on ? "0 2px 8px rgba(21,33,63,0.15)" : "0 1px 2px rgba(0,0,0,0.04)",
+                boxShadow: on ? "0 2px 8px rgba(236,90,77,0.15)" : "0 1px 2px rgba(0,0,0,0.04)",
               }}
               onMouseEnter={(e) => {
-                if (!on) { e.currentTarget.style.borderColor = "#15213f"; e.currentTarget.style.backgroundColor = "#fffaf5"; }
+                if (!on) { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.backgroundColor = "#fffaf5"; }
               }}
               onMouseLeave={(e) => {
                 if (!on) { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.backgroundColor = "#fafafa"; }
@@ -293,7 +293,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
                 <div style={{
                   position: "absolute", top: "8px", right: "8px",
                   width: "18px", height: "18px", borderRadius: "50%",
-                  backgroundColor: "#15213f",
+                  backgroundColor: "#ec5a4d",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   <CheckCircle size={11} color="#fff" />
@@ -308,7 +308,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
                 {ex.name}
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                <Target size={11} style={{ color: "#15213f", flexShrink: 0 }} />
+                <Target size={11} style={{ color: "#ec5a4d", flexShrink: 0 }} />
                 <span style={{ fontSize: "10px", color: "#999", fontWeight: "500", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                   {ex.muscle}
                 </span>
@@ -334,14 +334,14 @@ const WorkoutSelector = ({ selected, onChange }) => {
               onClick={() => toggle(ex.id)}
               style={{
                 borderRadius: "9px",
-                border: on ? "2px solid #15213f" : "1.5px solid #e0e0e0",
-                backgroundColor: on ? "#eef1f7" : "#fff",
+                border: on ? "2px solid #ec5a4d" : "1.5px solid #e0e0e0",
+                backgroundColor: on ? "#fdecea" : "#fff",
                 overflow: "hidden", cursor: "pointer",
                 transition: "all 0.15s", position: "relative",
-                boxShadow: on ? "0 2px 10px rgba(21,33,63,0.18)" : "0 1px 3px rgba(0,0,0,0.05)",
+                boxShadow: on ? "0 2px 10px rgba(236,90,77,0.18)" : "0 1px 3px rgba(0,0,0,0.05)",
               }}
               onMouseEnter={(e) => {
-                if (!on) { e.currentTarget.style.borderColor = "#15213f"; e.currentTarget.style.boxShadow = "0 3px 10px rgba(0,0,0,0.09)"; }
+                if (!on) { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.boxShadow = "0 3px 10px rgba(0,0,0,0.09)"; }
               }}
               onMouseLeave={(e) => {
                 if (!on) { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; }
@@ -359,7 +359,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
                   <div style={{
                     position: "absolute", top: "6px", right: "6px",
                     width: "22px", height: "22px", borderRadius: "50%",
-                    backgroundColor: "#15213f",
+                    backgroundColor: "#ec5a4d",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
                   }}>
@@ -371,7 +371,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
                   backgroundColor: "rgba(255,255,255,0.92)",
                   fontSize: "9px", fontWeight: "700",
                   padding: "2px 7px", borderRadius: "20px",
-                  color: "#15213f", border: "1px solid #cdd5e6",
+                  color: "#ec5a4d", border: "1px solid #f6d4d0",
                   maxWidth: "88%", overflow: "hidden",
                   textOverflow: "ellipsis", whiteSpace: "nowrap",
                 }}>
@@ -390,7 +390,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
                   {ex.name}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                  <Target size={11} style={{ color: "#15213f", flexShrink: 0 }} />
+                  <Target size={11} style={{ color: "#ec5a4d", flexShrink: 0 }} />
                   <span style={{ fontSize: "10px", color: "#999", fontWeight: "500", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                     {ex.muscle}
                   </span>
@@ -417,8 +417,8 @@ const WorkoutSelector = ({ selected, onChange }) => {
               {ALL_EXERCISES.filter((e) => selected.includes(e.id)).map((e) => (
                 <span key={e.id} style={{
                   fontSize: "11px", fontWeight: "600", padding: "2px 9px",
-                  borderRadius: "20px", backgroundColor: "#eef1f7",
-                  color: "#b05a00", border: "1px solid #cdd5e6",
+                  borderRadius: "20px", backgroundColor: "#fdecea",
+                  color: "#b05a00", border: "1px solid #f6d4d0",
                 }}>
                   {e.name}
                 </span>
@@ -494,16 +494,16 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
               width: "36px", height: "36px", backgroundColor: "#fff",
               border: "1.5px solid #e0e0e0", borderRadius: "8px", cursor: "pointer",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#15213f")}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#ec5a4d")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#e0e0e0")}
           >
             <ArrowLeft size={17} style={{ color: "#555" }} />
           </button>
           <div>
-            <div style={{ fontSize: "11px", color: "#15213f", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+            <div style={{ fontSize: "11px", color: "#ec5a4d", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>
               Create Session
             </div>
-            <h1 style={{ fontSize: "18px", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>
+            <h1 style={{ fontSize: "18px", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>
               Assessment — {player?.name || "Player"}
             </h1>
           </div>
@@ -513,7 +513,7 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
           border: "1px solid #e0e0e0", borderRadius: "8px",
           fontSize: "13px", fontWeight: "600", color: "#555",
         }}>
-          Date: <span style={{ color: "#15213f" }}>{today}</span>
+          Date: <span style={{ color: "#ec5a4d" }}>{today}</span>
         </div>
       </div>
 
@@ -530,7 +530,7 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
         </div>
         <button style={{
           display: "inline-flex", alignItems: "center", gap: "7px",
-          padding: "9px 18px", backgroundColor: "#15213f",
+          padding: "9px 18px", backgroundColor: "#ec5a4d",
           color: "#fff", border: "none", borderRadius: "7px",
           fontSize: "13px", fontWeight: "700", cursor: "pointer",
         }}>
@@ -629,14 +629,14 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
           <div style={{
             marginTop: "16px", padding: "18px",
             backgroundColor: "#fdf8f4",
-            border: "1.5px solid #cdd5e6", borderRadius: "10px",
+            border: "1.5px solid #f6d4d0", borderRadius: "10px",
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
               <div style={{
                 width: "32px", height: "32px", borderRadius: "8px",
-                backgroundColor: "#15213f",
+                backgroundColor: "#ec5a4d",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                boxShadow: "0 2px 6px rgba(21,33,63,0.3)",
+                boxShadow: "0 2px 6px rgba(236,90,77,0.3)",
               }}>
                 <span style={{ fontSize: "16px" }}>💪</span>
               </div>
@@ -665,7 +665,7 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
             color: "#555", border: "1.5px solid #e0e0e0",
             borderRadius: "8px", fontSize: "13px", fontWeight: "600", cursor: "pointer",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#15213f"; e.currentTarget.style.color = "#15213f"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
           onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
         >
           <ArrowLeft size={15} /> Cancel
@@ -689,13 +689,13 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
           onClick={handleSave}
           style={{
             display: "inline-flex", alignItems: "center", gap: "7px",
-            padding: "10px 24px", backgroundColor: "#15213f",
+            padding: "10px 24px", backgroundColor: "#ec5a4d",
             color: "#fff", border: "none", borderRadius: "8px",
             fontSize: "13px", fontWeight: "700", cursor: "pointer",
-            boxShadow: "0 2px 8px rgba(21,33,63,0.3)",
+            boxShadow: "0 2px 8px rgba(236,90,77,0.3)",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1f2d52")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#15213f")}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#d6443a")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
         >
           <Save size={15} /> Save Session
         </button>

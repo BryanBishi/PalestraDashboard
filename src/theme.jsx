@@ -1,55 +1,63 @@
-// theme.js
-// Presentation-only design tokens + shared style helpers for the Cricket admin UI.
+// theme.jsx
+// Presentation-only design tokens + shared style helpers (Palaestra design system).
 // NOTE: styling only — no application logic, API calls, or routing belong here.
 
 import { ArrowLeft } from "lucide-react";
 
-// ── Palette ──────────────────────────────────────────────────────────────────
+// ── Palette (Palaestra — shared with the Player Portal) ───────────────────────
 export const C = {
-  navy: "#15213f",
-  navyHover: "#1f2d52",
-  navyLight: "#34508c",
-  navyTint: "#eef1f7",
-  navyTintBorder: "#cdd5e6",
+  ink: "#0c0d10",
+  charcoal: "#191d24",
 
-  red: "#e1262b",
-  redHover: "#c01f23",
-  redTint: "#fdecec",
+  coral: "#ec5a4d",
+  coralDark: "#d6443a",
+  coralTint: "#fdecea",
+  coralTintBorder: "#f6d4d0",
 
-  blue: "#1f6fd1",
-  gold: "#c9a227",
+  // back-compat keys (kept so existing references adopt the new palette):
+  navy: "#ec5a4d",        // primary action → coral
+  navyHover: "#d6443a",
+  navyLight: "#d6443a",
+  navyTint: "#fdecea",
+  navyTintBorder: "#f6d4d0",
+  red: "#ec5a4d",         // accent → coral
+  redHover: "#d6443a",
+  redTint: "#fdecea",
 
-  green: "#2e7d32",
-  greenTint: "#eaf6ea",
+  blue: "#16306e",
+  gold: "#c79a2f",
+
+  green: "#1f9d57",
+  greenTint: "#e7f6ed",
   greenBorder: "#bfe3bf",
 
-  danger: "#cc3333",
-  dangerTint: "#fdecec",
-  dangerBorder: "#f7c5c5",
+  danger: "#d6443a",
+  dangerTint: "#fdecea",
+  dangerBorder: "#f6d4d0",
 
-  warn: "#f59e0b",
-  warnTint: "#fff7e6",
+  warn: "#d98a0b",
+  warnTint: "#fdf2dd",
   warnBorder: "#ffe2a8",
 
-  bg: "#f4f6f9",
+  bg: "#f3f4f6",
   surface: "#ffffff",
-  border: "#e6e8ec",
-  text: "#1a2233",
-  textMut: "#5b6472",
-  textFaint: "#8a93a3",
+  border: "#e6e7eb",
+  text: "#171a1f",
+  textMut: "#6b7280",
+  textFaint: "#9aa0aa",
   white: "#ffffff",
 };
 
 export const FONT = {
-  display: "'Playfair Display', Georgia, serif",
-  body: "'Inter', 'Segoe UI', system-ui, sans-serif",
+  display: "'Barlow Condensed', sans-serif",
+  body: "'Barlow', system-ui, sans-serif",
 };
 
 export const RADII = { card: "14px", btn: "10px", pill: "999px" };
 
 export const SHADOW = {
-  card: "0 2px 10px rgba(20,33,63,0.06)",
-  elev: "0 8px 28px rgba(20,33,63,0.12)",
+  card: "0 1px 2px rgba(16,18,22,.05),0 8px 24px -12px rgba(16,18,22,.14)",
+  elev: "0 24px 60px -24px rgba(16,18,22,.34)",
 };
 
 // ── Card surface ─────────────────────────────────────────────────────────────
@@ -63,10 +71,11 @@ export const card = (x = {}) => ({
 
 // ── Button ───────────────────────────────────────────────────────────────────
 const BTN_VARIANTS = {
-  primary: { bg: C.navy, hov: C.navyHover, fg: "#fff", glow: "0 2px 8px rgba(21,33,63,0.22)" },
-  accent: { bg: C.red, hov: C.redHover, fg: "#fff", glow: "0 2px 8px rgba(225,38,43,0.25)" },
-  danger: { bg: C.danger, hov: C.redHover, fg: "#fff", glow: "0 2px 8px rgba(204,51,51,0.22)" },
-  ghost: { bg: "transparent", hov: C.navyTint, fg: C.navy, glow: "none" },
+  primary: { bg: C.coral, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(236,90,77,0.25)" },
+  accent: { bg: C.coral, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(236,90,77,0.25)" },
+  danger: { bg: C.danger, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(214,68,58,0.22)" },
+  dark: { bg: C.ink, hov: "#23262d", fg: "#fff", glow: "none" },
+  ghost: { bg: "#ffffff", hov: "#fafafa", fg: C.text, glow: "none" },
 };
 
 export const OBtn = ({
@@ -87,14 +96,14 @@ export const OBtn = ({
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: "7px",
-        padding: "10px 20px",
-        backgroundColor: disabled ? "#dfe3ea" : p.bg,
-        color: disabled ? "#9aa3b2" : p.fg,
-        border: variant === "ghost" ? `1px solid ${C.navyTintBorder}` : "none",
+        gap: "8px",
+        padding: "11px 18px",
+        backgroundColor: disabled ? "#dfe1e5" : p.bg,
+        color: disabled ? "#9aa0aa" : p.fg,
+        border: variant === "ghost" ? `1px solid ${C.border}` : "1px solid transparent",
         borderRadius: RADII.btn,
-        fontSize: "13px",
-        fontWeight: 700,
+        fontSize: "14px",
+        fontWeight: 600,
         fontFamily: FONT.body,
         cursor: disabled ? "not-allowed" : "pointer",
         boxShadow: disabled ? "none" : p.glow,
@@ -131,24 +140,25 @@ export const BackBtn = ({ label, onClick }) => (
       padding: 0,
       fontFamily: FONT.body,
     }}
-    onMouseEnter={(e) => (e.currentTarget.style.color = C.red)}
+    onMouseEnter={(e) => (e.currentTarget.style.color = C.coral)}
     onMouseLeave={(e) => (e.currentTarget.style.color = C.textFaint)}
   >
     <ArrowLeft size={15} /> {label}
   </button>
 );
 
-// ── Text heading (serif title + red accent underline) ─────────────────────────
+// ── Section heading (Barlow Condensed + coral accent underline) ───────────────
 export const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
     <h1
       style={{
         fontFamily: FONT.display,
-        fontSize: "24px",
+        fontSize: "26px",
         fontWeight: 700,
         color: C.text,
         margin: 0,
-        letterSpacing: "0.2px",
+        textTransform: "uppercase",
+        letterSpacing: "0.01em",
       }}
     >
       {title}
@@ -158,7 +168,7 @@ export const Heading = ({ title, sub }) => (
       style={{
         width: "40px",
         height: "3px",
-        backgroundColor: C.red,
+        backgroundColor: C.coral,
         borderRadius: "2px",
         marginTop: "8px",
       }}
@@ -184,58 +194,13 @@ export const Badge = ({ label, bg, color, border }) => (
   </span>
 );
 
-// ── Green cricket-field page banner (KCA "Seasons/Tournaments" motif) ─────────
-export const PageBanner = ({ title, sub, icon: Icon }) => (
-  <div
-    className="page-banner"
-    style={{
-      backgroundImage:
-        "repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 22px, transparent 22px, transparent 44px), linear-gradient(135deg, #1e7d34 0%, #2e9e44 100%)",
-      borderRadius: RADII.card,
-      padding: "22px 26px",
-      marginBottom: "22px",
-      display: "flex",
-      alignItems: "center",
-      gap: "16px",
-      boxShadow: SHADOW.card,
-      border: "1px solid #1b6e2e",
-    }}
-  >
-    {Icon && (
-      <div
-        style={{
-          width: "46px",
-          height: "46px",
-          borderRadius: "12px",
-          flexShrink: 0,
-          background: "rgba(255,255,255,0.16)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Icon size={24} color="#fff" />
-      </div>
-    )}
-    <div>
-      <h1
-        style={{
-          fontFamily: FONT.display,
-          fontSize: "26px",
-          fontWeight: 800,
-          color: "#fff",
-          margin: 0,
-          letterSpacing: "0.3px",
-          textShadow: "0 1px 2px rgba(0,0,0,0.18)",
-        }}
-      >
-        {title}
-      </h1>
-      {sub && (
-        <p style={{ fontSize: "13.5px", color: "rgba(255,255,255,0.92)", marginTop: "4px" }}>
-          {sub}
-        </p>
-      )}
+// ── Dark page banner (Palaestra section-banner motif) ─────────────────────────
+export const PageBanner = ({ title, sub }) => (
+  <div className="banner" style={{ borderRadius: RADII.card, marginBottom: "22px" }}>
+    <div className="banner-inner" style={{ padding: "22px 26px" }}>
+      <div className="eyebrow">Palaestra</div>
+      <h1>{title}</h1>
+      {sub && <div className="sub">{sub}</div>}
     </div>
   </div>
 );

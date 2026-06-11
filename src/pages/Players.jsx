@@ -221,11 +221,11 @@ const card = (extra = {}) => ({
 
 const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
-    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", marginBottom: "2px", fontFamily: "'Playfair Display', Georgia, serif" }}>
+    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", marginBottom: "2px", fontFamily: "'Barlow Condensed', sans-serif" }}>
       {title}
     </h1>
     {sub && <p style={{ fontSize: "13px", color: "#888", marginTop: "2px" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#e1262b", borderRadius: "2px", marginTop: "4px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "4px" }} />
   </div>
 );
 
@@ -251,7 +251,7 @@ const StaffPill = ({ icon: Icon, label }) => (
     backgroundColor: "#f9f9f9", border: "1px solid #ebebeb",
     borderRadius: "20px", padding: "3px 10px",
   }}>
-    <Icon size={12} style={{ color: "#15213f" }} />
+    <Icon size={12} style={{ color: "#ec5a4d" }} />
     {label}
   </div>
 );
@@ -261,7 +261,7 @@ const DetailField = ({ icon: Icon, label, value }) => (
     display: "flex", alignItems: "flex-start",
     padding: "12px 0", borderBottom: "1px solid #f5f5f5", gap: "10px",
   }}>
-    <Icon size={15} style={{ color: "#15213f", flexShrink: 0, marginTop: "1px" }} />
+    <Icon size={15} style={{ color: "#ec5a4d", flexShrink: 0, marginTop: "1px" }} />
     <span style={{ fontSize: "12px", color: "#888", width: "140px", flexShrink: 0, fontWeight: "500" }}>
       {label}
     </span>
@@ -311,8 +311,8 @@ const Players = () => {
                 }),
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#15213f";
-                e.currentTarget.style.boxShadow = "0 4px 16px rgba(21,33,63,0.14)";
+                e.currentTarget.style.borderColor = "#ec5a4d";
+                e.currentTarget.style.boxShadow = "0 4px 16px rgba(236,90,77,0.14)";
                 e.currentTarget.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={(e) => {
@@ -324,7 +324,7 @@ const Players = () => {
               {/* Card top stripe */}
               <div style={{
                 height: "6px",
-                background: "linear-gradient(90deg, #15213f, #34508c)",
+                background: "linear-gradient(90deg, #ec5a4d, #d6443a)",
               }} />
 
               {/* Card body */}
@@ -334,9 +334,9 @@ const Players = () => {
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "42px", height: "42px", borderRadius: "10px",
-                      backgroundColor: "#eef1f7", border: "1.5px solid #cdd5e6",
+                      backgroundColor: "#fdecea", border: "1.5px solid #f6d4d0",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "13px", fontWeight: "800", color: "#15213f",
+                      fontSize: "13px", fontWeight: "800", color: "#ec5a4d",
                       flexShrink: 0,
                     }}>
                       {team.shortName}
@@ -391,7 +391,7 @@ const Players = () => {
       {/* Players list */}
       <div style={card({ overflow: "hidden" })}>
         <div style={{ padding: "13px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px" }}>
-          <Users size={15} style={{ color: "#15213f" }} />
+          <Users size={15} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>
             {activeTeam.players.length} Players
           </span>
@@ -414,11 +414,11 @@ const Players = () => {
             {/* number badge */}
             <div style={{
               width: "38px", height: "38px", borderRadius: "50%",
-              backgroundColor: player.injury ? "#fff0f0" : "#eef1f7",
-              border: `1.5px solid ${player.injury ? "#ffc5c5" : "#cdd5e6"}`,
+              backgroundColor: player.injury ? "#fff0f0" : "#fdecea",
+              border: `1.5px solid ${player.injury ? "#ffc5c5" : "#f6d4d0"}`,
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: "12px", fontWeight: "800",
-              color: player.injury ? "#cc3333" : "#15213f",
+              color: player.injury ? "#cc3333" : "#ec5a4d",
               flexShrink: 0,
             }}>
               {player.number}
@@ -482,18 +482,18 @@ const Players = () => {
           {/* Avatar */}
           <div style={{
             width: "64px", height: "64px", borderRadius: "50%",
-            backgroundColor: activePlayer.injury ? "#fff0f0" : "#eef1f7",
-            border: `2px solid ${activePlayer.injury ? "#ffc5c5" : "#cdd5e6"}`,
+            backgroundColor: activePlayer.injury ? "#fff0f0" : "#fdecea",
+            border: `2px solid ${activePlayer.injury ? "#ffc5c5" : "#f6d4d0"}`,
             display: "flex", alignItems: "center", justifyContent: "center",
             flexShrink: 0,
           }}>
-            <User size={28} style={{ color: activePlayer.injury ? "#cc3333" : "#15213f" }} />
+            <User size={28} style={{ color: activePlayer.injury ? "#cc3333" : "#ec5a4d" }} />
           </div>
 
           {/* Name block */}
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
-              <h2 style={{ fontSize: "20px", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>
+              <h2 style={{ fontSize: "20px", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>
                 {activePlayer.name}
               </h2>
               <span style={{
@@ -539,7 +539,7 @@ const Players = () => {
         {/* Personal Info */}
         <div style={card({ padding: "6px 20px 4px", overflow: "hidden" })}>
           <div style={{ padding: "13px 0 10px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px", marginBottom: "4px" }}>
-            <User size={14} style={{ color: "#15213f" }} />
+            <User size={14} style={{ color: "#ec5a4d" }} />
             <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>Personal Info</span>
           </div>
           <DetailField icon={Calendar}  label="Date of Birth"  value={new Date(activePlayer.dob).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })} />
@@ -552,7 +552,7 @@ const Players = () => {
         {/* Cricket Info */}
         <div style={card({ padding: "6px 20px 4px", overflow: "hidden" })}>
           <div style={{ padding: "13px 0 10px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px", marginBottom: "4px" }}>
-            <Activity size={14} style={{ color: "#15213f" }} />
+            <Activity size={14} style={{ color: "#ec5a4d" }} />
             <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>Cricket Info</span>
           </div>
           <DetailField icon={ShieldCheck} label="Role"            value={activePlayer.role} />
@@ -566,7 +566,7 @@ const Players = () => {
       {/* Contact Info */}
       <div style={{ ...card({ padding: "6px 20px 4px", marginBottom: "20px" }) }}>
         <div style={{ padding: "13px 0 10px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px", marginBottom: "4px" }}>
-          <Phone size={14} style={{ color: "#15213f" }} />
+          <Phone size={14} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>Contact</span>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0" }}>
@@ -581,13 +581,13 @@ const Players = () => {
           onClick={() => setView(V_FORM)}
           style={{
             display: "flex", alignItems: "center", gap: "8px",
-            padding: "11px 22px", backgroundColor: "#15213f",
+            padding: "11px 22px", backgroundColor: "#ec5a4d",
             color: "#fff", border: "none", borderRadius: "8px",
             fontSize: "14px", fontWeight: "700", cursor: "pointer",
-            boxShadow: "0 2px 8px rgba(21,33,63,0.3)",
+            boxShadow: "0 2px 8px rgba(236,90,77,0.3)",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1f2d52")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#15213f")}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#d6443a")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
         >
           <ClipboardList size={16} />
           Daily Progress
@@ -600,7 +600,7 @@ const Players = () => {
             color: "#555", border: "1.5px solid #e0e0e0",
             borderRadius: "8px", fontSize: "14px", fontWeight: "600", cursor: "pointer",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#15213f"; e.currentTarget.style.color = "#15213f"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
           onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
         >
           <Activity size={16} />

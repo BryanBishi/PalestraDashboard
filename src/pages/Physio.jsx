@@ -128,7 +128,7 @@ const Badge = ({ label, bg, color, border }) => (
 
 const ScorePill = ({ value, max = 10 }) => {
   const pct   = value / max;
-  const color = pct >= 0.7 ? "#cc3333" : pct >= 0.4 ? "#15213f" : "#2e7d32";
+  const color = pct >= 0.7 ? "#cc3333" : pct >= 0.4 ? "#ec5a4d" : "#2e7d32";
   return (
     <span style={{ fontSize: "13px", fontWeight: "700", color }}>
       {value}<span style={{ fontSize: "11px", color: "#aaa", fontWeight: "500" }}>/{max}</span>
@@ -141,7 +141,7 @@ const DetailRow = ({ icon: Icon, label, value }) => (
     display: "flex", alignItems: "center",
     padding: "11px 0", borderBottom: "1px solid #f5f5f5", gap: "10px",
   }}>
-    <Icon size={15} style={{ color: "#15213f", flexShrink: 0 }} />
+    <Icon size={15} style={{ color: "#ec5a4d", flexShrink: 0 }} />
     <span style={{ fontSize: "13px", color: "#888", width: "160px", flexShrink: 0 }}>{label}</span>
     <span style={{ fontSize: "13px", color: "#222", fontWeight: "600" }}>{value}</span>
   </div>
@@ -152,9 +152,9 @@ const formatDate = (d) =>
 
 const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "20px" }}>
-    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", marginBottom: "2px", fontFamily: "'Playfair Display', Georgia, serif" }}>{title}</h1>
+    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", marginBottom: "2px", fontFamily: "'Barlow Condensed', sans-serif" }}>{title}</h1>
     {sub && <p style={{ fontSize: "13px", color: "#888" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#e1262b", borderRadius: "2px", marginTop: "4px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "4px" }} />
   </div>
 );
 
@@ -166,7 +166,7 @@ const BackBtn = ({ label, onClick }) => (
       fontSize: "13px", fontWeight: "600", cursor: "pointer",
       marginBottom: "18px", padding: "0",
     }}
-    onMouseEnter={e => (e.currentTarget.style.color = "#15213f")}
+    onMouseEnter={e => (e.currentTarget.style.color = "#ec5a4d")}
     onMouseLeave={e => (e.currentTarget.style.color = "#888")}
   >
     <ArrowLeft size={16} style={{ color: "inherit" }} /> {label}
@@ -177,13 +177,13 @@ const OBtn = ({ children, onClick, style = {} }) => (
   <button onClick={onClick}
     style={{
       display: "inline-flex", alignItems: "center", gap: "7px",
-      padding: "9px 20px", backgroundColor: "#15213f",
+      padding: "9px 20px", backgroundColor: "#ec5a4d",
       color: "#fff", border: "none", borderRadius: "8px",
       fontSize: "13px", fontWeight: "700", cursor: "pointer",
-      boxShadow: "0 2px 8px rgba(21,33,63,0.28)", ...style,
+      boxShadow: "0 2px 8px rgba(236,90,77,0.28)", ...style,
     }}
-    onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#1f2d52")}
-    onMouseLeave={e => (e.currentTarget.style.backgroundColor = style.backgroundColor || "#15213f")}
+    onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d6443a")}
+    onMouseLeave={e => (e.currentTarget.style.backgroundColor = style.backgroundColor || "#ec5a4d")}
   >
     {children}
   </button>
@@ -345,11 +345,11 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
 
         <div style={card({ padding: "22px", marginBottom: "16px" })}>
           <div style={{ fontSize: "13px", fontWeight: "700", color: "#333", marginBottom: "14px", display: "flex", alignItems: "center", gap: "7px" }}>
-            <Dumbbell size={14} style={{ color: "#15213f" }} /> Exercises ({plan.exercises.length})
+            <Dumbbell size={14} style={{ color: "#ec5a4d" }} /> Exercises ({plan.exercises.length})
           </div>
           {plan.exercises.map((ex, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: "14px", padding: "12px 0", borderBottom: i < plan.exercises.length - 1 ? "1px solid #f5f5f5" : "none" }}>
-              <div style={{ width: "26px", height: "26px", borderRadius: "50%", backgroundColor: "#eef1f7", border: "1.5px solid #cdd5e6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: "#15213f", flexShrink: 0 }}>
+              <div style={{ width: "26px", height: "26px", borderRadius: "50%", backgroundColor: "#fdecea", border: "1.5px solid #f6d4d0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: "#ec5a4d", flexShrink: 0 }}>
                 {i + 1}
               </div>
               <div style={{ flex: 1 }}>
@@ -372,7 +372,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
               value={physioNote} onChange={e => setPhysioNote(e.target.value)}
               placeholder="Add your review notes (optional)..." rows={3}
               style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", color: "#333", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit", backgroundColor: "#f9f9f9", marginBottom: "14px" }}
-              onFocus={e => (e.target.style.borderColor = "#15213f")}
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
               onBlur={e => (e.target.style.borderColor = "#e0e0e0")}
             />
             <div style={{ display: "flex", gap: "12px" }}>
@@ -475,14 +475,14 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
         {cr.status === "Pending" && (
           <div style={card({ padding: "22px", marginBottom: "16px" })}>
             <div style={{ fontSize: "14px", fontWeight: "700", color: "#333", marginBottom: "14px", display: "flex", alignItems: "center", gap: "7px" }}>
-              <Calendar size={15} style={{ color: "#15213f" }} /> Create Appointment for Clearance
+              <Calendar size={15} style={{ color: "#ec5a4d" }} /> Create Appointment for Clearance
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px", marginBottom: "14px" }}>
               <div>
                 <label style={{ fontSize: "11px", fontWeight: "700", color: "#888", display: "block", marginBottom: "4px" }}>APPOINTMENT DATE</label>
                 <input type="date" value={apptDate} onChange={e => setApptDate(e.target.value)}
                   style={{ width: "100%", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-                  onFocus={e => (e.target.style.borderColor = "#15213f")}
+                  onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
                   onBlur={e => (e.target.style.borderColor = "#e0e0e0")}
                 />
               </div>
@@ -490,7 +490,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                 <label style={{ fontSize: "11px", fontWeight: "700", color: "#888", display: "block", marginBottom: "4px" }}>TIME</label>
                 <input type="time" value={apptTime} onChange={e => setApptTime(e.target.value)}
                   style={{ width: "100%", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-                  onFocus={e => (e.target.style.borderColor = "#15213f")}
+                  onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
                   onBlur={e => (e.target.style.borderColor = "#e0e0e0")}
                 />
               </div>
@@ -520,7 +520,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                 value={physioNote} onChange={e => setPhysioNote(e.target.value)}
                 placeholder="Clinical notes for clearance decision..." rows={3}
                 style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", color: "#333", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit", backgroundColor: "#f9f9f9", marginBottom: "12px" }}
-                onFocus={e => (e.target.style.borderColor = "#15213f")}
+                onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
                 onBlur={e => (e.target.style.borderColor = "#e0e0e0")}
               />
               <OBtn onClick={() => markReadyForPlaying(cr.id)} style={{ width: "100%", justifyContent: "center", backgroundColor: "#2e7d32" }}>
@@ -602,7 +602,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
       {/* Summary stats */}
       <div style={{ display: "flex", gap: "14px", marginBottom: "22px", flexWrap: "wrap" }}>
         {[
-          { label: "Total Players",   value: players.length,                                                               color: "#15213f" },
+          { label: "Total Players",   value: players.length,                                                               color: "#ec5a4d" },
           { label: "Reports Today",   value: players.filter((p) => p.reports.some((r) => r.date === "2025-05-01")).length, color: "#2e7d32" },
           { label: "Injured Players", value: players.filter(hasInjury).length,                                             color: "#cc3333" },
           { label: "No Report Today", value: players.filter((p) => !p.reports.some((r) => r.date === "2025-05-01")).length,color: "#888"    },
@@ -617,7 +617,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
       {/* Player list */}
       <div style={card({ overflow: "hidden" })}>
         <div style={{ padding: "14px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "8px" }}>
-          <User size={15} style={{ color: "#15213f" }} />
+          <User size={15} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "14px", fontWeight: "700", color: "#333" }}>Players</span>
         </div>
 
@@ -636,11 +636,11 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
             >
               <div style={{
                 width: "40px", height: "40px", borderRadius: "50%",
-                backgroundColor: injured ? "#fff0f0" : "#eef1f7",
-                border: `1.5px solid ${injured ? "#ffc5c5" : "#cdd5e6"}`,
+                backgroundColor: injured ? "#fff0f0" : "#fdecea",
+                border: `1.5px solid ${injured ? "#ffc5c5" : "#f6d4d0"}`,
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
-                <User size={18} style={{ color: injured ? "#cc3333" : "#15213f" }} />
+                <User size={18} style={{ color: injured ? "#cc3333" : "#ec5a4d" }} />
               </div>
 
               <div style={{ flex: 1 }}>
@@ -664,7 +664,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                 {player.reports.length > 0 ? (
                   <>
                     <div style={{ fontSize: "12px", color: "#888" }}>{formatDate(latestDate(player))}</div>
-                    <div style={{ fontSize: "11px", color: "#15213f", fontWeight: "600", marginTop: "2px" }}>
+                    <div style={{ fontSize: "11px", color: "#ec5a4d", fontWeight: "600", marginTop: "2px" }}>
                       {player.reports.length} report{player.reports.length > 1 ? "s" : ""}
                     </div>
                   </>
@@ -696,11 +696,11 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
       <div style={{ ...card({ padding: "18px 22px", marginBottom: "20px", display: "flex", alignItems: "center", gap: "14px" }) }}>
         <div style={{
           width: "44px", height: "44px", borderRadius: "50%",
-          backgroundColor: hasInjury(activePlayer) ? "#fff0f0" : "#eef1f7",
-          border: `2px solid ${hasInjury(activePlayer) ? "#ffc5c5" : "#cdd5e6"}`,
+          backgroundColor: hasInjury(activePlayer) ? "#fff0f0" : "#fdecea",
+          border: `2px solid ${hasInjury(activePlayer) ? "#ffc5c5" : "#f6d4d0"}`,
           display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
         }}>
-          <User size={20} style={{ color: hasInjury(activePlayer) ? "#cc3333" : "#15213f" }} />
+          <User size={20} style={{ color: hasInjury(activePlayer) ? "#cc3333" : "#ec5a4d" }} />
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -722,7 +722,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
       ) : (
         <div style={card({ overflow: "hidden" })}>
           <div style={{ padding: "12px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "6px" }}>
-            <Clock size={14} style={{ color: "#15213f" }} />
+            <Clock size={14} style={{ color: "#ec5a4d" }} />
             <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>Daily Reports — Latest First</span>
           </div>
 
@@ -745,14 +745,14 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                 >
                   <div style={{
                     width: "42px", height: "42px", borderRadius: "10px",
-                    backgroundColor: report.injury ? "#fff0f0" : (i === 0 ? "#eef1f7" : "#f5f5f5"),
-                    border: `1.5px solid ${report.injury ? "#ffc5c5" : (i === 0 ? "#cdd5e6" : "#e8e8e8")}`,
+                    backgroundColor: report.injury ? "#fff0f0" : (i === 0 ? "#fdecea" : "#f5f5f5"),
+                    border: `1.5px solid ${report.injury ? "#ffc5c5" : (i === 0 ? "#f6d4d0" : "#e8e8e8")}`,
                     display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flexShrink: 0,
                   }}>
-                    <span style={{ fontSize: "13px", fontWeight: "800", color: report.injury ? "#cc3333" : (i === 0 ? "#15213f" : "#555") }}>
+                    <span style={{ fontSize: "13px", fontWeight: "800", color: report.injury ? "#cc3333" : (i === 0 ? "#ec5a4d" : "#555") }}>
                       {new Date(report.date).getDate()}
                     </span>
-                    <span style={{ fontSize: "9px", fontWeight: "600", textTransform: "uppercase", color: report.injury ? "#cc3333" : (i === 0 ? "#15213f" : "#aaa") }}>
+                    <span style={{ fontSize: "9px", fontWeight: "600", textTransform: "uppercase", color: report.injury ? "#cc3333" : (i === 0 ? "#ec5a4d" : "#aaa") }}>
                       {new Date(report.date).toLocaleString("en-IN", { month: "short" })}
                     </span>
                   </div>
@@ -762,7 +762,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                       <span style={{ fontSize: "13px", fontWeight: "700", color: report.injury ? "#cc3333" : "#222" }}>
                         Daily Report — {formatDate(report.date)}
                       </span>
-                      {i === 0 && !report.injury && <Badge label="Latest"    bg="#eef1f7" color="#15213f" border="#cdd5e6" />}
+                      {i === 0 && !report.injury && <Badge label="Latest"    bg="#fdecea" color="#ec5a4d" border="#f6d4d0" />}
                       {report.injury             && <Badge label="⚠ Injury"  bg="#fff0f0" color="#cc3333" border="#ffc5c5" />}
                       {high && !report.injury    && <Badge label="High Load" bg="#fff8e1" color="#f9a825" border="#ffe082" />}
                     </div>
@@ -799,8 +799,8 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
         {/* Report header */}
         <div style={{ ...card({ padding: "18px 22px", marginBottom: "20px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }) }}>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <div style={{ width: "40px", height: "40px", borderRadius: "10px", backgroundColor: "#eef1f7", border: "1.5px solid #cdd5e6", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <FileText size={18} style={{ color: "#15213f" }} />
+            <div style={{ width: "40px", height: "40px", borderRadius: "10px", backgroundColor: "#fdecea", border: "1.5px solid #f6d4d0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <FileText size={18} style={{ color: "#ec5a4d" }} />
             </div>
             <div>
               <div style={{ fontSize: "16px", fontWeight: "700", color: "#222" }}>Daily Report</div>
@@ -821,18 +821,18 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                 width: "36px",
                 height: "36px",
                 borderRadius: "8px",
-                backgroundColor: "#15213f",
+                backgroundColor: "#ec5a4d",
                 color: "#fff",
                 border: "none",
                 fontSize: "18px",
                 fontWeight: "700",
                 cursor: "pointer",
-                boxShadow: "0 2px 8px rgba(21,33,63,0.28)",
+                boxShadow: "0 2px 8px rgba(236,90,77,0.28)",
                 flexShrink: 0,
                 transition: "background 0.15s",
               }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#1f2d52")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#15213f")}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d6443a")}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
               title="Add Medical Record"
             >
               +
@@ -852,7 +852,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
           ].map((m) => (
             <div key={m.label} style={card({ padding: "14px 16px" })}>
               <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
-                <m.icon size={14} style={{ color: "#15213f" }} />
+                <m.icon size={14} style={{ color: "#ec5a4d" }} />
                 <span style={{ fontSize: "11px", color: "#888", fontWeight: "500" }}>{m.label}</span>
               </div>
               {m.value}
@@ -877,7 +877,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
               r.training.length > 0 ? (
                 <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                   {r.training.map((t) => (
-                    <span key={t} style={{ fontSize: "11px", fontWeight: "700", padding: "2px 8px", borderRadius: "20px", backgroundColor: "#eef1f7", color: "#15213f", border: "1px solid #cdd5e6" }}>{t}</span>
+                    <span key={t} style={{ fontSize: "11px", fontWeight: "700", padding: "2px 8px", borderRadius: "20px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0" }}>{t}</span>
                   ))}
                 </div>
               ) : "None"
@@ -885,7 +885,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
           />
           {r.injuryFile && (
             <DetailRow icon={FileText} label="Injury Report"
-              value={<span style={{ color: "#15213f", fontWeight: "600", textDecoration: "underline", cursor: "pointer" }}>{r.injuryFile}</span>}
+              value={<span style={{ color: "#ec5a4d", fontWeight: "600", textDecoration: "underline", cursor: "pointer" }}>{r.injuryFile}</span>}
             />
           )}
         </div>
@@ -905,7 +905,7 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                 {ALL_EXERCISES_LOOKUP
                   .filter((e) => session.selectedExercises.includes(e.id))
                   .map((e) => (
-                    <span key={e.id} style={{ fontSize: "11px", fontWeight: "700", padding: "3px 10px", borderRadius: "20px", backgroundColor: "#eef1f7", color: "#b05a00", border: "1px solid #cdd5e6" }}>
+                    <span key={e.id} style={{ fontSize: "11px", fontWeight: "700", padding: "3px 10px", borderRadius: "20px", backgroundColor: "#fdecea", color: "#b05a00", border: "1px solid #f6d4d0" }}>
                       {e.name}
                     </span>
                   ))}
@@ -936,19 +936,19 @@ console.log('hiii i am here i wha tabput is are theere i sma here ')
                   alignItems: "center",
                   gap: "8px",
                   padding: "10px 22px",
-                  backgroundColor: "#15213f",
+                  backgroundColor: "#ec5a4d",
                   color: "#fff",
                   border: "none",
                   borderRadius: "8px",
                   fontSize: "13px",
                   fontWeight: "700",
                   cursor: "pointer",
-                  boxShadow: "0 2px 8px rgba(21,33,63,0.3)",
+                  boxShadow: "0 2px 8px rgba(236,90,77,0.3)",
                   flexShrink: 0,
                   transition: "background 0.15s",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#1f2d52")}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#15213f")}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d6443a")}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
               >
                 <Plus size={15} />
                 Create Session

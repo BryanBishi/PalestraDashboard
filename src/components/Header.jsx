@@ -15,8 +15,8 @@ export default function Header({ title, onLogout }) {
         className="app-header"
         style={{
           height: '60px',
-          backgroundColor: '#ffffff',
-          borderBottom: '1px solid #e0e0e0',
+          backgroundColor: '#0c0d10',
+          borderBottom: '1px solid #23262d',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -26,14 +26,14 @@ export default function Header({ title, onLogout }) {
       >
         {/* Title */}
         <div>
-          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '20px', fontWeight: '700', color: '#15213f' }}>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '20px', fontWeight: '700', color: '#ec5a4d' }}>
             {title}
           </h1>
           <div
             style={{
               width: '36px',
               height: '3px',
-              backgroundColor: '#e1262b',
+              backgroundColor: '#ec5a4d',
               borderRadius: '2px',
               marginTop: '5px',
             }}
@@ -48,14 +48,14 @@ export default function Header({ title, onLogout }) {
             style={{
               display: 'flex',
               alignItems: 'center',
-              backgroundColor: '#f4f6f9',
-              border: '1px solid #e6e8ec',
+              backgroundColor: '#1d2027',
+              border: '1px solid #262a32',
               borderRadius: '8px',
               padding: '7px 12px',
               gap: '8px',
             }}
           >
-            <Search size={14} style={{ color: '#8a93a3' }} />
+            <Search size={14} style={{ color: '#9aa0aa' }} />
             <input
               placeholder="Search..."
               style={{
@@ -64,18 +64,19 @@ export default function Header({ title, onLogout }) {
                 outline: 'none',
                 fontSize: '13px',
                 width: '160px',
+                color: '#c7ccd4',
               }}
             />
           </div>
 
           {/* Bell */}
           <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-            <Bell size={18} />
+            <Bell size={18} style={{ color: '#c7ccd4' }} />
           </button>
 
           {/* Settings */}
           <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-            <Settings size={18} />
+            <Settings size={18} style={{ color: '#c7ccd4' }} />
           </button>
 
           {/* Logout Button */}
@@ -85,7 +86,7 @@ export default function Header({ title, onLogout }) {
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              backgroundColor: '#15213f',
+              backgroundColor: '#ec5a4d',
               color: 'white',
               border: 'none',
               padding: '8px 14px',
@@ -124,10 +125,10 @@ export default function Header({ title, onLogout }) {
             textAlign: 'center',
           }}>
             <div style={{ marginBottom: '16px' }}>
-              <AlertTriangle size={48} style={{ color: '#e1262b', margin: '0 auto' }} />
+              <AlertTriangle size={48} style={{ color: '#ec5a4d', margin: '0 auto' }} />
             </div>
 
-            <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontFamily: "'Playfair Display', Georgia, serif", color: '#15213f' }}>
+            <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontFamily: "'Barlow Condensed', sans-serif", color: '#ec5a4d' }}>
               Confirm Logout
             </h3>
             <p style={{ color: '#666', fontSize: '14px', marginBottom: '24px' }}>
@@ -140,8 +141,8 @@ export default function Header({ title, onLogout }) {
                 style={{
                   flex: 1,
                   padding: '10px',
-                  backgroundColor: '#eef1f7',
-                  color: '#15213f',
+                  backgroundColor: '#fdecea',
+                  color: '#ec5a4d',
                   border: 'none',
                   borderRadius: '8px',
                   fontWeight: '600',

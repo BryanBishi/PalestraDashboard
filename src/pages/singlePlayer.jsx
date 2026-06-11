@@ -17,15 +17,15 @@ const card = (x = {}) => ({
 
 const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
-    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>{title}</h1>
+    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>{title}</h1>
     {sub && <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#e1262b", borderRadius: "2px", marginTop: "6px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
   </div>
 );
 
 const BackBtn = ({ label, onClick }) => (
   <button onClick={onClick} style={{ display: "flex", alignItems: "center", gap: "6px", background: "none", border: "none", color: "#888", fontSize: "13px", fontWeight: "600", cursor: "pointer", marginBottom: "18px", padding: "0" }}
-    onMouseEnter={e => (e.currentTarget.style.color = "#15213f")}
+    onMouseEnter={e => (e.currentTarget.style.color = "#ec5a4d")}
     onMouseLeave={e => (e.currentTarget.style.color = "#888")}
   ><ArrowLeft size={15} /> {label}</button>
 );
@@ -33,7 +33,7 @@ const BackBtn = ({ label, onClick }) => (
 const OBtn = ({ children, onClick, style = {}, variant = "primary" }) => (
   <button onClick={onClick} style={{
     display: "inline-flex", alignItems: "center", gap: "7px", padding: "10px 22px",
-    backgroundColor: variant === "danger" ? "#cc3333" : "#15213f",
+    backgroundColor: variant === "danger" ? "#cc3333" : "#ec5a4d",
     color: "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer", ...style
   }}>
     {children}
@@ -106,10 +106,10 @@ export default function Players() {
         <BackBtn label="My Injuries" onClick={() => setView(V.INJURIES)} />
 
         {/* Injury Header Card */}
-        <div style={card({ padding: "24px", marginBottom: "20px", borderLeft: "5px solid #15213f" })}>
+        <div style={card({ padding: "24px", marginBottom: "20px", borderLeft: "5px solid #ec5a4d" })}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px" }}>
             <div>
-              <h2 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 6px 0", fontFamily: "'Playfair Display', Georgia, serif" }}>{inj.type}</h2>
+              <h2 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 6px 0", fontFamily: "'Barlow Condensed', sans-serif" }}>{inj.type}</h2>
               <p style={{ color: "#666", margin: 0 }}>{inj.bodyPart} · Reported {inj.dateReported}</p>
             </div>
             <div style={{ display: "flex", gap: "8px" }}>
@@ -123,7 +123,7 @@ export default function Players() {
           </div>
 
           {inj.description && (
-            <div style={{ marginTop: "16px", padding: "14px", background: "#f9f9f9", borderRadius: "8px", borderLeft: "4px solid #15213f" }}>
+            <div style={{ marginTop: "16px", padding: "14px", background: "#f9f9f9", borderRadius: "8px", borderLeft: "4px solid #ec5a4d" }}>
               {inj.description}
             </div>
           )}
@@ -132,7 +132,7 @@ export default function Players() {
         {/* Clearance Request Section - Matching Image */}
         <div style={card({ padding: "24px" })}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
-            <Send size={20} style={{ color: "#15213f" }} />
+            <Send size={20} style={{ color: "#ec5a4d" }} />
             <h3 style={{ margin: 0, fontSize: "17px", fontWeight: "700" }}>Request Clearance for Playing</h3>
           </div>
 
@@ -208,7 +208,7 @@ export default function Players() {
           </div>
           {teamMembers.map((m, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", padding: "16px 24px", borderBottom: i < teamMembers.length - 1 ? "1px solid #f5f5f5" : "none", gap: "16px" }}>
-              <div style={{ width: "42px", height: "42px", borderRadius: "50%", backgroundColor: "#eef1f7", border: "2px solid #cdd5e6", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700", color: "#15213f" }}>
+              <div style={{ width: "42px", height: "42px", borderRadius: "50%", backgroundColor: "#fdecea", border: "2px solid #f6d4d0", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700", color: "#ec5a4d" }}>
                 {m.number}
               </div>
               <div style={{ flex: 1 }}>
@@ -225,7 +225,7 @@ export default function Players() {
 
   // ─── DAILY PROGRESS ────────────────────────────────────────────────────
   if (view === V.DAILY_PROGRESS) {
-    return <DailyReportForm onClose={() => setView(V.INFO)} />;
+    return <DailyReportForm onBack={() => setView(V.INFO)} />;
   }
 
   // ─── MAIN INFO VIEW ────────────────────────────────────────────────────
@@ -241,8 +241,8 @@ export default function Players() {
       {/* Team Info Card */}
       <div style={card({ overflow: "hidden", marginBottom: "20px" })}>
         <div style={{ padding: "18px 24px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "12px" }}>
-          <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: "#eef1f7", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ShieldCheck size={22} style={{ color: "#15213f" }} />
+          <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: "#fdecea", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <ShieldCheck size={22} style={{ color: "#ec5a4d" }} />
           </div>
           <div>
             <div style={{ fontSize: "17px", fontWeight: "700" }}>{team.name || "Kerala Cricket Academy"}</div>
@@ -261,7 +261,7 @@ export default function Players() {
             const Icon = row.icon;
             return (
               <div key={i} style={{ display: "flex", alignItems: "center", padding: "13px 0", borderBottom: i < 4 ? "1px solid #f5f5f5" : "none", gap: "14px" }}>
-                <Icon size={18} style={{ color: "#15213f" }} />
+                <Icon size={18} style={{ color: "#ec5a4d" }} />
                 <span style={{ width: "110px", color: "#555", fontWeight: "500" }}>{row.label}</span>
                 <span style={{ fontWeight: "600", color: "#222" }}>{row.value}</span>
               </div>
@@ -279,7 +279,7 @@ export default function Players() {
               {activeInjuriesCount} active injur{activeInjuriesCount > 1 ? "ies" : "y"} on record
             </span>
           </div>
-          <button onClick={() => setView(V.INJURIES)} style={{ color: "#15213f", fontWeight: "700", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
+          <button onClick={() => setView(V.INJURIES)} style={{ color: "#ec5a4d", fontWeight: "700", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
             View & Request Clearance →
           </button>
         </div>

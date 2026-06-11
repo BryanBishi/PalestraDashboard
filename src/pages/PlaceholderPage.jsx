@@ -26,7 +26,7 @@ export default function PlaceholderPage({ title }) {
             width: '60px',
             height: '60px',
             borderRadius: '12px',
-            backgroundColor: '#eef1f7',
+            backgroundColor: '#fdecea',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -36,7 +36,7 @@ export default function PlaceholderPage({ title }) {
         >
           📋
         </div>
-        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '20px', fontWeight: '700', color: '#333', marginBottom: '8px' }}>
+        <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '20px', fontWeight: '700', color: '#333', marginBottom: '8px' }}>
           {title}
         </h2>
         <p style={{ fontSize: '14px', color: '#888' }}>
@@ -46,7 +46,7 @@ export default function PlaceholderPage({ title }) {
           style={{
             marginTop: '20px',
             padding: '10px 24px',
-            backgroundColor: '#15213f',
+            backgroundColor: '#ec5a4d',
             color: 'white',
             border: 'none',
             borderRadius: '7px',

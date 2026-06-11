@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import ExerciseManager from './pages/ExerciseManager'
 
 import Dashboard from './pages/Dashboard'
@@ -215,7 +216,7 @@ export default function App() {
       style={{
         display: 'flex',
         height: '100vh',
-        backgroundColor: '#f4f6f9',
+        backgroundColor: '#f3f4f6',
       }}
     >
       {/* 🔥 SIDEBAR */}
@@ -249,10 +250,13 @@ export default function App() {
           style={{
             flex: 1,
             overflowY: 'auto',
-            backgroundColor: '#f4f6f9',
+            backgroundColor: '#f3f4f6',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
-          {renderPage()}
+          <div style={{ flex: 1 }}>{renderPage()}</div>
+          {!isLogin && <Footer />}
         </main>
       </div>
     </div>

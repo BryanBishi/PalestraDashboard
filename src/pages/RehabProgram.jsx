@@ -28,7 +28,7 @@ const STATUS_COLORS = {
   Resting:   { bg:"#fff8e1", color:"#f9a825", border:"#ffe082", dot:"#f9a825" },
 };
 const CAT_COLORS = {
-  "Senior":   { bg:"#eef1f7", color:"#15213f", border:"#cdd5e6" },
+  "Senior":   { bg:"#fdecea", color:"#ec5a4d", border:"#f6d4d0" },
   "Under-23": { bg:"#e3f2fd", color:"#1976d2", border:"#90caf9" },
   "Under-19": { bg:"#f3e5f5", color:"#7b1fa2", border:"#ce93d8" },
   "Under-16": { bg:"#f0faf0", color:"#2e7d32", border:"#b8e6b8" },
@@ -52,16 +52,16 @@ const Badge = ({ label, bg, color, border }) => (
 
 const OBtn = ({ children, onClick, style={} }) => (
   <button onClick={onClick}
-    style={{ display:"inline-flex", alignItems:"center", gap:"7px", padding:"9px 20px", backgroundColor:"#15213f", color:"#fff", border:"none", borderRadius:"8px", fontSize:"13px", fontWeight:"700", cursor:"pointer", boxShadow:"0 2px 8px rgba(21,33,63,0.28)", ...style }}
-    onMouseEnter={e=>(e.currentTarget.style.backgroundColor="#1f2d52")}
-    onMouseLeave={e=>(e.currentTarget.style.backgroundColor=style.backgroundColor||"#15213f")}
+    style={{ display:"inline-flex", alignItems:"center", gap:"7px", padding:"9px 20px", backgroundColor:"#ec5a4d", color:"#fff", border:"none", borderRadius:"8px", fontSize:"13px", fontWeight:"700", cursor:"pointer", boxShadow:"0 2px 8px rgba(236,90,77,0.28)", ...style }}
+    onMouseEnter={e=>(e.currentTarget.style.backgroundColor="#d6443a")}
+    onMouseLeave={e=>(e.currentTarget.style.backgroundColor=style.backgroundColor||"#ec5a4d")}
   >{children}</button>
 );
 
 const GhostBtn = ({ children, onClick, style={} }) => (
   <button onClick={onClick}
     style={{ display:"inline-flex", alignItems:"center", gap:"6px", padding:"8px 16px", backgroundColor:"#fff", color:"#555", border:"1.5px solid #e0e0e0", borderRadius:"8px", fontSize:"13px", fontWeight:"600", cursor:"pointer", ...style }}
-    onMouseEnter={e=>{ e.currentTarget.style.borderColor="#15213f"; e.currentTarget.style.color="#15213f"; }}
+    onMouseEnter={e=>{ e.currentTarget.style.borderColor="#ec5a4d"; e.currentTarget.style.color="#ec5a4d"; }}
     onMouseLeave={e=>{ e.currentTarget.style.borderColor="#e0e0e0"; e.currentTarget.style.color="#555"; }}
   >{children}</button>
 );
@@ -71,7 +71,7 @@ const inputStyle = {
   borderRadius:"7px", fontSize:"13px", color:"#333",
   backgroundColor:"#f9f9f9", outline:"none", boxSizing:"border-box", fontFamily:"inherit",
 };
-const fo = e => (e.target.style.borderColor="#15213f");
+const fo = e => (e.target.style.borderColor="#ec5a4d");
 const fb = e => (e.target.style.borderColor="#e0e0e0");
 
 const ToggleSwitch = ({ val, set }) => (
@@ -154,15 +154,15 @@ function WorkoutLibrary({ added, onAdd, onRemove, onCardClick, selectedId, exerc
             {search && <button onClick={()=>setSearch("")} style={{ position:"absolute", right:"10px", top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:"#aaa", display:"flex" }}><X size={13}/></button>}
           </div>
           <button onClick={()=>setShowFil(v=>!v)}
-            style={{ display:"flex", alignItems:"center", gap:"6px", padding:"8px 12px", borderRadius:"7px", border:`1.5px solid ${showFil?"#15213f":"#e0e0e0"}`, backgroundColor:showFil?"#eef1f7":"#fff", color:showFil?"#15213f":"#666", fontSize:"13px", fontWeight:"600", cursor:"pointer" }}>
+            style={{ display:"flex", alignItems:"center", gap:"6px", padding:"8px 12px", borderRadius:"7px", border:`1.5px solid ${showFil?"#ec5a4d":"#e0e0e0"}`, backgroundColor:showFil?"#fdecea":"#fff", color:showFil?"#ec5a4d":"#666", fontSize:"13px", fontWeight:"600", cursor:"pointer" }}>
             <Filter size={12}/> Filters
-            {activeCount>0 && <span style={{ width:"18px", height:"18px", borderRadius:"50%", backgroundColor:"#15213f", color:"#fff", fontSize:"10px", fontWeight:"800", display:"flex", alignItems:"center", justifyContent:"center" }}>{activeCount}</span>}
+            {activeCount>0 && <span style={{ width:"18px", height:"18px", borderRadius:"50%", backgroundColor:"#ec5a4d", color:"#fff", fontSize:"10px", fontWeight:"800", display:"flex", alignItems:"center", justifyContent:"center" }}>{activeCount}</span>}
           </button>
         </div>
 
         {/* Filter drawer */}
         {showFil && (
-          <div style={{ padding:"12px 16px", backgroundColor:"#eef1f7", borderBottom:"1px solid #cdd5e6", display:"flex", flexWrap:"wrap", gap:"14px", alignItems:"flex-end" }}>
+          <div style={{ padding:"12px 16px", backgroundColor:"#fdecea", borderBottom:"1px solid #f6d4d0", display:"flex", flexWrap:"wrap", gap:"14px", alignItems:"flex-end" }}>
             {[["Category","cat",CATS],["Joint / Area","joint",JOINTS]].map(([lbl,key,opts])=>(
               <div key={key}>
                 <div style={{ fontSize:"10px", fontWeight:"700", color:"#888", textTransform:"uppercase", letterSpacing:"0.5px", marginBottom:"4px" }}>{lbl}</div>
@@ -191,8 +191,8 @@ function WorkoutLibrary({ added, onAdd, onRemove, onCardClick, selectedId, exerc
             const already = isAdded(exId);
             return (
               <div key={exId} onClick={()=>{ onCardClick(ex); if(!already) onAdd(ex); }}
-                style={{ borderRadius:"10px", border:`2px solid ${active?"#15213f":"#e8e8e8"}`, overflow:"hidden", cursor:"pointer", backgroundColor:active?"#eef1f7":"#fff", transition:"all 0.15s", boxShadow:active?"0 0 0 3px rgba(21,33,63,0.12)":"0 1px 4px rgba(0,0,0,0.05)" }}
-                onMouseEnter={e=>{ if(!active) e.currentTarget.style.borderColor="#cdd5e6"; }}
+                style={{ borderRadius:"10px", border:`2px solid ${active?"#ec5a4d":"#e8e8e8"}`, overflow:"hidden", cursor:"pointer", backgroundColor:active?"#fdecea":"#fff", transition:"all 0.15s", boxShadow:active?"0 0 0 3px rgba(236,90,77,0.12)":"0 1px 4px rgba(0,0,0,0.05)" }}
+                onMouseEnter={e=>{ if(!active) e.currentTarget.style.borderColor="#f6d4d0"; }}
                 onMouseLeave={e=>{ if(!active) e.currentTarget.style.borderColor="#e8e8e8"; }}
               >
                 {/* Thumbnail area with GIF */}
@@ -209,9 +209,9 @@ function WorkoutLibrary({ added, onAdd, onRemove, onCardClick, selectedId, exerc
                   <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between" }}>
                     <span style={{ fontSize:"10px", fontWeight:"600", backgroundColor:"#f5f5f5", color:"#888", borderRadius:"4px", padding:"2px 7px" }}>{ex.category}</span>
                     <button onClick={e=>{ e.stopPropagation(); already?onRemove(exId):onAdd(ex); }}
-                      style={{ width:"20px", height:"20px", borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", color:"#fff", backgroundColor:already?"#cc3333":"#15213f", border:"none", cursor:"pointer", transition:"background 0.15s" }}
-                      onMouseEnter={e=>(e.currentTarget.style.backgroundColor=already?"#bb2222":"#1f2d52")}
-                      onMouseLeave={e=>(e.currentTarget.style.backgroundColor=already?"#cc3333":"#15213f")}
+                      style={{ width:"20px", height:"20px", borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", color:"#fff", backgroundColor:already?"#cc3333":"#ec5a4d", border:"none", cursor:"pointer", transition:"background 0.15s" }}
+                      onMouseEnter={e=>(e.currentTarget.style.backgroundColor=already?"#bb2222":"#d6443a")}
+                      onMouseLeave={e=>(e.currentTarget.style.backgroundColor=already?"#cc3333":"#ec5a4d")}
                     >{already?<Minus size={10}/>:<Plus size={10}/>}</button>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ function WorkoutLibrary({ added, onAdd, onRemove, onCardClick, selectedId, exerc
       <div style={{ width:"210px", display:"flex", flexDirection:"column", backgroundColor:"#fafafa", flexShrink:0 }}>
         <div style={{ padding:"12px 16px", borderBottom:"1px solid #e8e8e8", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
           <span style={{ fontSize:"11px", fontWeight:"700", color:"#888", textTransform:"uppercase", letterSpacing:"0.5px" }}>Added</span>
-          <Badge label={String(added.length)} bg="#eef1f7" color="#15213f" border="#cdd5e6"/>
+          <Badge label={String(added.length)} bg="#fdecea" color="#ec5a4d" border="#f6d4d0"/>
         </div>
         <div style={{ flex:1, overflowY:"auto", padding:"10px", display:"flex", flexDirection:"column", gap:"8px", scrollBehavior:"smooth", msOverflowStyle:"none", scrollbarWidth:"none" }}>
           <style>{`
@@ -288,7 +288,7 @@ function ExerciseModal({ exercise, existing, onSave, onClose }) {
             <div style={{ display:"flex", gap:"8px", marginBottom:"14px", flexWrap:"wrap" }}>
               {[{k:"gif",icon:<Play size={11}/>,label:"GIF"},{k:"images",icon:<ImgIcon size={11}/>,label:"Images"}].map(t=>(
                 <button key={t.k} onClick={()=>setTab(t.k)}
-                  style={{ display:"flex", alignItems:"center", gap:"5px", padding:"6px 12px", borderRadius:"7px", border:`1.5px solid ${tab===t.k?"#15213f":"#e0e0e0"}`, backgroundColor:tab===t.k?"#eef1f7":"#fff", color:tab===t.k?"#15213f":"#888", fontSize:"12px", fontWeight:"700", cursor:"pointer" }}>
+                  style={{ display:"flex", alignItems:"center", gap:"5px", padding:"6px 12px", borderRadius:"7px", border:`1.5px solid ${tab===t.k?"#ec5a4d":"#e0e0e0"}`, backgroundColor:tab===t.k?"#fdecea":"#fff", color:tab===t.k?"#ec5a4d":"#888", fontSize:"12px", fontWeight:"700", cursor:"pointer" }}>
                   {t.icon}{t.label}
                 </button>
               ))}
@@ -316,7 +316,7 @@ function ExerciseModal({ exercise, existing, onSave, onClose }) {
             {/* Tags */}
             <div style={{ display:"flex", flexWrap:"wrap", gap:"6px" }}>
               {[exercise.category, exercise.jointArea, exercise.difficulty, exercise.position].filter(Boolean).map(t=>(
-                <Badge key={t} label={t} bg="#eef1f7" color="#15213f" border="#cdd5e6"/>
+                <Badge key={t} label={t} bg="#fdecea" color="#ec5a4d" border="#f6d4d0"/>
               ))}
             </div>
           </div>
@@ -389,8 +389,8 @@ function AssignModal({ player, programName, onConfirm, onClose }) {
 
   const selBtnStyle = active => ({
     padding:"7px 14px", borderRadius:"7px", fontSize:"12px", fontWeight:"700", cursor:"pointer",
-    border:`1.5px solid ${active?"#15213f":"#e0e0e0"}`,
-    backgroundColor:active?"#15213f":"#fff", color:active?"#fff":"#666", transition:"all 0.15s",
+    border:`1.5px solid ${active?"#ec5a4d":"#e0e0e0"}`,
+    backgroundColor:active?"#ec5a4d":"#fff", color:active?"#fff":"#666", transition:"all 0.15s",
   });
 
   const SectionHead = ({title}) => (
@@ -517,8 +517,8 @@ function CreateProgramModal({ player, onClose, onCreated, exercises, loading, er
 
   const tabBtnStyle = active => ({
     padding:"12px 18px", border:"none", cursor:"pointer", fontSize:"13px", fontWeight:"700",
-    backgroundColor:"transparent", color:active?"#15213f":"#888",
-    borderBottom:active?"2px solid #15213f":"2px solid transparent",
+    backgroundColor:"transparent", color:active?"#ec5a4d":"#888",
+    borderBottom:active?"2px solid #ec5a4d":"2px solid transparent",
     marginBottom:"-1px", transition:"all 0.15s",
   });
 
@@ -620,7 +620,7 @@ function ProgramReport({ player, program, assignment, onBack }) {
     table{width:100%;border-collapse:collapse;font-size:13px}
     th{background:#fafafa;padding:10px 12px;text-align:left;font-weight:700;border-bottom:2px solid #e8e8e8;font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.4px}
     td{padding:10px 12px;border-bottom:1px solid #f5f5f5}
-    .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;background:#eef1f7;color:#15213f;border:1px solid #cdd5e6}
+    .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;background:#fdecea;color:#ec5a4d;border:1px solid #f6d4d0}
     .footer{margin-top:18px;font-size:11px;color:#aaa}
     @media print{body{padding:24px}}</style>
     </head><body>${printRef.current.innerHTML}</body></html>`);
@@ -636,8 +636,8 @@ function ProgramReport({ player, program, assignment, onBack }) {
         <div style={{ display:"flex", alignItems:"center", gap:"12px" }}>
           <GhostBtn onClick={onBack}><ArrowLeft size={13}/> Back</GhostBtn>
           <div>
-            <h2 style={{ fontFamily:"'Playfair Display', Georgia, serif", fontSize:"20px", fontWeight:"800", color:"#222", margin:0 }}>{program.name}</h2>
-            <div style={{ width:"32px", height:"3px", backgroundColor:"#e1262b", borderRadius:"2px", marginTop:"5px" }}/>
+            <h2 style={{ fontFamily:"'Barlow Condensed', sans-serif", fontSize:"20px", fontWeight:"800", color:"#222", margin:0 }}>{program.name}</h2>
+            <div style={{ width:"32px", height:"3px", backgroundColor:"#ec5a4d", borderRadius:"2px", marginTop:"5px" }}/>
           </div>
         </div>
         <div style={{ display:"flex", gap:"10px" }}>
@@ -648,7 +648,7 @@ function ProgramReport({ player, program, assignment, onBack }) {
 
       {/* Printable content */}
       <div ref={printRef}>
-        <h1 style={{ fontFamily:"'Playfair Display', Georgia, serif", fontSize:"22px", fontWeight:"800", margin:"0 0 4px" }}>{program.name}</h1>
+        <h1 style={{ fontFamily:"'Barlow Condensed', sans-serif", fontSize:"22px", fontWeight:"800", margin:"0 0 4px" }}>{program.name}</h1>
         <p style={{ fontSize:"13px", color:"#888", margin:"0 0 22px" }}>
           Assigned to: <strong>{player.name}</strong> · {player.injury!=="—"?player.injury:player.team}
         </p>
@@ -696,9 +696,9 @@ function ProgramReport({ player, program, assignment, onBack }) {
                   </td>
                   <td style={{ padding:"10px 12px", fontWeight:"700", color:"#222" }}>{ex.name}</td>
                   <td style={{ padding:"10px 12px" }}>
-                    <Badge label={ex.category} bg="#eef1f7" color="#15213f" border="#cdd5e6"/>
+                    <Badge label={ex.category} bg="#fdecea" color="#ec5a4d" border="#f6d4d0"/>
                   </td>
-                  <td style={{ padding:"10px 12px", fontWeight:"800", color:"#15213f" }}>{ex.sets}</td>
+                  <td style={{ padding:"10px 12px", fontWeight:"800", color:"#ec5a4d" }}>{ex.sets}</td>
                   <td style={{ padding:"10px 12px", fontWeight:"700", color:"#222" }}>{ex.reps}</td>
                   <td style={{ padding:"10px 12px", color:"#666" }}>{ex.rest}s</td>
                   <td style={{ padding:"10px 12px", color:"#aaa", fontSize:"12px" }}>{ex.notes||"—"}</td>
@@ -758,13 +758,13 @@ export default function RehabProgram({ players: propPlayers }) {
 
   // ── Report view ──
   if (viewing) return (
-    <div style={{ minHeight:"100vh", backgroundColor:"#f4f6f9" }}>
+    <div style={{ minHeight:"100vh", backgroundColor:"#f3f4f6" }}>
       <ProgramReport {...viewing} onBack={()=>setViewing(null)}/>
     </div>
   );
 
   return (
-    <div style={{ minHeight:"100vh", backgroundColor:"#f4f6f9" }}>
+    <div style={{ minHeight:"100vh", backgroundColor:"#f3f4f6" }}>
       <div style={{ maxWidth:"1200px", margin:"0 auto", padding:"28px" }}>
 
         {/* Page heading */}
@@ -775,7 +775,7 @@ export default function RehabProgram({ players: propPlayers }) {
 
           {/* Card header */}
           <div style={{ display:"flex", alignItems:"center", gap:"8px", padding:"16px 20px", borderBottom:"1px solid #f0f0f0" }}>
-            <Activity size={15} style={{ color:"#15213f" }}/>
+            <Activity size={15} style={{ color:"#ec5a4d" }}/>
             <span style={{ fontSize:"14px", fontWeight:"700", color:"#333" }}>Session Action — Weekly Goals &amp; Programs</span>
           </div>
 
@@ -791,13 +791,13 @@ export default function RehabProgram({ players: propPlayers }) {
               <div key={player.id} style={{ borderBottom:isLast?"none":"1px solid #f0f0f0" }}>
                 {/* Player row header */}
                 <div onClick={()=>setExpanded(isOpen?null:player.id)}
-                  style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"16px 20px", cursor:"pointer", backgroundColor:isOpen?"#eef1f7":"#fff", transition:"background 0.15s", borderLeft:isOpen?"3px solid #15213f":"3px solid transparent" }}
+                  style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"16px 20px", cursor:"pointer", backgroundColor:isOpen?"#fdecea":"#fff", transition:"background 0.15s", borderLeft:isOpen?"3px solid #ec5a4d":"3px solid transparent" }}
                   onMouseEnter={e=>{ if(!isOpen) e.currentTarget.style.backgroundColor="#fdf8f4"; }}
                   onMouseLeave={e=>{ if(!isOpen) e.currentTarget.style.backgroundColor="#fff"; }}
                 >
                   <div style={{ display:"flex", alignItems:"center", gap:"14px" }}>
                     {/* Avatar */}
-                    <div style={{ width:"40px", height:"40px", borderRadius:"50%", flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"12px", fontWeight:"800", backgroundColor:isOpen?"#15213f":(player.status==="Injured"?"#fff0f0":"#eef1f7"), color:isOpen?"#fff":(player.status==="Injured"?"#cc3333":"#15213f"), border:`1.5px solid ${isOpen?"#15213f":(player.status==="Injured"?"#ffc5c5":"#cdd5e6")}` }}>
+                    <div style={{ width:"40px", height:"40px", borderRadius:"50%", flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"12px", fontWeight:"800", backgroundColor:isOpen?"#ec5a4d":(player.status==="Injured"?"#fff0f0":"#fdecea"), color:isOpen?"#fff":(player.status==="Injured"?"#cc3333":"#ec5a4d"), border:`1.5px solid ${isOpen?"#ec5a4d":(player.status==="Injured"?"#ffc5c5":"#f6d4d0")}` }}>
                       {initials(player.name)}
                     </div>
                     <div>
@@ -820,7 +820,7 @@ export default function RehabProgram({ players: propPlayers }) {
 
                   <div style={{ display:"flex", alignItems:"center", gap:"10px", flexShrink:0 }}>
                     {pp.length>0&&<Badge label={`${pp.length} program${pp.length>1?"s":""}`} bg="#f0faf0" color="#2e7d32" border="#b8e6b8"/>}
-                    {isOpen?<ChevronUp size={16} style={{ color:"#15213f" }}/>:<ChevronRight size={16} style={{ color:"#aaa" }}/>}
+                    {isOpen?<ChevronUp size={16} style={{ color:"#ec5a4d" }}/>:<ChevronRight size={16} style={{ color:"#aaa" }}/>}
                   </div>
                 </div>
 
@@ -857,9 +857,9 @@ export default function RehabProgram({ players: propPlayers }) {
 
                       {/* Create button */}
                       <button onClick={e=>openCreate(player,e)}
-                        style={{ display:"inline-flex", alignItems:"center", gap:"6px", backgroundColor:"#15213f", color:"#fff", fontSize:"13px", fontWeight:"700", padding:"9px 18px", borderRadius:"8px", border:"none", cursor:"pointer", boxShadow:"0 2px 8px rgba(21,33,63,0.25)" }}
-                        onMouseEnter={e=>(e.currentTarget.style.backgroundColor="#1f2d52")}
-                        onMouseLeave={e=>(e.currentTarget.style.backgroundColor="#15213f")}
+                        style={{ display:"inline-flex", alignItems:"center", gap:"6px", backgroundColor:"#ec5a4d", color:"#fff", fontSize:"13px", fontWeight:"700", padding:"9px 18px", borderRadius:"8px", border:"none", cursor:"pointer", boxShadow:"0 2px 8px rgba(236,90,77,0.25)" }}
+                        onMouseEnter={e=>(e.currentTarget.style.backgroundColor="#d6443a")}
+                        onMouseLeave={e=>(e.currentTarget.style.backgroundColor="#ec5a4d")}
                       >
                         <Plus size={13}/> Create Program
                       </button>

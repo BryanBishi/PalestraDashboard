@@ -17,21 +17,21 @@ const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
     <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0 }}>{title}</h1>
     {sub && <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#15213f", borderRadius: "2px", marginTop: "6px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
   </div>
 );
 const BackBtn = ({ label, onClick }) => (
   <button onClick={onClick}
     style={{ display: "flex", alignItems: "center", gap: "6px", background: "none", border: "none", color: "#888", fontSize: "13px", fontWeight: "600", cursor: "pointer", marginBottom: "18px", padding: "0" }}
-    onMouseEnter={e => (e.currentTarget.style.color = "#15213f")}
+    onMouseEnter={e => (e.currentTarget.style.color = "#ec5a4d")}
     onMouseLeave={e => (e.currentTarget.style.color = "#888")}
   ><ArrowLeft size={15} /> {label}</button>
 );
 const OBtn = ({ children, onClick, style = {}, disabled = false }) => (
   <button onClick={onClick} disabled={disabled}
-    style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: disabled ? "#e0e0e0" : "#15213f", color: disabled ? "#aaa" : "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: disabled ? "not-allowed" : "pointer", boxShadow: disabled ? "none" : "0 2px 8px rgba(21,33,63,0.28)", ...style }}
-    onMouseEnter={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#1f2d52"; }}
-    onMouseLeave={e => { if (!disabled) e.currentTarget.style.backgroundColor = disabled ? "#e0e0e0" : "#15213f"; }}
+    style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: disabled ? "#e0e0e0" : "#ec5a4d", color: disabled ? "#aaa" : "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: disabled ? "not-allowed" : "pointer", boxShadow: disabled ? "none" : "0 2px 8px rgba(236,90,77,0.28)", ...style }}
+    onMouseEnter={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#d6443a"; }}
+    onMouseLeave={e => { if (!disabled) e.currentTarget.style.backgroundColor = disabled ? "#e0e0e0" : "#ec5a4d"; }}
   >{children}</button>
 );
 const inputStyle = { width: "100%", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box", fontFamily: "inherit" };
@@ -39,7 +39,7 @@ const InputF = ({ label, value, onChange, placeholder, type = "text" }) => (
   <div>
     <label style={{ fontSize: "11px", fontWeight: "700", color: "#888", display: "block", marginBottom: "4px", letterSpacing: "0.4px", textTransform: "uppercase" }}>{label}</label>
     <input type={type} value={value} onChange={onChange} placeholder={placeholder} style={inputStyle}
-      onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+      onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
   </div>
 );
 
@@ -159,7 +159,7 @@ function WorkloadChart({ data }) {
           <rect key={`comp${i}`}
             x={toX(i) - barW / 2} y={toY(d.competition)}
             width={barW} height={zero_y - toY(d.competition)}
-            fill="#15213f" rx="2" opacity="0.9" />
+            fill="#ec5a4d" rx="2" opacity="0.9" />
         ))}
 
         {/* Training bars (lighter orange) */}
@@ -167,7 +167,7 @@ function WorkloadChart({ data }) {
           <rect key={`train${i}`}
             x={toX(i) - barW / 2} y={toY(d.training)}
             width={barW} height={zero_y - toY(d.training)}
-            fill="#34508c" rx="2" opacity="0.75" />
+            fill="#d6443a" rx="2" opacity="0.75" />
         ))}
 
         {/* Bar labels */}
@@ -217,8 +217,8 @@ function WorkloadChart({ data }) {
       {/* Legend */}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginTop: "10px", paddingLeft: "8px" }}>
         {[
-          { color: "#15213f", label: "Competition", solid: true },
-          { color: "#34508c", label: "Training",    solid: true },
+          { color: "#ec5a4d", label: "Competition", solid: true },
+          { color: "#d6443a", label: "Training",    solid: true },
           { color: "rgba(240,140,120,0.6)", label: "Acute Load",   solid: false },
           { color: "rgba(100,200,160,0.5)", label: "Chronic Load", solid: false },
           { color: "rgba(255,200,0,0.7)",   label: "Freshness",    solid: false },
@@ -319,10 +319,10 @@ function PlannedVsReported({ sessions }) {
               {/* Planned bar (blue) */}
               <rect x={toX(i) - barW - 1} y={toY(planned)} width={barW} height={Math.max(toY(0) - toY(planned), 2)} fill="#3b82f6" rx="2" opacity="0.7" />
               {/* Reported bar (orange) */}
-              <rect x={toX(i) + 1}        y={toY(reported)} width={barW} height={Math.max(toY(0) - toY(reported), 2)} fill="#15213f" rx="2" opacity="0.8" />
+              <rect x={toX(i) + 1}        y={toY(reported)} width={barW} height={Math.max(toY(0) - toY(reported), 2)} fill="#ec5a4d" rx="2" opacity="0.8" />
               {/* Labels */}
               {planned  > 50 && <text x={toX(i) - barW/2 - 1} y={toY(planned)  - 3} textAnchor="middle" fontSize="8" fill="#3b82f6" fontWeight="700">{planned}</text>}
-              {reported > 50 && <text x={toX(i) + barW/2 + 1} y={toY(reported) - 3} textAnchor="middle" fontSize="8" fill="#15213f" fontWeight="700">{reported}</text>}
+              {reported > 50 && <text x={toX(i) + barW/2 + 1} y={toY(reported) - 3} textAnchor="middle" fontSize="8" fill="#ec5a4d" fontWeight="700">{reported}</text>}
               <text x={toX(i)} y={H - 8} textAnchor="middle" fontSize="8" fill="#888" transform={`rotate(-30, ${toX(i)}, ${H - 8})`}>{s.name?.substring(0,8) || `S${i+1}`}</text>
             </g>
           );
@@ -331,7 +331,7 @@ function PlannedVsReported({ sessions }) {
       </svg>
       <div style={{ display: "flex", gap: "14px", marginTop: "6px", paddingLeft: "4px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "5px" }}><div style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#3b82f6", opacity: 0.7 }} /><span style={{ fontSize: "11px", color: "#666" }}>Planned</span></div>
-        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}><div style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#15213f", opacity: 0.8 }} /><span style={{ fontSize: "11px", color: "#666" }}>Reported</span></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}><div style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#ec5a4d", opacity: 0.8 }} /><span style={{ fontSize: "11px", color: "#666" }}>Reported</span></div>
       </div>
     </div>
   );
@@ -348,10 +348,10 @@ function ExerciseRow({ ex, idx, onChange, onRemove }) {
     <div style={{ border: "1px solid #e8e8e8", borderRadius: "9px", overflow: "hidden", marginBottom: "10px" }}>
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "9px 14px", backgroundColor: "#fafafa", borderBottom: "1px solid #f0f0f0" }}>
-        <div style={{ width: "24px", height: "24px", borderRadius: "50%", backgroundColor: "#15213f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>{idx + 1}</div>
+        <div style={{ width: "24px", height: "24px", borderRadius: "50%", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>{idx + 1}</div>
         <input value={ex.name} onChange={e => upd("name", e.target.value)} placeholder="Exercise name…"
           style={{ flex: 1, ...s, border: "none", backgroundColor: "transparent", fontSize: "13px", fontWeight: "700", padding: "2px 0" }}
-          onFocus={e => (e.target.style.borderBottom = "1.5px solid #15213f")}
+          onFocus={e => (e.target.style.borderBottom = "1.5px solid #ec5a4d")}
           onBlur={e => (e.target.style.borderBottom = "none")} />
         <button onClick={() => onRemove(idx)} style={{ background: "none", border: "none", cursor: "pointer", padding: "3px", color: "#cc3333", display: "flex", borderRadius: "5px" }}
           onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#fff0f0")}
@@ -371,7 +371,7 @@ function ExerciseRow({ ex, idx, onChange, onRemove }) {
           <div key={f.key}>
             <label style={{ fontSize: "9px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "3px", textTransform: "uppercase", letterSpacing: "0.4px" }}>{f.label}</label>
             <input value={ex[f.key] || ""} onChange={e => upd(f.key, e.target.value)} placeholder={f.placeholder} style={s}
-              onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
           </div>
         ))}
       </div>
@@ -382,12 +382,12 @@ function ExerciseRow({ ex, idx, onChange, onRemove }) {
           <label style={{ fontSize: "9px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "3px", textTransform: "uppercase", letterSpacing: "0.4px" }}>DESCRIPTION / NOTES</label>
           <textarea value={ex.description || ""} onChange={e => upd("description", e.target.value)} placeholder="Technique cues, progressions, coaching notes…" rows={2}
             style={{ ...s, resize: "none", fontFamily: "inherit" }}
-            onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+            onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
         </div>
         <div style={{ minWidth: "90px" }}>
           <label style={{ fontSize: "9px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "3px", textTransform: "uppercase", letterSpacing: "0.4px" }}>LOAD (AU)</label>
           <input type="number" value={ex.load || ""} onChange={e => upd("load", e.target.value)} placeholder="e.g. 120" style={s}
-            onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+            onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
         </div>
       </div>
     </div>
@@ -417,11 +417,11 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
   const totalLoad = (session.exercises || []).reduce((s, e) => s + (Number(e.load) || 0), 0);
 
   return (
-    <div style={{ border: `1.5px solid ${collapsed ? "#e8e8e8" : "#15213f"}`, borderRadius: "12px", overflow: "hidden", marginBottom: "14px", transition: "all 0.15s" }}>
+    <div style={{ border: `1.5px solid ${collapsed ? "#e8e8e8" : "#ec5a4d"}`, borderRadius: "12px", overflow: "hidden", marginBottom: "14px", transition: "all 0.15s" }}>
       {/* Session header */}
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "14px 18px", backgroundColor: collapsed ? "#fafafa" : "#eef1f7", cursor: "pointer" }}
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "14px 18px", backgroundColor: collapsed ? "#fafafa" : "#fdecea", cursor: "pointer" }}
         onClick={onToggle}>
-        <div style={{ width: "30px", height: "30px", borderRadius: "8px", backgroundColor: "#15213f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>
+        <div style={{ width: "30px", height: "30px", borderRadius: "8px", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>
           {idx + 1}
         </div>
         <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr 1fr auto", gap: "10px", alignItems: "center" }}>
@@ -430,14 +430,14 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
             <input value={session.name || ""} onChange={e => { e.stopPropagation(); upd("name", e.target.value); }}
               onClick={e => e.stopPropagation()} placeholder="e.g. Morning Strength"
               style={{ width: "100%", padding: "5px 8px", border: "1px solid #e0e0e0", borderRadius: "6px", fontSize: "13px", fontWeight: "700", color: "#222", backgroundColor: "#fff", outline: "none", boxSizing: "border-box" }}
-              onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
           </div>
           <div>
             <label style={{ fontSize: "9px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "2px", textTransform: "uppercase" }}>TYPE</label>
             <select value={session.type || ""} onChange={e => { e.stopPropagation(); upd("type", e.target.value); }}
               onClick={e => e.stopPropagation()}
               style={{ width: "100%", padding: "5px 8px", border: "1px solid #e0e0e0", borderRadius: "6px", fontSize: "12px", color: "#555", backgroundColor: "#fff", outline: "none", cursor: "pointer" }}
-              onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")}>
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")}>
               <option value="">Select…</option>
               {SESSION_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
             </select>
@@ -447,11 +447,11 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
             <input type="date" value={session.date || ""} onChange={e => { e.stopPropagation(); upd("date", e.target.value); }}
               onClick={e => e.stopPropagation()}
               style={{ width: "100%", padding: "5px 8px", border: "1px solid #e0e0e0", borderRadius: "6px", fontSize: "12px", color: "#555", backgroundColor: "#fff", outline: "none", boxSizing: "border-box" }}
-              onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: "11px", color: "#15213f", fontWeight: "700" }}>{session.exercises?.length || 0} ex</div>
+              <div style={{ fontSize: "11px", color: "#ec5a4d", fontWeight: "700" }}>{session.exercises?.length || 0} ex</div>
               {totalLoad > 0 && <div style={{ fontSize: "10px", color: "#888" }}>{totalLoad} AU</div>}
             </div>
           </div>
@@ -462,7 +462,7 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#fff0f0")}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
           ><Trash2 size={15} /></button>
-          {collapsed ? <ChevronRight size={16} style={{ color: "#aaa" }} /> : <ChevronDown_icon size={16} style={{ color: "#15213f" }} />}
+          {collapsed ? <ChevronRight size={16} style={{ color: "#aaa" }} /> : <ChevronDown_icon size={16} style={{ color: "#ec5a4d" }} />}
         </div>
       </div>
 
@@ -474,7 +474,7 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
             <label style={{ fontSize: "10px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>SESSION DESCRIPTION / OBJECTIVES</label>
             <textarea value={session.description || ""} onChange={e => upd("description", e.target.value)} placeholder="Session objectives, warm-up notes, overall focus…" rows={2}
               style={{ width: "100%", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }}
-              onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+              onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
           </div>
 
           {/* Planned / Reported Load */}
@@ -488,7 +488,7 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
                 <label style={{ fontSize: "10px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "3px", textTransform: "uppercase", letterSpacing: "0.4px" }}>{f.label}</label>
                 <input type="number" value={session[f.key] || ""} onChange={e => upd(f.key, e.target.value)} placeholder="—"
                   style={{ width: "100%", padding: "7px 10px", border: "1.5px solid #e0e0e0", borderRadius: "6px", fontSize: "13px", fontWeight: "700", color: "#222", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-                  onFocus={e => (e.target.style.borderColor = "#15213f")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+                  onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
               </div>
             ))}
           </div>
@@ -497,7 +497,7 @@ function SessionCard({ session, idx, onChange, onRemove, collapsed, onToggle }) 
           <div style={{ marginBottom: "8px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
               <div style={{ fontSize: "12px", fontWeight: "700", color: "#333", display: "flex", alignItems: "center", gap: "6px" }}>
-                <Dumbbell size={13} style={{ color: "#15213f" }} /> Exercises ({session.exercises?.length || 0})
+                <Dumbbell size={13} style={{ color: "#ec5a4d" }} /> Exercises ({session.exercises?.length || 0})
               </div>
               <OBtn onClick={addExercise} style={{ padding: "6px 12px", fontSize: "11px" }}>
                 <Plus size={12} /> Add Exercise
@@ -548,7 +548,7 @@ function WorkloadDashboard({ player, sessions }) {
 
   const donutData = [
     { label: "Competition", value: WORKLOAD_DAYS.filter(d => d.competition > 0).length, color: "#64c8f0" },
-    { label: "Training",    value: WORKLOAD_DAYS.filter(d => d.training > 0).length,    color: "#15213f" },
+    { label: "Training",    value: WORKLOAD_DAYS.filter(d => d.training > 0).length,    color: "#ec5a4d" },
   ];
 
   return (
@@ -566,7 +566,7 @@ function WorkloadDashboard({ player, sessions }) {
         {/* Planned vs Reported */}
         <div style={card({ padding: "20px 22px" })}>
           <div style={{ fontSize: "14px", fontWeight: "700", color: "#333", marginBottom: "14px", display: "flex", alignItems: "center", gap: "7px" }}>
-            <BarChart2 size={14} style={{ color: "#15213f" }} /> Planned vs Reported
+            <BarChart2 size={14} style={{ color: "#ec5a4d" }} /> Planned vs Reported
           </div>
           {sessions.length > 0
             ? <PlannedVsReported sessions={sessions} />
@@ -650,7 +650,7 @@ function SessionsView({ player, sessions, setSessions }) {
       {/* Summary strip */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "14px", marginBottom: "22px" }}>
         {[
-          { label: "Total Sessions",   value: totalSessions,                 color: "#15213f", icon: Calendar },
+          { label: "Total Sessions",   value: totalSessions,                 color: "#ec5a4d", icon: Calendar },
           { label: "Completed",        value: completedSessions,             color: "#2e7d32", icon: CheckCircle2 },
           { label: "Total Planned Load",value: totalLoad > 0 ? totalLoad + " AU" : "—", color: "#3b82f6", icon: Zap },
         ].map(s => (
@@ -744,9 +744,9 @@ function FitnessOverview({ player }) {
                       {isEditing ? (
                         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                           <textarea autoFocus value={editVal} onChange={e => setEditVal(e.target.value)} onClick={e => e.stopPropagation()} rows={3}
-                            style={{ width: "100%", padding: "6px 8px", border: "1.5px solid #15213f", borderRadius: "6px", fontSize: "12px", outline: "none", resize: "none", fontFamily: "inherit", boxSizing: "border-box" }} />
+                            style={{ width: "100%", padding: "6px 8px", border: "1.5px solid #ec5a4d", borderRadius: "6px", fontSize: "12px", outline: "none", resize: "none", fontFamily: "inherit", boxSizing: "border-box" }} />
                           <div style={{ display: "flex", gap: "4px" }}>
-                            <button onClick={e => { e.stopPropagation(); saveCell(); }} style={{ flex: 1, padding: "4px", backgroundColor: "#15213f", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "11px", fontWeight: "700" }}>Save</button>
+                            <button onClick={e => { e.stopPropagation(); saveCell(); }} style={{ flex: 1, padding: "4px", backgroundColor: "#ec5a4d", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "11px", fontWeight: "700" }}>Save</button>
                             <button onClick={e => { e.stopPropagation(); setEditCell(null); setEditVal(""); }} style={{ flex: 1, padding: "4px", backgroundColor: "#f0f0f0", color: "#555", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "11px" }}>Cancel</button>
                           </div>
                         </div>
@@ -801,7 +801,7 @@ export default function TrainerDashboard() {
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: "14px", marginBottom: "24px" }}>
         {[
-          { label: "Total Players",   value: players.length,                                     icon: Users,    color: "#15213f" },
+          { label: "Total Players",   value: players.length,                                     icon: Users,    color: "#ec5a4d" },
           { label: "Active Players",  value: players.filter(p => p.status === "Active").length,   icon: Activity, color: "#2e7d32" },
           { label: "Injured",         value: players.filter(p => p.status === "Injured").length,  icon: AlertCircle, color: "#cc3333" },
           { label: "Total Sessions",  value: Object.values(allSessions).flat().length,            icon: Calendar, color: "#3b82f6" },
@@ -820,7 +820,7 @@ export default function TrainerDashboard() {
 
       <div style={card({ overflow: "hidden" })}>
         <div style={{ padding: "16px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "8px" }}>
-          <Users size={15} style={{ color: "#15213f" }} />
+          <Users size={15} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "14px", fontWeight: "700", color: "#333" }}>Players</span>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))" }}>
@@ -832,7 +832,7 @@ export default function TrainerDashboard() {
                 onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#fdf8f4")}
                 onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
               >
-                <div style={{ width: "44px", height: "44px", borderRadius: "50%", backgroundColor: p.status === "Injured" ? "#fff0f0" : "#eef1f7", border: `2px solid ${p.status === "Injured" ? "#ffc5c5" : "#cdd5e6"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", color: p.status === "Injured" ? "#cc3333" : "#15213f", flexShrink: 0 }}>{p.avatar}</div>
+                <div style={{ width: "44px", height: "44px", borderRadius: "50%", backgroundColor: p.status === "Injured" ? "#fff0f0" : "#fdecea", border: `2px solid ${p.status === "Injured" ? "#ffc5c5" : "#f6d4d0"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", color: p.status === "Injured" ? "#cc3333" : "#ec5a4d", flexShrink: 0 }}>{p.avatar}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span style={{ fontSize: "14px", fontWeight: "700", color: "#222" }}>{p.name}</span>
@@ -863,7 +863,7 @@ export default function TrainerDashboard() {
             <ArrowLeft size={15} /> All Players
           </button>
           <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px" }}>
-            <div style={{ width: "52px", height: "52px", borderRadius: "50%", backgroundColor: activePlayer.status === "Injured" ? "#cc3333" : "#15213f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "800", color: "#fff" }}>
+            <div style={{ width: "52px", height: "52px", borderRadius: "50%", backgroundColor: activePlayer.status === "Injured" ? "#cc3333" : "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "800", color: "#fff" }}>
               {activePlayer.avatar}
             </div>
             <div>
@@ -877,7 +877,7 @@ export default function TrainerDashboard() {
           <div style={{ display: "flex" }}>
             {TABS.map(tab => (
               <button key={tab.key} onClick={() => setActiveTab(tab.key)}
-                style={{ display: "flex", alignItems: "center", gap: "7px", padding: "12px 20px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: activeTab === tab.key ? "#fff" : "rgba(255,255,255,0.5)", borderBottom: activeTab === tab.key ? "3px solid #15213f" : "3px solid transparent", transition: "all 0.15s" }}>
+                style={{ display: "flex", alignItems: "center", gap: "7px", padding: "12px 20px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: activeTab === tab.key ? "#fff" : "rgba(255,255,255,0.5)", borderBottom: activeTab === tab.key ? "3px solid #ec5a4d" : "3px solid transparent", transition: "all 0.15s" }}>
                 <tab.icon size={15} /> {tab.label}
               </button>
             ))}

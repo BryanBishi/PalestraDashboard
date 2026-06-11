@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import { loginUser } from "../api/authApi"
+import logo from "../assets/company-logo.png"
 
 export default function Login({ onLogin }) {
   const [email, setEmail]       = useState('')
@@ -55,14 +56,14 @@ localStorage.setItem("role", data.role)
   const inputStyle = (focused, hasErr) => ({
     width: '100%',
     padding: '11px 12px 11px 38px',
-    border: `1.5px solid ${hasErr ? '#e53935' : focused ? '#15213f' : '#e8e8e8'}`,
+    border: `1.5px solid ${hasErr ? '#e53935' : focused ? '#ec5a4d' : '#e8e8e8'}`,
     borderRadius: '9px',
     fontSize: '14px',
     color: '#222',
     background: '#fafafa',
     outline: 'none',
     boxShadow: focused && !hasErr
-      ? '0 0 0 3px rgba(21,33,63,0.12)'
+      ? '0 0 0 3px rgba(236,90,77,0.12)'
       : hasErr
       ? '0 0 0 3px rgba(229,57,53,0.08)'
       : 'none',
@@ -70,24 +71,24 @@ localStorage.setItem("role", data.role)
   })
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #15213f 0%, #23355f 58%, #1b6e2e 170%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #16181d 0%, #0c0d10 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
       {/* Brand */}
       <div style={{ textAlign: 'center', marginBottom: '22px' }}>
-        <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '30px', fontWeight: 800, color: '#fff', letterSpacing: '1px' }}>CRICKET SYSTEM</div>
-        <div style={{ fontSize: '12.5px', color: 'rgba(255,255,255,0.72)', letterSpacing: '0.5px', marginTop: '2px' }}>Management Console</div>
+        <img src={logo} alt="Palaestra" style={{ height: '50px', width: 'auto' }} />
+        <div style={{ fontSize: '12.5px', color: 'rgba(255,255,255,0.72)', letterSpacing: '0.5px', marginTop: '12px' }}>Management Console</div>
       </div>
-      <div style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '40px 36px', border: '1px solid #e6e8ec', boxShadow: '0 18px 50px rgba(0,0,0,0.28)', width: '100%', maxWidth: '400px' }}>
+      <div style={{ backgroundColor: '#ffffff', borderRadius: '16px', padding: '40px 36px', border: '1px solid #e6e7eb', boxShadow: '0 18px 50px rgba(0,0,0,0.28)', width: '100%', maxWidth: '400px' }}>
 
         {/* Logo */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '28px' }}>
-          <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#15213f', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(21,33,63,0.3)' }}>
+          <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#ec5a4d', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(236,90,77,0.3)' }}>
             <Mail size={24} style={{ color: '#fff' }} />
           </div>
         </div>
 
         {/* Heading */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '22px', fontWeight: '700', color: '#15213f', marginBottom: '4px' }}>Welcome back</div>
+          <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '22px', fontWeight: '700', color: '#ec5a4d', marginBottom: '4px' }}>Welcome back</div>
           <div style={{ fontSize: '13px', color: '#888' }}>Sign in to your account</div>
         </div>
 
@@ -97,7 +98,7 @@ localStorage.setItem("role", data.role)
             Email Address
           </label>
           <div style={{ position: 'relative' }}>
-            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: emailFocus ? '#15213f' : '#bbb', display: 'flex', pointerEvents: 'none' }}>
+            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: emailFocus ? '#ec5a4d' : '#bbb', display: 'flex', pointerEvents: 'none' }}>
               <Mail size={15} />
             </span>
             <input
@@ -119,7 +120,7 @@ localStorage.setItem("role", data.role)
             Password
           </label>
           <div style={{ position: 'relative' }}>
-            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: pwFocus ? '#15213f' : '#bbb', display: 'flex', pointerEvents: 'none' }}>
+            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: pwFocus ? '#ec5a4d' : '#bbb', display: 'flex', pointerEvents: 'none' }}>
               <Lock size={15} />
             </span>
             <input
@@ -134,7 +135,7 @@ localStorage.setItem("role", data.role)
             <button
               onClick={() => setShowPw(v => !v)}
               type="button"
-              style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: showPw ? '#15213f' : '#bbb', display: 'flex', padding: 0 }}
+              style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: showPw ? '#ec5a4d' : '#bbb', display: 'flex', padding: 0 }}
             >
               {showPw ? <EyeOff size={15} /> : <Eye size={15} />}
             </button>
@@ -144,7 +145,7 @@ localStorage.setItem("role", data.role)
 
         {/* Forgot */}
         <div style={{ textAlign: 'right', marginBottom: '24px' }}>
-          <span style={{ fontSize: '12px', color: '#e1262b', fontWeight: '500', cursor: 'pointer' }}>
+          <span style={{ fontSize: '12px', color: '#ec5a4d', fontWeight: '500', cursor: 'pointer' }}>
             Forgot password?
           </span>
         </div>
@@ -157,14 +158,14 @@ localStorage.setItem("role", data.role)
           style={{
             width: '100%',
             padding: '12px',
-            backgroundColor: success ? '#388e3c' : '#15213f',
+            backgroundColor: success ? '#388e3c' : '#ec5a4d',
             color: 'white',
             border: 'none',
             borderRadius: '9px',
             fontSize: '14px',
             fontWeight: '700',
             cursor: loading ? 'not-allowed' : 'pointer',
-            boxShadow: '0 3px 12px rgba(21,33,63,0.28)',
+            boxShadow: '0 3px 12px rgba(236,90,77,0.28)',
             transition: 'background 0.3s'
           }}
         >
@@ -173,7 +174,7 @@ localStorage.setItem("role", data.role)
 
         <div style={{ textAlign: 'center', fontSize: '13px', color: '#aaa', marginTop: '20px' }}>
           Don't have an account?{' '}
-          <span style={{ color: '#e1262b', fontWeight: '600', cursor: 'pointer' }}>
+          <span style={{ color: '#ec5a4d', fontWeight: '600', cursor: 'pointer' }}>
             Contact admin
           </span>
         </div>

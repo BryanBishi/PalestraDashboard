@@ -15,6 +15,7 @@ import {
   Menu,
   X,
 } from 'lucide-react'
+import logo from '../assets/company-logo.png'
 
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/' },
@@ -106,11 +107,11 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
       style={{
         width: compact ? '64px' : '260px',
         minWidth: compact ? '64px' : '260px',
-        backgroundColor: '#15213f',
+        backgroundColor: '#0c0d10',
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        borderRight: '1px solid #243152',
+        borderRight: '1px solid #23262d',
         userSelect: 'none',
         transition: 'width 0.2s ease',
         overflow: 'hidden',
@@ -120,16 +121,16 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
       <div
         style={{
           padding: compact ? '22px 0 18px 0' : '22px 28px 18px 28px',
-          borderBottom: '1px solid #243152',
+          borderBottom: '1px solid #23262d',
           display: 'flex',
           alignItems: 'center',
           justifyContent: compact ? 'center' : 'flex-start',
         }}
       >
         {compact ? (
-          <span style={{ fontSize: '20px', fontWeight: '800', color: '#e8c34d', fontFamily: "'Playfair Display', Georgia, serif" }}>C</span>
+          <img src={logo} alt="Palaestra" style={{ width: '44px', height: 'auto', display: 'block' }} />
         ) : (
-          <span style={{ fontSize: '26px', fontWeight: '800', letterSpacing: '2px', color: '#e8c34d', fontFamily: "'Playfair Display', Georgia, serif" }}>CRICKET</span>
+          <img src={logo} alt="Palaestra" style={{ height: '34px', width: 'auto', display: 'block', maxWidth: '100%' }} />
         )}
       </div>
 
@@ -166,15 +167,15 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
                   justifyContent: compact ? 'center' : 'flex-start',
                   cursor: 'pointer',
                   backgroundColor: itemActive || (groupActive && isOpen) ? '#ffffff' : 'transparent',
-                  borderLeft: !compact && (groupActive || itemActive) ? '3px solid #e1262b' : '3px solid transparent',
-                  borderRight: compact && highlighted ? '3px solid #e1262b' : '3px solid transparent',
+                  borderLeft: !compact && (groupActive || itemActive) ? '3px solid #ec5a4d' : '3px solid transparent',
+                  borderRight: compact && highlighted ? '3px solid #ec5a4d' : '3px solid transparent',
                   transition: 'background 0.15s',
                   gap: compact ? '0' : '10px',
                   position: 'relative',
                 }}
                 onMouseEnter={(e) => {
                   if (!itemActive && !(groupActive && isOpen)) {
-                    e.currentTarget.style.backgroundColor = '#1e2c50'
+                    e.currentTarget.style.backgroundColor = '#1a1d24'
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -183,14 +184,14 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
                   }
                 }}
               >
-                <Icon size={compact ? 20 : 18} style={{ color: highlighted ? '#e1262b' : '#9aa6bd', flexShrink: 0 }} />
+                <Icon size={compact ? 20 : 18} style={{ color: highlighted ? '#ec5a4d' : '#9aa6bd', flexShrink: 0 }} />
                 {!compact && (
                   <>
-                    <span style={{ flex: 1, fontSize: '14px', fontWeight: highlighted ? '600' : '400', color: highlighted ? '#e1262b' : '#cbd3e0' }}>
+                    <span style={{ flex: 1, fontSize: '14px', fontWeight: highlighted ? '600' : '400', color: highlighted ? '#ec5a4d' : '#cbd3e0' }}>
                       {item.label}
                     </span>
                     {hasChildren && (isOpen
-                      ? <ChevronUp size={14} style={{ color: '#e1262b' }} />
+                      ? <ChevronUp size={14} style={{ color: '#ec5a4d' }} />
                       : <ChevronDown size={14} style={{ color: '#9aa6bd' }} />
                     )}
                   </>
@@ -199,7 +200,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
 
               {/* CHILD ITEMS */}
               {hasChildren && isOpen && !compact && (
-                <div style={{ backgroundColor: '#101a33' }}>
+                <div style={{ backgroundColor: '#16181d' }}>
                   {item.children.map((child) => {
                     const ChildIcon = child.icon
                     const childActive = isActive(child.path)
@@ -214,13 +215,13 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
                           padding: '9px 20px 9px 54px',
                           cursor: 'pointer',
                           backgroundColor: childActive ? '#ffffff' : 'transparent',
-                          borderLeft: childActive ? '3px solid #e1262b' : '3px solid transparent',
+                          borderLeft: childActive ? '3px solid #ec5a4d' : '3px solid transparent',
                         }}
-                        onMouseEnter={(e) => { if (!childActive) e.currentTarget.style.backgroundColor = '#1e2c50' }}
+                        onMouseEnter={(e) => { if (!childActive) e.currentTarget.style.backgroundColor = '#1a1d24' }}
                         onMouseLeave={(e) => { if (!childActive) e.currentTarget.style.backgroundColor = 'transparent' }}
                       >
-                        <ChildIcon size={15} style={{ color: childActive ? '#e1262b' : '#9aa6bd' }} />
-                        <span style={{ fontSize: '13.5px', fontWeight: childActive ? '600' : '400', color: childActive ? '#e1262b' : '#cbd3e0' }}>
+                        <ChildIcon size={15} style={{ color: childActive ? '#ec5a4d' : '#9aa6bd' }} />
+                        <span style={{ fontSize: '13.5px', fontWeight: childActive ? '600' : '400', color: childActive ? '#ec5a4d' : '#cbd3e0' }}>
                           {child.label}
                         </span>
                       </div>
@@ -237,7 +238,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
       <div
         style={{
           padding: compact ? '14px 0' : '14px 24px',
-          borderTop: '1px solid #243152',
+          borderTop: '1px solid #23262d',
           display: 'flex',
           alignItems: 'center',
           justifyContent: compact ? 'center' : 'flex-start',
@@ -248,7 +249,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
           title={compact ? (role || 'Admin') : undefined}
           style={{
             width: '32px', height: '32px', borderRadius: '50%',
-            backgroundColor: '#e1262b',
+            backgroundColor: '#ec5a4d',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'white', fontSize: '14px', fontWeight: '700', flexShrink: 0,
           }}
@@ -291,7 +292,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
           height: '40px',
           borderRadius: '8px',
           border: 'none',
-          backgroundColor: '#e1262b',
+          backgroundColor: '#ec5a4d',
           color: '#fff',
           display: 'flex',
           alignItems: 'center',

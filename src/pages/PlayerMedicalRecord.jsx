@@ -18,7 +18,7 @@ const inputStyle = {
   backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box",
   fontFamily: "inherit",
 };
-const focusOrange = e => (e.target.style.borderColor = "#15213f");
+const focusOrange = e => (e.target.style.borderColor = "#ec5a4d");
 const blurGray    = e => (e.target.style.borderColor = "#e0e0e0");
 
 const FieldLabel = ({ children }) => (
@@ -27,7 +27,7 @@ const FieldLabel = ({ children }) => (
   </label>
 );
 
-const OBtn = ({ children, onClick, style = {}, color = "#15213f" }) => (
+const OBtn = ({ children, onClick, style = {}, color = "#ec5a4d" }) => (
   <button onClick={onClick}
     style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "8px 16px", backgroundColor: color, color: "#fff", border: "none", borderRadius: "7px", fontSize: "13px", fontWeight: "700", cursor: "pointer", ...style }}
     onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
@@ -38,7 +38,7 @@ const OBtn = ({ children, onClick, style = {}, color = "#15213f" }) => (
 const GhostBtn = ({ children, onClick, style = {} }) => (
   <button onClick={onClick}
     style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "6px 12px", backgroundColor: "transparent", color: "#555", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "12px", fontWeight: "600", cursor: "pointer", ...style }}
-    onMouseEnter={e => { e.currentTarget.style.borderColor = "#15213f"; e.currentTarget.style.color = "#15213f"; }}
+    onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
     onMouseLeave={e => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
   >{children}</button>
 );
@@ -147,14 +147,14 @@ function HealthProblemModal({ existing, player, onSave, onClose }) {
             <FieldLabel>Attachments</FieldLabel>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "6px" }}>
               {(form.attachments || []).map((f, i) => (
-                <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "3px 9px", backgroundColor: "#eef1f7", border: "1px solid #cdd5e6", borderRadius: "6px", fontSize: "12px", color: "#b05a00" }}>
+                <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "3px 9px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "6px", fontSize: "12px", color: "#b05a00" }}>
                   <Paperclip size={11} /> {f}
                   <X size={11} style={{ cursor: "pointer", color: "#cc3333" }} onClick={() => set("attachments", (form.attachments || []).filter((_, j) => j !== i))} />
                 </span>
               ))}
             </div>
             <button onClick={() => fileRef.current.click()}
-              style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "6px 12px", backgroundColor: "#eef1f7", color: "#15213f", border: "1px solid #cdd5e6", borderRadius: "6px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "6px 12px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0", borderRadius: "6px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
               <Upload size={12} /> Attach File
             </button>
             <input ref={fileRef} type="file" style={{ display: "none" }} onChange={handleFile} />
@@ -213,7 +213,7 @@ function ConsultationModal({ existing, healthProblems, onSave, onClose }) {
           <div style={{ display: "flex", gap: "0", marginBottom: "16px", borderBottom: "2px solid #f0f0f0" }}>
             {["simple","advanced"].map(m => (
               <button key={m} onClick={() => setMode(m)}
-                style={{ padding: "8px 16px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: mode === m ? "#15213f" : "#888", borderBottom: mode === m ? "2px solid #15213f" : "2px solid transparent", marginBottom: "-2px", textTransform: "capitalize" }}>
+                style={{ padding: "8px 16px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: mode === m ? "#ec5a4d" : "#888", borderBottom: mode === m ? "2px solid #ec5a4d" : "2px solid transparent", marginBottom: "-2px", textTransform: "capitalize" }}>
                 {m === "simple" ? "Simple Mode" : "Advanced Mode"}
               </button>
             ))}
@@ -280,7 +280,7 @@ function ConsultationModal({ existing, healthProblems, onSave, onClose }) {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                   {BODY_AREAS.map(a => (
                     <label key={a} style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", color: "#555", cursor: "pointer" }}>
-                      <input type="checkbox" checked={form.bodyAreas.includes(a)} onChange={() => toggleBodyArea(a)} style={{ accentColor: "#15213f" }} />
+                      <input type="checkbox" checked={form.bodyAreas.includes(a)} onChange={() => toggleBodyArea(a)} style={{ accentColor: "#ec5a4d" }} />
                       {a}
                     </label>
                   ))}
@@ -305,11 +305,11 @@ function ConsultationModal({ existing, healthProblems, onSave, onClose }) {
                   </div>
                   <input type="range" min={0} max={10} value={form.painLevel} onChange={e => set("painLevel", Number(e.target.value))}
                     style={{ position: "absolute", top: "-5px", left: 0, width: "100%", opacity: 0, cursor: "pointer", height: "14px" }} />
-                  <div style={{ position: "absolute", top: "-6px", left: `calc(${form.painLevel * 10}% - 7px)`, width: "14px", height: "14px", borderRadius: "50%", backgroundColor: "#fff", border: "2px solid #15213f", boxShadow: "0 1px 3px rgba(0,0,0,0.2)", pointerEvents: "none" }} />
+                  <div style={{ position: "absolute", top: "-6px", left: `calc(${form.painLevel * 10}% - 7px)`, width: "14px", height: "14px", borderRadius: "50%", backgroundColor: "#fff", border: "2px solid #ec5a4d", boxShadow: "0 1px 3px rgba(0,0,0,0.2)", pointerEvents: "none" }} />
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ fontSize: "11px", color: "#aaa" }}>No pain</span>
-                  <span style={{ fontSize: "12px", fontWeight: "700", color: "#15213f" }}>{form.painLevel}</span>
+                  <span style={{ fontSize: "12px", fontWeight: "700", color: "#ec5a4d" }}>{form.painLevel}</span>
                   <span style={{ fontSize: "11px", color: "#aaa" }}>Maximal pain</span>
                 </div>
               </div>
@@ -320,7 +320,7 @@ function ConsultationModal({ existing, healthProblems, onSave, onClose }) {
                 <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                   {["Sharp","Dull","Aching","Burning","Throbbing","Stabbing"].map(s => (
                     <button key={s} onClick={() => set("painSensation", s)}
-                      style={{ padding: "5px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600", cursor: "pointer", border: `1.5px solid ${form.painSensation === s ? "#15213f" : "#e0e0e0"}`, backgroundColor: form.painSensation === s ? "#eef1f7" : "#f9f9f9", color: form.painSensation === s ? "#15213f" : "#666" }}>
+                      style={{ padding: "5px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600", cursor: "pointer", border: `1.5px solid ${form.painSensation === s ? "#ec5a4d" : "#e0e0e0"}`, backgroundColor: form.painSensation === s ? "#fdecea" : "#f9f9f9", color: form.painSensation === s ? "#ec5a4d" : "#666" }}>
                       {s}
                     </button>
                   ))}
@@ -349,12 +349,12 @@ function ConsultationModal({ existing, healthProblems, onSave, onClose }) {
             <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", backgroundColor: "#f5f5f5", borderRadius: "8px", marginBottom: "6px" }}>
               <Upload size={14} style={{ color: "#888" }} />
               <span style={{ fontSize: "13px", color: "#555", flex: 1 }}>Attach files</span>
-              <button onClick={() => fileRef.current.click()} style={{ background: "none", border: "none", cursor: "pointer", color: "#15213f", display: "flex" }}><Paperclip size={16} /></button>
+              <button onClick={() => fileRef.current.click()} style={{ background: "none", border: "none", cursor: "pointer", color: "#ec5a4d", display: "flex" }}><Paperclip size={16} /></button>
             </div>
             <input ref={fileRef} type="file" style={{ display: "none" }} onChange={handleFile} />
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
               {(form.attachments || []).map((f, i) => (
-                <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "3px 9px", backgroundColor: "#eef1f7", border: "1px solid #cdd5e6", borderRadius: "6px", fontSize: "12px", color: "#b05a00" }}>
+                <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "3px 9px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "6px", fontSize: "12px", color: "#b05a00" }}>
                   <Paperclip size={11} />{f}
                   <X size={11} style={{ cursor: "pointer", color: "#cc3333" }} onClick={() => set("attachments", (form.attachments || []).filter((_, j) => j !== i))} />
                 </span>
@@ -368,7 +368,7 @@ function ConsultationModal({ existing, healthProblems, onSave, onClose }) {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
               {["Yes","No"].map(v => (
                 <button key={v} onClick={() => set("sendNotification", v)}
-                  style={{ padding: "9px", border: `1.5px solid ${form.sendNotification === v ? "#15213f" : "#e0e0e0"}`, borderRadius: "7px", cursor: "pointer", fontSize: "13px", fontWeight: "600", backgroundColor: form.sendNotification === v ? "#eef1f7" : "#f9f9f9", color: form.sendNotification === v ? "#15213f" : "#666" }}>
+                  style={{ padding: "9px", border: `1.5px solid ${form.sendNotification === v ? "#ec5a4d" : "#e0e0e0"}`, borderRadius: "7px", cursor: "pointer", fontSize: "13px", fontWeight: "600", backgroundColor: form.sendNotification === v ? "#fdecea" : "#f9f9f9", color: form.sendNotification === v ? "#ec5a4d" : "#666" }}>
                   {v}
                 </button>
               ))}
@@ -463,7 +463,7 @@ function MedicationModal({ existing, healthProblems, onSave, onClose }) {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
               {["Yes","No"].map(v => (
                 <button key={v} onClick={() => set("selfAdministered", v)}
-                  style={{ padding: "8px", border: `1.5px solid ${form.selfAdministered === v ? "#15213f" : "#e0e0e0"}`, borderRadius: "7px", cursor: "pointer", fontSize: "13px", fontWeight: "600", backgroundColor: form.selfAdministered === v ? "#eef1f7" : "#f9f9f9", color: form.selfAdministered === v ? "#15213f" : "#666" }}>
+                  style={{ padding: "8px", border: `1.5px solid ${form.selfAdministered === v ? "#ec5a4d" : "#e0e0e0"}`, borderRadius: "7px", cursor: "pointer", fontSize: "13px", fontWeight: "600", backgroundColor: form.selfAdministered === v ? "#fdecea" : "#f9f9f9", color: form.selfAdministered === v ? "#ec5a4d" : "#666" }}>
                   {v}
                 </button>
               ))}
@@ -560,7 +560,7 @@ export default function PlayerMedicalRecord({ player, onClose }) {
           {/* Header */}
           <div style={{ background: "linear-gradient(135deg, #1a2340, #2d3a5c)", padding: "20px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-              <div style={{ width: "44px", height: "44px", borderRadius: "50%", backgroundColor: "#15213f", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>
+              <div style={{ width: "44px", height: "44px", borderRadius: "50%", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>
                 {player.name.split(" ").map(w => w[0]).join("").slice(0, 2)}
               </div>
               <div>
@@ -589,9 +589,9 @@ export default function PlayerMedicalRecord({ player, onClose }) {
           <div style={{ display: "flex", borderBottom: "1px solid #f0f0f0", backgroundColor: "#fafafa", padding: "0 20px" }}>
             {TABS.map(tab => (
               <button key={tab.key} onClick={() => setActiveSection(tab.key)}
-                style={{ display: "flex", alignItems: "center", gap: "6px", padding: "13px 16px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: activeSection === tab.key ? "#15213f" : "#888", borderBottom: activeSection === tab.key ? "2px solid #15213f" : "2px solid transparent" }}>
+                style={{ display: "flex", alignItems: "center", gap: "6px", padding: "13px 16px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: activeSection === tab.key ? "#ec5a4d" : "#888", borderBottom: activeSection === tab.key ? "2px solid #ec5a4d" : "2px solid transparent" }}>
                 {tab.label}
-                <span style={{ fontSize: "11px", fontWeight: "700", padding: "1px 7px", borderRadius: "20px", backgroundColor: activeSection === tab.key ? "#eef1f7" : "#f0f0f0", color: activeSection === tab.key ? "#15213f" : "#888" }}>{tab.count}</span>
+                <span style={{ fontSize: "11px", fontWeight: "700", padding: "1px 7px", borderRadius: "20px", backgroundColor: activeSection === tab.key ? "#fdecea" : "#f0f0f0", color: activeSection === tab.key ? "#ec5a4d" : "#888" }}>{tab.count}</span>
               </button>
             ))}
           </div>
@@ -607,7 +607,7 @@ export default function PlayerMedicalRecord({ player, onClose }) {
                     <div style={{ display: "flex", gap: "0", marginLeft: "12px" }}>
                       {["Open","Closed","All"].map(f => (
                         <button key={f} onClick={() => setHpFilter(f)}
-                          style={{ padding: "4px 10px", border: "1px solid #e0e0e0", backgroundColor: hpFilter === f ? "#15213f" : "#fff", color: hpFilter === f ? "#fff" : "#666", fontSize: "12px", fontWeight: "600", cursor: "pointer", borderRadius: f === "Open" ? "5px 0 0 5px" : f === "All" ? "0 5px 5px 0" : "0" }}>
+                          style={{ padding: "4px 10px", border: "1px solid #e0e0e0", backgroundColor: hpFilter === f ? "#ec5a4d" : "#fff", color: hpFilter === f ? "#fff" : "#666", fontSize: "12px", fontWeight: "600", cursor: "pointer", borderRadius: f === "Open" ? "5px 0 0 5px" : f === "All" ? "0 5px 5px 0" : "0" }}>
                           {f}
                         </button>
                       ))}
@@ -638,7 +638,7 @@ export default function PlayerMedicalRecord({ player, onClose }) {
                           >
                             <td style={{ padding: "10px 12px", fontSize: "13px", color: "#555", borderBottom: "1px solid #f5f5f5", whiteSpace: "nowrap" }}>{fmtDate(hp.date)}</td>
                             <td style={{ padding: "10px 12px", fontSize: "12px", color: "#cc3333", borderBottom: "1px solid #f5f5f5", whiteSpace: "nowrap" }}>{hp.category}</td>
-                            <td style={{ padding: "10px 12px", fontSize: "13px", fontWeight: "600", color: "#15213f", borderBottom: "1px solid #f5f5f5", cursor: "pointer", textDecoration: "underline" }}>{hp.problem}</td>
+                            <td style={{ padding: "10px 12px", fontSize: "13px", fontWeight: "600", color: "#ec5a4d", borderBottom: "1px solid #f5f5f5", cursor: "pointer", textDecoration: "underline" }}>{hp.problem}</td>
                             <td style={{ padding: "10px 12px", borderBottom: "1px solid #f5f5f5" }}>
                               <ParticipationBadge status={hp.participationStatus} />
                             </td>
@@ -652,7 +652,7 @@ export default function PlayerMedicalRecord({ player, onClose }) {
                             <td style={{ padding: "10px 12px", fontSize: "12px", color: "#555", borderBottom: "1px solid #f5f5f5" }}>{hp.recordedBy}</td>
                             <td style={{ padding: "10px 12px", borderBottom: "1px solid #f5f5f5" }}>
                               <div style={{ display: "flex", gap: "6px" }}>
-                                <button onClick={() => { setEditHp(hp); setShowHpModal(true); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#15213f", display: "flex" }}><Edit2 size={14} /></button>
+                                <button onClick={() => { setEditHp(hp); setShowHpModal(true); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#ec5a4d", display: "flex" }}><Edit2 size={14} /></button>
                                 <button onClick={() => deleteHp(hp.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "#cc3333", display: "flex" }}><Trash2 size={14} /></button>
                               </div>
                             </td>
@@ -709,7 +709,7 @@ export default function PlayerMedicalRecord({ player, onClose }) {
                             <td style={{ padding: "10px 12px", fontSize: "12px", color: "#555", borderBottom: "1px solid #f5f5f5" }}>{c.recordedBy}</td>
                             <td style={{ padding: "10px 12px", borderBottom: "1px solid #f5f5f5" }}>
                               <div style={{ display: "flex", gap: "6px" }}>
-                                {!c.locked && <button onClick={() => { setEditCons(c); setShowConsModal(true); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#15213f", display: "flex" }}><Edit2 size={14} /></button>}
+                                {!c.locked && <button onClick={() => { setEditCons(c); setShowConsModal(true); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#ec5a4d", display: "flex" }}><Edit2 size={14} /></button>}
                                 {c.locked && <Lock size={13} style={{ color: "#aaa" }} />}
                                 <button onClick={() => deleteCons(c.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "#cc3333", display: "flex" }}><X size={14} /></button>
                               </div>
@@ -766,7 +766,7 @@ export default function PlayerMedicalRecord({ player, onClose }) {
                             </td>
                             <td style={{ padding: "10px 12px", borderBottom: "1px solid #f5f5f5" }}>
                               <div style={{ display: "flex", gap: "6px" }}>
-                                <button onClick={() => { setEditMed(m); setShowMedModal(true); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#15213f", display: "flex" }}><Edit2 size={14} /></button>
+                                <button onClick={() => { setEditMed(m); setShowMedModal(true); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#ec5a4d", display: "flex" }}><Edit2 size={14} /></button>
                                 <button onClick={() => deleteMed(m.id)} style={{ background: "none", border: "none", cursor: "pointer", color: "#cc3333", display: "flex" }}><X size={14} /></button>
                               </div>
                             </td>

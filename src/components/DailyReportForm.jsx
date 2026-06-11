@@ -36,18 +36,18 @@ const ScaleRow = ({ value, onChange, min = 0, max = 10 }) => {
               width: "42px",
               height: "42px",
               borderRadius: "50%",
-              border: active ? "2px solid #15213f" : "1.5px solid #d1d5db",
-              backgroundColor: active ? "#15213f" : "#ffffff",
+              border: active ? "2px solid #ec5a4d" : "1.5px solid #d1d5db",
+              backgroundColor: active ? "#ec5a4d" : "#ffffff",
               color: active ? "#ffffff" : "#374151",
               fontSize: "14px",
               fontWeight: active ? "700" : "500",
               cursor: "pointer",
               transition: "all 0.15s",
               flexShrink: 0,
-              boxShadow: active ? "0 2px 6px rgba(21,33,63,0.3)" : "none",
+              boxShadow: active ? "0 2px 6px rgba(236,90,77,0.3)" : "none",
             }}
             onMouseEnter={(e) => {
-              if (!active) e.currentTarget.style.borderColor = "#15213f";
+              if (!active) e.currentTarget.style.borderColor = "#ec5a4d";
             }}
             onMouseLeave={(e) => {
               if (!active) e.currentTarget.style.borderColor = "#d1d5db";
@@ -155,33 +155,13 @@ const DailyReportForm = ({ onBack }) => {
           gap: "14px",
         }}
       >
-        {onBack && (
-          <button
-            onClick={onBack}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              background: "none",
-              border: "none",
-              color: "#64748b",
-              fontSize: "13px",
-              cursor: "pointer",
-              padding: "0",
-              fontWeight: "500",
-            }}
-          >
-            <ChevronLeft size={18} />
-            Back
-          </button>
-        )}
         <h1
           style={{
             fontSize: "20px",
             fontWeight: "700",
             color: "#1f2937",
             margin: 0,
-            fontFamily: "'Playfair Display', Georgia, serif",
+            fontFamily: "'Barlow Condensed', sans-serif",
           }}
         >
           New Appointment
@@ -196,6 +176,26 @@ const DailyReportForm = ({ onBack }) => {
           padding: "32px 28px 48px",
         }}
       >
+        {onBack && (
+          <button
+            onClick={onBack}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              background: "none",
+              border: "none",
+              color: "#64748b",
+              fontSize: "13px",
+              cursor: "pointer",
+              padding: "0",
+              fontWeight: "600",
+              marginBottom: "18px",
+            }}
+          >
+            <ChevronLeft size={18} /> Back
+          </button>
+        )}
         {/* Name */}
         <Field label="Name">
           <input
@@ -204,7 +204,7 @@ const DailyReportForm = ({ onBack }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             style={inputStyle}
-            onFocus={(e) => (e.target.style.borderColor = "#15213f")}
+            onFocus={(e) => (e.target.style.borderColor = "#ec5a4d")}
             onBlur={(e) => (e.target.style.borderColor = "#d1d5db")}
           />
         </Field>
@@ -232,11 +232,11 @@ const DailyReportForm = ({ onBack }) => {
                     backgroundColor: c.hex,
                     border:
                       urineColour === c.label
-                        ? "3px solid #15213f"
+                        ? "3px solid #ec5a4d"
                         : "3px solid transparent",
                     boxShadow:
                       urineColour === c.label
-                        ? "0 0 0 2px rgba(21,33,63,0.3)"
+                        ? "0 0 0 2px rgba(236,90,77,0.3)"
                         : "none",
                     transition: "all 0.15s",
                   }}
@@ -245,7 +245,7 @@ const DailyReportForm = ({ onBack }) => {
                   style={{
                     fontSize: "11px",
                     color:
-                      urineColour === c.label ? "#15213f" : "#4b5563",
+                      urineColour === c.label ? "#ec5a4d" : "#4b5563",
                     fontWeight: urineColour === c.label ? "700" : "400",
                     textAlign: "center",
                     maxWidth: "64px",
@@ -297,7 +297,7 @@ const DailyReportForm = ({ onBack }) => {
                     gap: "9px",
                     cursor: "pointer",
                     fontSize: "14px",
-                    color: active ? "#15213f" : "#374151",
+                    color: active ? "#ec5a4d" : "#374151",
                     fontWeight: active ? "600" : "400",
                   }}
                 >
@@ -308,10 +308,10 @@ const DailyReportForm = ({ onBack }) => {
                       height: "20px",
                       borderRadius: "50%",
                       border: active
-                        ? "2px solid #15213f"
+                        ? "2px solid #ec5a4d"
                         : "2px solid #9ca3af",
                       backgroundColor: active
-                        ? "rgba(21,33,63,0.12)"
+                        ? "rgba(236,90,77,0.12)"
                         : "transparent",
                       display: "flex",
                       alignItems: "center",
@@ -326,7 +326,7 @@ const DailyReportForm = ({ onBack }) => {
                           width: "9px",
                           height: "9px",
                           borderRadius: "50%",
-                          backgroundColor: "#15213f",
+                          backgroundColor: "#ec5a4d",
                         }}
                       />
                     )}
@@ -344,14 +344,14 @@ const DailyReportForm = ({ onBack }) => {
                 marginTop: "14px",
                 padding: "16px",
                 backgroundColor: "#f8fafc",
-                border: "1.5px dashed #15213f",
+                border: "1.5px dashed #ec5a4d",
                 borderRadius: "10px",
               }}
             >
               <p
                 style={{
                   fontSize: "13px",
-                  color: "#15213f",
+                  color: "#ec5a4d",
                   fontWeight: "600",
                   marginBottom: "10px",
                 }}
@@ -373,13 +373,13 @@ const DailyReportForm = ({ onBack }) => {
                     width: "fit-content",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.borderColor = "#15213f")
+                    (e.currentTarget.style.borderColor = "#ec5a4d")
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.borderColor = "#d1d5db")
                   }
                 >
-                  <Upload size={16} style={{ color: "#15213f" }} />
+                  <Upload size={16} style={{ color: "#ec5a4d" }} />
                   <span
                     style={{
                       fontSize: "13px",
@@ -405,12 +405,12 @@ const DailyReportForm = ({ onBack }) => {
                     gap: "10px",
                     padding: "10px 14px",
                     backgroundColor: "#ffffff",
-                    border: "1.5px solid #15213f",
+                    border: "1.5px solid #ec5a4d",
                     borderRadius: "8px",
                     width: "fit-content",
                   }}
                 >
-                  <FileText size={16} style={{ color: "#15213f" }} />
+                  <FileText size={16} style={{ color: "#ec5a4d" }} />
                   <span
                     style={{
                       fontSize: "13px",
@@ -457,7 +457,7 @@ const DailyReportForm = ({ onBack }) => {
             value={ballsBowled}
             onChange={(e) => setBallsBowled(e.target.value)}
             style={{ ...inputStyle, width: "200px" }}
-            onFocus={(e) => (e.target.style.borderColor = "#15213f")}
+            onFocus={(e) => (e.target.style.borderColor = "#ec5a4d")}
             onBlur={(e) => (e.target.style.borderColor = "#d1d5db")}
           />
         </Field>
@@ -485,7 +485,7 @@ const DailyReportForm = ({ onBack }) => {
                     gap: "8px",
                     cursor: "pointer",
                     fontSize: "14px",
-                    color: checked ? "#15213f" : "#374151",
+                    color: checked ? "#ec5a4d" : "#374151",
                     fontWeight: checked ? "600" : "400",
                     userSelect: "none",
                   }}
@@ -496,10 +496,10 @@ const DailyReportForm = ({ onBack }) => {
                       height: "18px",
                       borderRadius: "4px",
                       border: checked
-                        ? "2px solid #15213f"
+                        ? "2px solid #ec5a4d"
                         : "2px solid #9ca3af",
                       backgroundColor: checked
-                        ? "#15213f"
+                        ? "#ec5a4d"
                         : "transparent",
                       display: "flex",
                       alignItems: "center",
@@ -542,7 +542,7 @@ const DailyReportForm = ({ onBack }) => {
             onClick={handleSubmit}
             style={{
               padding: "11px 32px",
-              backgroundColor: "#15213f",
+              backgroundColor: "#ec5a4d",
               color: "#ffffff",
               border: "none",
               borderRadius: "8px",
@@ -550,13 +550,13 @@ const DailyReportForm = ({ onBack }) => {
               fontWeight: "700",
               cursor: "pointer",
               transition: "background 0.15s",
-              boxShadow: "0 2px 8px rgba(21,33,63,0.35)",
+              boxShadow: "0 2px 8px rgba(236,90,77,0.35)",
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#1f2d52")
+              (e.currentTarget.style.backgroundColor = "#d6443a")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#15213f")
+              (e.currentTarget.style.backgroundColor = "#ec5a4d")
             }
           >
             Submit

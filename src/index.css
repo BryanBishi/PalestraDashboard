@@ -1,174 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────────────────
-   Cricket / KCA-inspired design system
-   Navy chrome · red accent · green field banners · gold · serif headings
+   Palaestra design system (shared with the Player Portal)
+   coral primary · ink/charcoal dark chrome · paper bg · Barlow
    ────────────────────────────────────────────────────────────────────────── */
-:root {
-  /* brand */
-  --navy: #15213f;
-  --navy-hover: #1f2d52;
-  --navy-light: #34508c;
-  --navy-tint: #eef1f7;
-  --navy-tint-border: #cdd5e6;
+:root { --ink: #0c0d10; --ink-2: #16181d; --charcoal: #191d24; --charcoal-2: #222831; --coral: #ec5a4d; --coral-dark: #d6443a; --coral-tint: #fdecea; --navy: #16306e; --navy-2: #1f3f8a; --gold: #c79a2f; --gold-soft: #e7cf8e; --paper: #f3f4f6; --card: #ffffff; --line: #e6e7eb; --line-2: #eef0f3; --text: #171a1f; --muted: #6b7280; --muted-2: #9aa0aa; --ok: #1f9d57; --ok-tint: #e7f6ed; --warn: #d98a0b; --warn-tint: #fdf2dd; --danger: #d6443a; --radius: 14px; --radius-sm: 10px; --shadow: 0 1px 2px rgba(16,18,22,.05),0 8px 24px -12px rgba(16,18,22,.14); --shadow-lg: 0 24px 60px -24px rgba(16,18,22,.34); --maxw: 1180px; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: Barlow, system-ui, sans-serif; background: var(--paper); color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3, h4 { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+.cond { font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.01em; }
+.semicond { font-family: "Barlow Semi Condensed", sans-serif; }
+button { font-family: inherit; cursor: pointer; }
+::selection { background: var(--coral); color: #fff; }
 
-  --red: #e1262b;
-  --red-hover: #c01f23;
-  --red-tint: #fdecec;
+/* shared component classes (same as Player Portal) */
+.banner { background: linear-gradient(rgb(19,22,28) 0%, rgb(12,13,16) 100%); color: #fff; position: relative; overflow: hidden; border-bottom: 3px solid var(--coral); }
+.banner::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 64px); opacity: 0.6; }
+.banner::after { content: ""; position: absolute; right: -40px; top: -60px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(236,90,77,0.22) 0%, transparent 65%); }
+.banner-inner { max-width: var(--maxw); margin: 0 auto; padding: 26px 28px; position: relative; z-index: 1; }
+.banner .eyebrow { font-family: "Barlow Semi Condensed"; font-weight: 600; letter-spacing: 0.18em; font-size: 12px; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; }
+.banner h1 { font-family: "Barlow Condensed"; font-weight: 700; font-size: 32px; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.08; }
+.banner .sub { color: rgb(174,180,189); font-size: 14px; margin-top: 10px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.chip { font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.02em; }
+.chip-ok { background: var(--ok-tint); color: var(--ok); }
+.chip-warn { background: var(--warn-tint); color: var(--warn); }
+.chip-danger { background: var(--coral-tint); color: var(--coral-dark); }
+.chip-neutral { background: var(--paper); color: var(--muted); }
 
-  --blue: #1f6fd1;
-  --gold: #c9a227;
+/* footer (shared with Player Portal) */
+.footer { background: var(--charcoal); color: rgb(174,180,189); position: relative; overflow: hidden; }
+.footer::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.024) 0, rgba(255,255,255,0.024) 1px, transparent 1px, transparent 80px); }
+.footer-top { max-width: var(--maxw); margin: 0 auto; padding: 44px 24px 28px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; position: relative; z-index: 1; }
+.footer .f-brand { display: flex; gap: 14px; align-items: flex-start; }
+.footer .f-about { font-size: 13px; line-height: 1.6; margin-top: 14px; color: rgb(139,146,156); max-width: 280px; }
+.f-col h4 { font-family: "Barlow Semi Condensed"; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+.f-col a { display: block; font-size: 13.5px; padding: 5px 0; color: rgb(154,160,170); transition: 0.12s; cursor: pointer; }
+.f-col a:hover { color: var(--coral); }
+.footer-bottom { border-top: 1px solid rgb(42,46,54); position: relative; z-index: 1; }
+.footer-bottom-inner { max-width: var(--maxw); margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: rgb(119,126,136); }
+.footer-bottom .fb-accent { color: var(--gold-soft); }
+@media (max-width: 780px) { .footer-top { grid-template-columns: 1fr 1fr; } }
 
-  --green: #2e7d32;
-  --green-tint: #eaf6ea;
-  --green-border: #bfe3bf;
+/* scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c7cdd8; border-radius: 6px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: #aab2c2; background-clip: padding-box; }
+.sidebar-scroll::-webkit-scrollbar { width: 6px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 3px; border: none; }
 
-  /* status */
-  --danger: #cc3333;
-  --danger-tint: #fdecec;
-  --danger-border: #f7c5c5;
-  --warn: #f59e0b;
-  --warn-tint: #fff7e6;
-  --warn-border: #ffe2a8;
+/* keyframes */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(0.82); } }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-  /* neutrals */
-  --bg: #f4f6f9;
-  --surface: #ffffff;
-  --border: #e6e8ec;
-  --text: #1a2233;
-  --text-mut: #5b6472;
-  --text-faint: #8a93a3;
-
-  /* type / shape */
-  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --radius-card: 14px;
-  --radius-btn: 10px;
-  --shadow-card: 0 2px 10px rgba(20, 33, 63, 0.06);
-  --shadow-elev: 0 8px 28px rgba(20, 33, 63, 0.12);
-
-  /* legacy aliases (kept so any stray var() refs don't break) */
-  --color-content-bg: var(--bg);
-  --color-white: var(--surface);
-  --color-border: var(--border);
-  --color-text-dark: var(--text);
-  --color-text-muted: var(--text-faint);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-}
-
-/* ── Scrollbars ───────────────────────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #c7cdd8;
-  border-radius: 6px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #aab2c2;
-  background-clip: padding-box;
-}
-/* dark scrollbar inside the navy sidebar */
-.sidebar-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-.sidebar-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-.sidebar-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 3px;
-  border: none;
-}
-
-/* ── Keyframes ────────────────────────────────────────────────────────────── */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.55; transform: scale(0.82); }
-}
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ── Responsive utility classes ───────────────────────────────────────────────
-   Add these via className to existing containers to make fixed grids/tables
-   collapse on small screens WITHOUT changing component logic.
-   ────────────────────────────────────────────────────────────────────────── */
-.scroll-x {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.grid-auto {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-@media (max-width: 900px) {
-  .grid-3 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+/* responsive utility classes (used via className on existing containers) */
+.scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) {
-  .grid-2,
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-  .hide-sm {
-    display: none !important;
-  }
-  .page-banner {
-    padding: 16px 18px !important;
-  }
-  /* leave room for the fixed hamburger button on mobile */
-  .app-header {
-    padding-left: 64px !important;
-    padding-right: 16px !important;
-  }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .hide-sm { display: none !important; }
+  .banner-inner { padding: 18px 18px !important; }
+  .app-header { padding-left: 64px !important; padding-right: 16px !important; }
 }

@@ -18,37 +18,37 @@ const iStyle = {
   backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box",
   fontFamily: "inherit",
 };
-const fo = e => (e.target.style.borderColor = "#15213f");
+const fo = e => (e.target.style.borderColor = "#ec5a4d");
 const fb = e => (e.target.style.borderColor = "#e0e0e0");
 
 const OBtn = ({ children, onClick, style = {}, disabled = false }) => (
   <button onClick={onClick} disabled={disabled}
-    style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: disabled ? "#e0e0e0" : "#15213f", color: disabled ? "#aaa" : "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: disabled ? "not-allowed" : "pointer", boxShadow: disabled ? "none" : "0 2px 8px rgba(21,33,63,0.28)", ...style }}
-    onMouseEnter={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#1f2d52"; }}
-    onMouseLeave={e => { if (!disabled) e.currentTarget.style.backgroundColor = disabled ? "#e0e0e0" : (style.backgroundColor || "#15213f"); }}
+    style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: disabled ? "#e0e0e0" : "#ec5a4d", color: disabled ? "#aaa" : "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: disabled ? "not-allowed" : "pointer", boxShadow: disabled ? "none" : "0 2px 8px rgba(236,90,77,0.28)", ...style }}
+    onMouseEnter={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#d6443a"; }}
+    onMouseLeave={e => { if (!disabled) e.currentTarget.style.backgroundColor = disabled ? "#e0e0e0" : (style.backgroundColor || "#ec5a4d"); }}
   >{children}</button>
 );
 
 const GhostBtn = ({ children, onClick, style = {} }) => (
   <button onClick={onClick}
     style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "8px 16px", backgroundColor: "#fff", color: "#555", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", fontWeight: "600", cursor: "pointer", ...style }}
-    onMouseEnter={e => { e.currentTarget.style.borderColor = "#15213f"; e.currentTarget.style.color = "#15213f"; }}
+    onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
     onMouseLeave={e => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
   >{children}</button>
 );
 
 const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
-    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>{title}</h1>
+    <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>{title}</h1>
     {sub && <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#e1262b", borderRadius: "2px", marginTop: "6px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
   </div>
 );
 
 const BackBtn = ({ label, onClick }) => (
   <button onClick={onClick}
     style={{ display: "flex", alignItems: "center", gap: "6px", background: "none", border: "none", color: "#888", fontSize: "13px", fontWeight: "600", cursor: "pointer", marginBottom: "18px", padding: "0" }}
-    onMouseEnter={e => (e.currentTarget.style.color = "#15213f")}
+    onMouseEnter={e => (e.currentTarget.style.color = "#ec5a4d")}
     onMouseLeave={e => (e.currentTarget.style.color = "#888")}
   ><ArrowLeft size={15} /> {label}</button>
 );
@@ -128,7 +128,7 @@ const MSK_MEASURES = [
     ],
   },
   {
-    group: "Side Lying on Floor", color: "#e65100", bg: "#eef1f7", border: "#ffcc80",
+    group: "Side Lying on Floor", color: "#e65100", bg: "#fdecea", border: "#ffcc80",
     items: [
       { id: 33, label: "Side lying thoracic rotation ROM (cm) – on floor" },
     ],
@@ -162,13 +162,13 @@ function MeasureRow({ num, label, note, values, onChange, isEven }) {
   return (
     <tr style={{ backgroundColor: isEven ? "#f9f9f9" : "#fff" }}>
       {/* Number */}
-      <td style={{ padding: "8px 12px", fontSize: "12px", fontWeight: "700", color: "#15213f", textAlign: "center", borderBottom: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0", width: "36px" }}>
+      <td style={{ padding: "8px 12px", fontSize: "12px", fontWeight: "700", color: "#ec5a4d", textAlign: "center", borderBottom: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0", width: "36px" }}>
         {num}
       </td>
       {/* Measure label */}
       <td style={{ padding: "8px 14px", fontSize: "12px", color: "#333", borderBottom: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0", lineHeight: "1.45" }}>
         {label}
-        {note && <div style={{ fontSize: "10px", color: "#15213f", fontStyle: "italic", marginTop: "2px" }}>{note}</div>}
+        {note && <div style={{ fontSize: "10px", color: "#ec5a4d", fontStyle: "italic", marginTop: "2px" }}>{note}</div>}
       </td>
       {/* Left */}
       <td style={{ padding: "6px 8px", borderBottom: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0", width: "80px", minWidth: "70px" }}>
@@ -241,7 +241,7 @@ function AssessmentForm({ type, onBack, onSave, initialData }) {
       th.center{text-align:center}
       td{padding:6px 10px;border:1px solid #e0e0e0;font-size:11px;line-height:1.4}
       td.center{text-align:center}
-      .num{color:#15213f;font-weight:700;text-align:center}
+      .num{color:#ec5a4d;font-weight:700;text-align:center}
       .group{background:#e3f2fd;color:#1565c0;font-weight:700;padding:7px 10px;border-left:4px solid #1565c0;font-size:11px;letter-spacing:.4px;text-transform:uppercase}
       tr:nth-child(even) td{background:#f9f9f9}
       @media print{body{padding:14px}}
@@ -256,7 +256,7 @@ function AssessmentForm({ type, onBack, onSave, initialData }) {
       <BackBtn label="Physio Assessments" onClick={onBack} />
 
       {/* Page title */}
-      <div style={{ ...card({ padding: "18px 22px", marginBottom: "20px" }), borderLeft: "4px solid #15213f" }}>
+      <div style={{ ...card({ padding: "18px 22px", marginBottom: "20px" }), borderLeft: "4px solid #ec5a4d" }}>
         <div style={{ textAlign: "center", marginBottom: "4px" }}>
           <h2 style={{ fontSize: "clamp(15px, 3vw, 19px)", fontWeight: "800", color: "#1565c0", textDecoration: "underline", margin: 0, textTransform: "uppercase" }}>
             {isRps ? "(Routine Physio Screen)" : "MSK Recording Sheet"}
@@ -277,7 +277,7 @@ function AssessmentForm({ type, onBack, onSave, initialData }) {
       {/* Meta fields */}
       <div style={card({ padding: "18px 22px", marginBottom: "20px" })}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px" }}>
-          <User size={14} style={{ color: "#15213f" }} />
+          <User size={14} style={{ color: "#ec5a4d" }} />
           <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>Assessment Details</span>
         </div>
 
@@ -375,7 +375,7 @@ function AssessmentCard({ assessment, onView, onDelete }) {
   const total  = Object.keys(assessment.rows).length;
 
   return (
-    <div style={card({ padding: "16px 20px", cursor: "pointer", transition: "all 0.15s", borderLeft: isRps ? "4px solid #15213f" : "4px solid #0277bd" })}
+    <div style={card({ padding: "16px 20px", cursor: "pointer", transition: "all 0.15s", borderLeft: isRps ? "4px solid #ec5a4d" : "4px solid #0277bd" })}
       onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 14px rgba(0,0,0,0.09)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 1px 4px rgba(0,0,0,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
     >
@@ -385,7 +385,7 @@ function AssessmentCard({ assessment, onView, onDelete }) {
             <span style={{ fontSize: "15px", fontWeight: "700", color: "#222" }}>
               {assessment.meta.athleteName || "Unknown Athlete"}
             </span>
-            <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 9px", borderRadius: "20px", backgroundColor: isRps ? "#eef1f7" : "#e3f2fd", color: isRps ? "#15213f" : "#1565c0", border: `1px solid ${isRps ? "#cdd5e6" : "#90caf9"}` }}>
+            <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 9px", borderRadius: "20px", backgroundColor: isRps ? "#fdecea" : "#e3f2fd", color: isRps ? "#ec5a4d" : "#1565c0", border: `1px solid ${isRps ? "#f6d4d0" : "#90caf9"}` }}>
               {isRps ? "RPS" : "MSK"}
             </span>
           </div>
@@ -397,17 +397,17 @@ function AssessmentCard({ assessment, onView, onDelete }) {
           {/* Progress */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ flex: 1, height: "5px", backgroundColor: "#f0f0f0", borderRadius: "4px", overflow: "hidden" }}>
-              <div style={{ height: "100%", width: `${Math.round((filled / total) * 100)}%`, backgroundColor: filled === total ? "#2e7d32" : "#15213f", borderRadius: "4px", transition: "width 0.5s" }} />
+              <div style={{ height: "100%", width: `${Math.round((filled / total) * 100)}%`, backgroundColor: filled === total ? "#2e7d32" : "#ec5a4d", borderRadius: "4px", transition: "width 0.5s" }} />
             </div>
             <span style={{ fontSize: "11px", color: "#888", whiteSpace: "nowrap" }}>{filled}/{total} filled</span>
           </div>
         </div>
         <div style={{ display: "flex", gap: "6px", flexShrink: 0 }}>
           <button onClick={() => onView(assessment)}
-            style={{ width: "30px", height: "30px", borderRadius: "7px", backgroundColor: isRps ? "#eef1f7" : "#e3f2fd", border: `1px solid ${isRps ? "#cdd5e6" : "#90caf9"}`, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
+            style={{ width: "30px", height: "30px", borderRadius: "7px", backgroundColor: isRps ? "#fdecea" : "#e3f2fd", border: `1px solid ${isRps ? "#f6d4d0" : "#90caf9"}`, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
             onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
             onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-          ><Edit2 size={13} style={{ color: isRps ? "#15213f" : "#1565c0" }} /></button>
+          ><Edit2 size={13} style={{ color: isRps ? "#ec5a4d" : "#1565c0" }} /></button>
           <button onClick={() => onDelete(assessment.id)}
             style={{ width: "30px", height: "30px", borderRadius: "7px", backgroundColor: "#fff0f0", border: "1px solid #ffc5c5", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#ffc5c5")}
@@ -486,15 +486,15 @@ export default function PhysioAssessments({ player }) {
       {/* ── HEADING + actions ── */}
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "22px", gap: "14px", flexWrap: "wrap" }}>
         <div>
-          <h1 style={{ fontSize: "clamp(18px, 3vw, 22px)", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Playfair Display', Georgia, serif" }}>Physio Assessments</h1>
+          <h1 style={{ fontSize: "clamp(18px, 3vw, 22px)", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>Physio Assessments</h1>
           <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>Routine Physio Screen (RPS) &amp; MSK Recording Sheet</p>
-          <div style={{ width: "32px", height: "3px", backgroundColor: "#e1262b", borderRadius: "2px", marginTop: "6px" }} />
+          <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
         </div>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           <button onClick={() => { setActiveAss(null); setView(V.RPS); }}
-            style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 16px", backgroundColor: "#eef1f7", color: "#15213f", border: "1.5px solid #cdd5e6", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#cdd5e6")}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#eef1f7")}
+            style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 16px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1.5px solid #f6d4d0", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#f6d4d0")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#fdecea")}
           >
             <Plus size={14} /> New RPS
           </button>
@@ -511,7 +511,7 @@ export default function PhysioAssessments({ player }) {
       {/* ── STAT CARDS ── */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))", gap: "14px", marginBottom: "22px" }}>
         {[
-          { label: "Total Assessments", value: assessments.length, color: "#15213f", icon: ClipboardList },
+          { label: "Total Assessments", value: assessments.length, color: "#ec5a4d", icon: ClipboardList },
           { label: "RPS Assessments",   value: rpsCount,           color: "#f9a825", icon: Activity     },
           { label: "MSK Assessments",   value: mskCount,           color: "#1565c0", icon: Activity     },
           { label: "Avg Completion",    value: `${totalFill}%`,    color: "#2e7d32", icon: CheckCircle2 },
@@ -532,14 +532,14 @@ export default function PhysioAssessments({ player }) {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px", marginBottom: "22px" }}>
 
         {/* RPS card */}
-        <div style={card({ padding: "22px", borderLeft: "4px solid #15213f", cursor: "pointer", transition: "all 0.15s" })}
+        <div style={card({ padding: "22px", borderLeft: "4px solid #ec5a4d", cursor: "pointer", transition: "all 0.15s" })}
           onClick={() => { setActiveAss(null); setView(V.RPS); }}
-          onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 14px rgba(21,33,63,0.15)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+          onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 14px rgba(236,90,77,0.15)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
           onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 1px 4px rgba(0,0,0,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-            <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: "#eef1f7", border: "1.5px solid #cdd5e6", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <ClipboardList size={20} style={{ color: "#15213f" }} />
+            <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: "#fdecea", border: "1.5px solid #f6d4d0", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <ClipboardList size={20} style={{ color: "#ec5a4d" }} />
             </div>
             <div>
               <div style={{ fontSize: "15px", fontWeight: "800", color: "#222" }}>RPS</div>
@@ -549,7 +549,7 @@ export default function PhysioAssessments({ player }) {
           <p style={{ fontSize: "12px", color: "#666", lineHeight: "1.55", margin: "0 0 12px" }}>
             9-measure screen for bowlers (pre high-intensity) and batsmen/WK (twice weekly).
           </p>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#15213f", fontWeight: "700" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#ec5a4d", fontWeight: "700" }}>
             <span>9 measures</span>
             <span style={{ fontSize: "11px", color: "#aaa", fontWeight: "400" }}>· Left / Right / Comments</span>
           </div>
@@ -595,7 +595,7 @@ export default function PhysioAssessments({ player }) {
               <div style={{ display: "flex", border: "1.5px solid #e0e0e0", borderRadius: "8px", overflow: "hidden" }}>
                 {[{ k: "all", l: "All" }, { k: "rps", l: "RPS" }, { k: "msk", l: "MSK" }].map(f => (
                   <button key={f.k} onClick={() => setTypeFilter(f.k)}
-                    style={{ padding: "7px 14px", border: "none", fontSize: "12px", fontWeight: "700", cursor: "pointer", backgroundColor: typeFilter === f.k ? "#15213f" : "#fff", color: typeFilter === f.k ? "#fff" : "#666", borderRight: f.k !== "msk" ? "1px solid #e0e0e0" : "none", transition: "all 0.12s" }}>
+                    style={{ padding: "7px 14px", border: "none", fontSize: "12px", fontWeight: "700", cursor: "pointer", backgroundColor: typeFilter === f.k ? "#ec5a4d" : "#fff", color: typeFilter === f.k ? "#fff" : "#666", borderRight: f.k !== "msk" ? "1px solid #e0e0e0" : "none", transition: "all 0.12s" }}>
                     {f.l}
                   </button>
                 ))}
@@ -626,9 +626,9 @@ export default function PhysioAssessments({ player }) {
           <p style={{ fontSize: "13px", color: "#aaa", margin: "0 0 20px" }}>Create a new RPS or MSK assessment using the buttons above</p>
           <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap" }}>
             <button onClick={() => { setActiveAss(null); setView(V.RPS); }}
-              style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 18px", backgroundColor: "#eef1f7", color: "#15213f", border: "1.5px solid #cdd5e6", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#cdd5e6")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#eef1f7")}
+              style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 18px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1.5px solid #f6d4d0", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#f6d4d0")}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#fdecea")}
             ><Plus size={14} /> Start RPS</button>
             <button onClick={() => { setActiveAss(null); setView(V.MSK); }}
               style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 18px", backgroundColor: "#e3f2fd", color: "#1565c0", border: "1.5px solid #90caf9", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}
