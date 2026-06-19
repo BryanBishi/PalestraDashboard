@@ -196,15 +196,6 @@ const ExerciseManager = () => {
               <div style={{ height: "130px", backgroundColor: "#f3f4f6", position: "relative" }}>
                 <img src={exercise.gifUrl || exercise.gif} alt={exercise.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect fill="%23f0f0f0" width="100" height="100"/%3E%3Ctext x="50" y="50" font-size="12" fill="%23aaa" text-anchor="middle" dominant-baseline="middle"%3ENo GIF%3C/text%3E%3C/svg%3E'; }} />
 
-                <div style={{ position: "absolute", top: "8px", right: "8px", display: "flex", gap: "6px" }}>
-                  <button onClick={(e) => { e.stopPropagation(); openEditModal(exercise); }} style={{ background: "white", border: "none", width: "32px", height: "32px", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.15)" }}>
-                    <Edit2 size={16} color="#2f9be0" />
-                  </button>
-                  <button onClick={(e) => { e.stopPropagation(); handleDeleteExercise(id); }} style={{ background: "white", border: "none", width: "32px", height: "32px", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.15)" }}>
-                    <Trash2 size={16} color="#ef4444" />
-                  </button>
-                </div>
-
                 {isSelected && (
                   <div style={{ position: "absolute", top: "8px", left: "8px", backgroundColor: "#2f9be0", borderRadius: "50%", padding: "2px" }}>
                     <CheckCircle size={20} color="#fff" />
@@ -213,7 +204,17 @@ const ExerciseManager = () => {
               </div>
 
               <div style={{ padding: "12px", cursor: "pointer" }} onClick={() => toggleExercise(id)}>
-                <div style={{ fontWeight: "700", fontSize: "15px", marginBottom: "6px" }}>{exercise.name}</div>
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px", marginBottom: "6px" }}>
+                  <div style={{ fontWeight: "700", fontSize: "15px", flex: 1, minWidth: 0 }}>{exercise.name}</div>
+                  <div style={{ display: "flex", gap: "5px", flexShrink: 0 }}>
+                    <button onClick={(e) => { e.stopPropagation(); openEditModal(exercise); }} title="Edit" style={{ background: "#e8f3fb", border: "none", width: "28px", height: "28px", borderRadius: "7px", display: "grid", placeItems: "center", cursor: "pointer" }}>
+                      <Edit2 size={14} color="#2f9be0" />
+                    </button>
+                    <button onClick={(e) => { e.stopPropagation(); handleDeleteExercise(id); }} title="Delete" style={{ background: "#fdecec", border: "none", width: "28px", height: "28px", borderRadius: "7px", display: "grid", placeItems: "center", cursor: "pointer" }}>
+                      <Trash2 size={14} color="#cc3333" />
+                    </button>
+                  </div>
+                </div>
                 <div style={{ fontSize: "12px", color: "#2f9be0", marginBottom: "8px" }}>{exercise.category}</div>
 
                 {exercise.jointArea && <div style={{ fontSize: "12px", color: "#555" }}><strong>Joint/Area:</strong> {exercise.jointArea}</div>}
