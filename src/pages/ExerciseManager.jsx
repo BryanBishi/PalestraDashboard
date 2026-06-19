@@ -179,7 +179,7 @@ const ExerciseManager = () => {
       <PageBanner title="Exercises" sub="Workout & exercise library" />
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
         <h2 style={{ margin: 0, color: "#222", fontFamily: "'Barlow Condensed', sans-serif" }}>Exercise Library</h2>
-        <button onClick={openAddModal} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", backgroundColor: "#ec5a4d", color: "white", border: "none", borderRadius: "8px", fontWeight: "700", cursor: "pointer" }}>
+        <button onClick={openAddModal} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 20px", backgroundColor: "#2f9be0", color: "white", border: "none", borderRadius: "8px", fontWeight: "700", cursor: "pointer" }}>
           <Plus size={20} />
           Add New Exercise
         </button>
@@ -192,13 +192,13 @@ const ExerciseManager = () => {
           const isSelected = selected.includes(id);
 
           return (
-            <div key={id} style={{ backgroundColor: isSelected ? "#fdecea" : "#ffffff", border: isSelected ? "2px solid #ec5a4d" : "1.5px solid #e8e8e8", borderRadius: "12px", overflow: "hidden", position: "relative", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
+            <div key={id} style={{ backgroundColor: isSelected ? "#e8f3fb" : "#ffffff", border: isSelected ? "2px solid #2f9be0" : "1.5px solid #e8e8e8", borderRadius: "12px", overflow: "hidden", position: "relative", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
               <div style={{ height: "130px", backgroundColor: "#f3f4f6", position: "relative" }}>
                 <img src={exercise.gifUrl || exercise.gif} alt={exercise.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect fill="%23f0f0f0" width="100" height="100"/%3E%3Ctext x="50" y="50" font-size="12" fill="%23aaa" text-anchor="middle" dominant-baseline="middle"%3ENo GIF%3C/text%3E%3C/svg%3E'; }} />
 
                 <div style={{ position: "absolute", top: "8px", right: "8px", display: "flex", gap: "6px" }}>
                   <button onClick={(e) => { e.stopPropagation(); openEditModal(exercise); }} style={{ background: "white", border: "none", width: "32px", height: "32px", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.15)" }}>
-                    <Edit2 size={16} color="#ec5a4d" />
+                    <Edit2 size={16} color="#2f9be0" />
                   </button>
                   <button onClick={(e) => { e.stopPropagation(); handleDeleteExercise(id); }} style={{ background: "white", border: "none", width: "32px", height: "32px", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.15)" }}>
                     <Trash2 size={16} color="#ef4444" />
@@ -206,7 +206,7 @@ const ExerciseManager = () => {
                 </div>
 
                 {isSelected && (
-                  <div style={{ position: "absolute", top: "8px", left: "8px", backgroundColor: "#ec5a4d", borderRadius: "50%", padding: "2px" }}>
+                  <div style={{ position: "absolute", top: "8px", left: "8px", backgroundColor: "#2f9be0", borderRadius: "50%", padding: "2px" }}>
                     <CheckCircle size={20} color="#fff" />
                   </div>
                 )}
@@ -214,7 +214,7 @@ const ExerciseManager = () => {
 
               <div style={{ padding: "12px", cursor: "pointer" }} onClick={() => toggleExercise(id)}>
                 <div style={{ fontWeight: "700", fontSize: "15px", marginBottom: "6px" }}>{exercise.name}</div>
-                <div style={{ fontSize: "12px", color: "#ec5a4d", marginBottom: "8px" }}>{exercise.category}</div>
+                <div style={{ fontSize: "12px", color: "#2f9be0", marginBottom: "8px" }}>{exercise.category}</div>
 
                 {exercise.jointArea && <div style={{ fontSize: "12px", color: "#555" }}><strong>Joint/Area:</strong> {exercise.jointArea}</div>}
                 {exercise.position && <div style={{ fontSize: "12px", color: "#555" }}><strong>Position:</strong> {exercise.position}</div>}
@@ -228,7 +228,7 @@ const ExerciseManager = () => {
 
       {selected.length > 0 && (
         <div style={{ marginTop: "32px", textAlign: "center" }}>
-          <button onClick={handleSaveWorkout} style={{ backgroundColor: "#ec5a4d", color: "white", border: "none", padding: "12px 28px", borderRadius: "8px", fontWeight: "700", fontSize: "16px", display: "inline-flex", alignItems: "center", gap: "10px" }}>
+          <button onClick={handleSaveWorkout} style={{ backgroundColor: "#2f9be0", color: "white", border: "none", padding: "12px 28px", borderRadius: "8px", fontWeight: "700", fontSize: "16px", display: "inline-flex", alignItems: "center", gap: "10px" }}>
             <Dumbbell size={20} />
             Save Selected as Workout Plan ({selected.length})
           </button>
@@ -282,7 +282,7 @@ const ExerciseManager = () => {
 
               <div style={{ display: "flex", gap: "12px" }}>
                 <button type="button" onClick={closeModal} style={{ flex: 1, padding: "12px", border: "1px solid #ddd", borderRadius: "8px", background: "white" }}>Cancel</button>
-                <button type="submit" style={{ flex: 1, padding: "12px", backgroundColor: "#ec5a4d", color: "white", border: "none", borderRadius: "8px", fontWeight: "700" }}>
+                <button type="submit" style={{ flex: 1, padding: "12px", backgroundColor: "#2f9be0", color: "white", border: "none", borderRadius: "8px", fontWeight: "700" }}>
                   {editingExercise ? "Update Exercise" : "Add Exercise"}
                 </button>
               </div>

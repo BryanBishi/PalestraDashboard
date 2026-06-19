@@ -15,8 +15,8 @@ export default function Header({ title, onLogout }) {
         className="app-header"
         style={{
           height: '60px',
-          backgroundColor: '#0c0d10',
-          borderBottom: '1px solid #23262d',
+          backgroundColor: '#0d2a63',
+          borderBottom: '1px solid #1f3f8a',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -26,14 +26,14 @@ export default function Header({ title, onLogout }) {
       >
         {/* Title */}
         <div>
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '20px', fontWeight: '700', color: '#ec5a4d' }}>
+          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '20px', fontWeight: '700', color: '#2f9be0' }}>
             {title}
           </h1>
           <div
             style={{
               width: '36px',
               height: '3px',
-              backgroundColor: '#ec5a4d',
+              backgroundColor: '#2f9be0',
               borderRadius: '2px',
               marginTop: '5px',
             }}
@@ -48,8 +48,8 @@ export default function Header({ title, onLogout }) {
             style={{
               display: 'flex',
               alignItems: 'center',
-              backgroundColor: '#1d2027',
-              border: '1px solid #262a32',
+              backgroundColor: '#163a7a',
+              border: '1px solid #234a8a',
               borderRadius: '8px',
               padding: '7px 12px',
               gap: '8px',
@@ -86,7 +86,7 @@ export default function Header({ title, onLogout }) {
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              backgroundColor: '#ec5a4d',
+              backgroundColor: '#2f9be0',
               color: 'white',
               border: 'none',
               padding: '8px 14px',
@@ -125,10 +125,10 @@ export default function Header({ title, onLogout }) {
             textAlign: 'center',
           }}>
             <div style={{ marginBottom: '16px' }}>
-              <AlertTriangle size={48} style={{ color: '#ec5a4d', margin: '0 auto' }} />
+              <AlertTriangle size={48} style={{ color: '#2f9be0', margin: '0 auto' }} />
             </div>
 
-            <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontFamily: "'Barlow Condensed', sans-serif", color: '#ec5a4d' }}>
+            <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontFamily: "'Barlow Condensed', sans-serif", color: '#2f9be0' }}>
               Confirm Logout
             </h3>
             <p style={{ color: '#666', fontSize: '14px', marginBottom: '24px' }}>
@@ -141,8 +141,8 @@ export default function Header({ title, onLogout }) {
                 style={{
                   flex: 1,
                   padding: '10px',
-                  backgroundColor: '#fdecea',
-                  color: '#ec5a4d',
+                  backgroundColor: '#e8f3fb',
+                  color: '#2f9be0',
                   border: 'none',
                   borderRadius: '8px',
                   fontWeight: '600',

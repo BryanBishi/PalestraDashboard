@@ -104,22 +104,22 @@ const WorkoutBuilder = ({ onSave }) => {
               key={exercise.id}
               onClick={() => toggleExercise(exercise.id)}
               style={{
-                backgroundColor: isSelected ? "#fdecea" : "#ffffff",
+                backgroundColor: isSelected ? "#e8f3fb" : "#ffffff",
                 border: isSelected
-                  ? "2px solid #ec5a4d"
+                  ? "2px solid #2f9be0"
                   : "1.5px solid #e8e8e8",
                 borderRadius: "10px",
                 overflow: "hidden",
                 cursor: "pointer",
                 transition: "all 0.18s ease",
                 boxShadow: isSelected
-                  ? "0 2px 10px rgba(236,90,77,0.15)"
+                  ? "0 2px 10px rgba(47, 155, 224,0.15)"
                   : "0 1px 3px rgba(0,0,0,0.05)",
                 position: "relative",
               }}
               onMouseEnter={(e) => {
                 if (!isSelected)
-                  e.currentTarget.style.borderColor = "#ec5a4d";
+                  e.currentTarget.style.borderColor = "#2f9be0";
                 e.currentTarget.style.boxShadow =
                   "0 4px 12px rgba(0,0,0,0.10)";
               }}
@@ -127,7 +127,7 @@ const WorkoutBuilder = ({ onSave }) => {
                 if (!isSelected)
                   e.currentTarget.style.borderColor = "#e8e8e8";
                 e.currentTarget.style.boxShadow = isSelected
-                  ? "0 2px 10px rgba(236,90,77,0.15)"
+                  ? "0 2px 10px rgba(47, 155, 224,0.15)"
                   : "0 1px 3px rgba(0,0,0,0.05)";
               }}
             >
@@ -164,8 +164,8 @@ const WorkoutBuilder = ({ onSave }) => {
                     fontWeight: "700",
                     padding: "2px 7px",
                     borderRadius: "20px",
-                    color: "#ec5a4d",
-                    border: "1px solid #f6d4d0",
+                    color: "#2f9be0",
+                    border: "1px solid #cfe6f7",
                   }}
                 >
                   {exercise.category}
@@ -178,7 +178,7 @@ const WorkoutBuilder = ({ onSave }) => {
                       position: "absolute",
                       top: "6px",
                       right: "6px",
-                      backgroundColor: "#ec5a4d",
+                      backgroundColor: "#2f9be0",
                       borderRadius: "50%",
                       width: "22px",
                       height: "22px",
@@ -213,7 +213,7 @@ const WorkoutBuilder = ({ onSave }) => {
                     marginTop: "4px",
                   }}
                 >
-                  <Target size={12} style={{ color: "#ec5a4d", flexShrink: 0 }} />
+                  <Target size={12} style={{ color: "#2f9be0", flexShrink: 0 }} />
                   <span
                     style={{
                       fontSize: "11px",
@@ -276,19 +276,19 @@ const WorkoutBuilder = ({ onSave }) => {
             fontWeight: "700",
             border: "none",
             cursor: selected.length > 0 ? "pointer" : "not-allowed",
-            backgroundColor: selected.length > 0 ? "#ec5a4d" : "#e0e0e0",
+            backgroundColor: selected.length > 0 ? "#2f9be0" : "#e0e0e0",
             color: selected.length > 0 ? "#ffffff" : "#aaa",
             transition: "background 0.15s",
             boxShadow:
-              selected.length > 0 ? "0 2px 8px rgba(236,90,77,0.3)" : "none",
+              selected.length > 0 ? "0 2px 8px rgba(47, 155, 224,0.3)" : "none",
           }}
           onMouseEnter={(e) => {
             if (selected.length > 0)
-              e.currentTarget.style.backgroundColor = "#d6443a";
+              e.currentTarget.style.backgroundColor = "#2380c2";
           }}
           onMouseLeave={(e) => {
             if (selected.length > 0)
-              e.currentTarget.style.backgroundColor = "#ec5a4d";
+              e.currentTarget.style.backgroundColor = "#2f9be0";
           }}
         >
           <Dumbbell size={17} />

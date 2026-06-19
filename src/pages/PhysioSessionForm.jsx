@@ -76,19 +76,19 @@ const Label = ({ children }) => (
 const TextArea = ({ value, onChange, placeholder, rows = 4 }) => (
   <textarea value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder} rows={rows}
     style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #d0d0d0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", resize: "vertical", boxSizing: "border-box", fontFamily: "inherit" }}
-    onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#d0d0d0")} />
+    onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#d0d0d0")} />
 );
 
 const TextInput = ({ value, onChange, placeholder }) => (
   <input type="text" value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
     style={{ width: "100%", padding: "10px 12px", border: "1.5px solid #d0d0d0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-    onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#d0d0d0")} />
+    onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#d0d0d0")} />
 );
 
 const OBtn = ({ children, onClick, style = {} }) => (
-  <button onClick={onClick} style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: "#ec5a4d", color: "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer", boxShadow: "0 2px 8px rgba(236,90,77,0.28)", ...style }}
-    onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d6443a")}
-    onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
+  <button onClick={onClick} style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: "#2f9be0", color: "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: "pointer", boxShadow: "0 2px 8px rgba(47, 155, 224,0.28)", ...style }}
+    onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#2380c2")}
+    onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#2f9be0")}
   >{children}</button>
 );
 
@@ -101,13 +101,13 @@ const SingleUpload = ({ file, onFile, onRemove }) => {
     <div style={{ marginTop: "8px" }}>
       {!file ? (
         <button type="button" onClick={() => ref.current.click()}
-          style={{ display: "flex", alignItems: "center", gap: "6px", padding: "6px 14px", backgroundColor: "#ec5a4d", color: "#fff", border: "none", borderRadius: "6px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
+          style={{ display: "flex", alignItems: "center", gap: "6px", padding: "6px 14px", backgroundColor: "#2f9be0", color: "#fff", border: "none", borderRadius: "6px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
           <Upload size={13} /> Upload
           <input ref={ref} type="file" style={{ display: "none" }} onChange={e => e.target.files[0] && onFile(e.target.files[0])} />
         </button>
       ) : (
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "5px 10px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "6px" }}>
-          <FileText size={13} style={{ color: "#ec5a4d" }} />
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "5px 10px", backgroundColor: "#e8f3fb", border: "1px solid #cfe6f7", borderRadius: "6px" }}>
+          <FileText size={13} style={{ color: "#2f9be0" }} />
           <span style={{ fontSize: "12px", color: "#b05a00", fontWeight: "600" }}>{file.name}</span>
           <button type="button" onClick={onRemove} style={{ background: "none", border: "none", cursor: "pointer", padding: "0", display: "flex" }}><X size={13} style={{ color: "#cc3333" }} /></button>
         </div>
@@ -121,15 +121,15 @@ const MultiUpload = ({ files, onAdd, onRemove, max = 4 }) => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "8px" }}>
       {files.map((f, i) => (
-        <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "5px 10px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "6px" }}>
-          <FileText size={12} style={{ color: "#ec5a4d" }} />
+        <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "5px 10px", backgroundColor: "#e8f3fb", border: "1px solid #cfe6f7", borderRadius: "6px" }}>
+          <FileText size={12} style={{ color: "#2f9be0" }} />
           <span style={{ fontSize: "11px", color: "#b05a00", fontWeight: "600" }}>{f.name}</span>
           <button type="button" onClick={() => onRemove(i)} style={{ background: "none", border: "none", cursor: "pointer", padding: "0", display: "flex" }}><X size={12} style={{ color: "#cc3333" }} /></button>
         </div>
       ))}
       {files.length < max && (
         <button type="button" onClick={() => ref.current.click()}
-          style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "5px 12px", backgroundColor: "#ec5a4d", color: "#fff", border: "none", borderRadius: "6px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
+          style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "5px 12px", backgroundColor: "#2f9be0", color: "#fff", border: "none", borderRadius: "6px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
           <Upload size={12} /> Upload
           <input ref={ref} type="file" style={{ display: "none" }} onChange={e => { if (e.target.files[0]) { onAdd(e.target.files[0]); e.target.value = ""; }}} />
         </button>
@@ -148,7 +148,7 @@ const TagInput = ({ tags, onChange }) => {
       <div onClick={() => setOpen(p => !p)}
         style={{ display: "flex", flexWrap: "wrap", gap: "6px", alignItems: "center", padding: "8px 10px", border: "1.5px solid #d0d0d0", borderRadius: "7px", backgroundColor: "#f9f9f9", minHeight: "42px", cursor: "pointer" }}>
         {tags.map(t => (
-          <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "3px 9px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "20px", fontSize: "12px", fontWeight: "600", color: "#b05a00" }}>
+          <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "3px 9px", backgroundColor: "#e8f3fb", border: "1px solid #cfe6f7", borderRadius: "20px", fontSize: "12px", fontWeight: "600", color: "#b05a00" }}>
             {t}
             <X size={11} style={{ cursor: "pointer", color: "#cc3333" }} onClick={e => { e.stopPropagation(); remove(t); }} />
           </span>
@@ -176,7 +176,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
 
   const SectionDivider = ({ label }) => (
     <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-      <div style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#ec5a4d", flexShrink: 0 }} />
+      <div style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#2f9be0", flexShrink: 0 }} />
       <span style={{ fontSize: "12px", fontWeight: "700", color: "#555", textTransform: "uppercase", letterSpacing: "0.5px", whiteSpace: "nowrap" }}>{label}</span>
       <div style={{ flex: 1, height: "1px", backgroundColor: "#ebebeb" }} />
     </div>
@@ -191,18 +191,18 @@ const WorkoutSelector = ({ selected, onChange }) => {
           const on = selected.includes(ex.id);
           return (
             <div key={ex.id} onClick={() => toggle(ex.id)}
-              style={{ padding: "12px 14px", borderRadius: "9px", border: on ? "2px solid #ec5a4d" : "1.5px solid #e0e0e0", backgroundColor: on ? "#fdecea" : "#fafafa", cursor: "pointer", transition: "all 0.15s", position: "relative", boxShadow: on ? "0 2px 8px rgba(236,90,77,0.15)" : "0 1px 2px rgba(0,0,0,0.04)" }}
-              onMouseEnter={e => { if (!on) { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.backgroundColor = "#fffaf5"; } }}
+              style={{ padding: "12px 14px", borderRadius: "9px", border: on ? "2px solid #2f9be0" : "1.5px solid #e0e0e0", backgroundColor: on ? "#e8f3fb" : "#fafafa", cursor: "pointer", transition: "all 0.15s", position: "relative", boxShadow: on ? "0 2px 8px rgba(47, 155, 224,0.15)" : "0 1px 2px rgba(0,0,0,0.04)" }}
+              onMouseEnter={e => { if (!on) { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.backgroundColor = "#fffaf5"; } }}
               onMouseLeave={e => { if (!on) { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.backgroundColor = "#fafafa"; } }}
             >
               {on && (
-                <div style={{ position: "absolute", top: "8px", right: "8px", width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ position: "absolute", top: "8px", right: "8px", width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "#2f9be0", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <CheckCircle size={11} color="#fff" />
                 </div>
               )}
               <div style={{ fontSize: "13px", fontWeight: "700", color: on ? "#b05a00" : "#222", marginBottom: "5px", lineHeight: "1.3", paddingRight: on ? "22px" : "0" }}>{ex.name}</div>
               <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                <Target size={11} style={{ color: "#ec5a4d", flexShrink: 0 }} />
+                <Target size={11} style={{ color: "#2f9be0", flexShrink: 0 }} />
                 <span style={{ fontSize: "10px", color: "#999", fontWeight: "500", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{ex.muscle}</span>
               </div>
             </div>
@@ -217,23 +217,23 @@ const WorkoutSelector = ({ selected, onChange }) => {
           const on = selected.includes(ex.id);
           return (
             <div key={ex.id} onClick={() => toggle(ex.id)}
-              style={{ borderRadius: "9px", border: on ? "2px solid #ec5a4d" : "1.5px solid #e0e0e0", backgroundColor: on ? "#fdecea" : "#fff", overflow: "hidden", cursor: "pointer", transition: "all 0.15s", position: "relative", boxShadow: on ? "0 2px 10px rgba(236,90,77,0.18)" : "0 1px 3px rgba(0,0,0,0.05)" }}
-              onMouseEnter={e => { if (!on) { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.boxShadow = "0 3px 10px rgba(0,0,0,0.09)"; } }}
+              style={{ borderRadius: "9px", border: on ? "2px solid #2f9be0" : "1.5px solid #e0e0e0", backgroundColor: on ? "#e8f3fb" : "#fff", overflow: "hidden", cursor: "pointer", transition: "all 0.15s", position: "relative", boxShadow: on ? "0 2px 10px rgba(47, 155, 224,0.18)" : "0 1px 3px rgba(0,0,0,0.05)" }}
+              onMouseEnter={e => { if (!on) { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.boxShadow = "0 3px 10px rgba(0,0,0,0.09)"; } }}
               onMouseLeave={e => { if (!on) { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; } }}
             >
               <div style={{ height: "100px", backgroundColor: "#f0f0f0", position: "relative", overflow: "hidden" }}>
                 <img src={ex.gif} alt={ex.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={e => { e.target.style.display = "none"; }} />
                 {on && (
-                  <div style={{ position: "absolute", top: "6px", right: "6px", width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 1px 4px rgba(0,0,0,0.2)" }}>
+                  <div style={{ position: "absolute", top: "6px", right: "6px", width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "#2f9be0", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 1px 4px rgba(0,0,0,0.2)" }}>
                     <CheckCircle size={13} color="#fff" />
                   </div>
                 )}
-                <div style={{ position: "absolute", bottom: "5px", left: "5px", backgroundColor: "rgba(255,255,255,0.92)", fontSize: "9px", fontWeight: "700", padding: "2px 7px", borderRadius: "20px", color: "#ec5a4d", border: "1px solid #f6d4d0", maxWidth: "88%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{ex.muscle}</div>
+                <div style={{ position: "absolute", bottom: "5px", left: "5px", backgroundColor: "rgba(255,255,255,0.92)", fontSize: "9px", fontWeight: "700", padding: "2px 7px", borderRadius: "20px", color: "#2f9be0", border: "1px solid #cfe6f7", maxWidth: "88%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{ex.muscle}</div>
               </div>
               <div style={{ padding: "9px 11px 11px" }}>
                 <div style={{ fontSize: "12px", fontWeight: "700", color: on ? "#b05a00" : "#222", lineHeight: "1.3", marginBottom: "4px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{ex.name}</div>
                 <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                  <Target size={11} style={{ color: "#ec5a4d", flexShrink: 0 }} />
+                  <Target size={11} style={{ color: "#2f9be0", flexShrink: 0 }} />
                   <span style={{ fontSize: "10px", color: "#999", fontWeight: "500", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{ex.muscle}</span>
                 </div>
               </div>
@@ -250,7 +250,7 @@ const WorkoutSelector = ({ selected, onChange }) => {
             <div style={{ fontSize: "12px", fontWeight: "700", color: "#2e7d32", marginBottom: "6px" }}>{selected.length} exercise{selected.length > 1 ? "s" : ""} selected</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
               {ALL_EXERCISES.filter(e => selected.includes(e.id)).map(e => (
-                <span key={e.id} style={{ fontSize: "11px", fontWeight: "600", padding: "2px 9px", borderRadius: "20px", backgroundColor: "#fdecea", color: "#b05a00", border: "1px solid #f6d4d0" }}>{e.name}</span>
+                <span key={e.id} style={{ fontSize: "11px", fontWeight: "600", padding: "2px 9px", borderRadius: "20px", backgroundColor: "#e8f3fb", color: "#b05a00", border: "1px solid #cfe6f7" }}>{e.name}</span>
               ))}
             </div>
           </div>
@@ -282,7 +282,7 @@ const ProgramBuilder = ({ programs, setPrograms }) => {
     <div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "14px" }}>
         <div style={{ fontSize: "13px", fontWeight: "700", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}>
-          <Dumbbell size={14} style={{ color: "#ec5a4d" }} /> Exercises ({programs.length})
+          <Dumbbell size={14} style={{ color: "#2f9be0" }} /> Exercises ({programs.length})
         </div>
         <OBtn onClick={() => setLibOpen(true)} style={{ padding: "6px 13px", fontSize: "12px" }}><Plus size={12} /> Add Exercise</OBtn>
       </div>
@@ -297,7 +297,7 @@ const ProgramBuilder = ({ programs, setPrograms }) => {
           {programs.map((ex, idx) => (
             <div key={ex.instanceId} style={{ border: "1.5px solid #e8e8e8", borderRadius: "10px", overflow: "hidden" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "11px 15px", backgroundColor: "#fafafa", borderBottom: "1px solid #f0f0f0" }}>
-                <div style={{ width: "24px", height: "24px", borderRadius: "50%", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>{idx + 1}</div>
+                <div style={{ width: "24px", height: "24px", borderRadius: "50%", backgroundColor: "#2f9be0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "800", color: "#fff", flexShrink: 0 }}>{idx + 1}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: "13px", fontWeight: "700", color: "#222" }}>{ex.name}</div>
                   <div style={{ fontSize: "11px", color: "#888" }}>{ex.category}</div>
@@ -312,14 +312,14 @@ const ProgramBuilder = ({ programs, setPrograms }) => {
                   <div key={f.key}>
                     <label style={{ fontSize: "10px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "3px" }}>{f.label}</label>
                     <input value={f.val} onChange={e => updEx(idx, f.key, e.target.value)} style={inputS}
-                      onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+                      onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
                   </div>
                 ))}
               </div>
               <div style={{ padding: "0 15px 11px" }}>
                 <label style={{ fontSize: "10px", fontWeight: "700", color: "#aaa", display: "block", marginBottom: "3px" }}>NOTES</label>
                 <input value={ex.notes} onChange={e => updEx(idx, "notes", e.target.value)} placeholder="Additional notes..." style={inputS}
-                  onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+                  onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
               </div>
             </div>
           ))}
@@ -339,7 +339,7 @@ const ProgramBuilder = ({ programs, setPrograms }) => {
             </div>
             <div style={{ padding: "10px 20px", borderBottom: "1px solid #f0f0f0", display: "flex", gap: "7px", flexWrap: "wrap" }}>
               {["All", ...EX_CATS].map(c => (
-                <button key={c} onClick={() => setCatFilter(c)} style={{ padding: "4px 11px", borderRadius: "20px", fontSize: "11px", fontWeight: "600", cursor: "pointer", border: `1.5px solid ${catFilter === c ? "#ec5a4d" : "#e0e0e0"}`, backgroundColor: catFilter === c ? "#fdecea" : "#f9f9f9", color: catFilter === c ? "#ec5a4d" : "#666" }}>{c}</button>
+                <button key={c} onClick={() => setCatFilter(c)} style={{ padding: "4px 11px", borderRadius: "20px", fontSize: "11px", fontWeight: "600", cursor: "pointer", border: `1.5px solid ${catFilter === c ? "#2f9be0" : "#e0e0e0"}`, backgroundColor: catFilter === c ? "#e8f3fb" : "#f9f9f9", color: catFilter === c ? "#2f9be0" : "#666" }}>{c}</button>
               ))}
             </div>
             <div style={{ overflowY: "auto", flex: 1 }}>
@@ -349,12 +349,12 @@ const ProgramBuilder = ({ programs, setPrograms }) => {
                   onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#fdf8f4")}
                   onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
                 >
-                  <div style={{ width: "34px", height: "34px", borderRadius: "8px", backgroundColor: "#fdecea", border: "1.5px solid #f6d4d0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Dumbbell size={15} style={{ color: "#ec5a4d" }} /></div>
+                  <div style={{ width: "34px", height: "34px", borderRadius: "8px", backgroundColor: "#e8f3fb", border: "1.5px solid #cfe6f7", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Dumbbell size={15} style={{ color: "#2f9be0" }} /></div>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: "13px", fontWeight: "700", color: "#222" }}>{ex.name}</div>
                     <div style={{ fontSize: "11px", color: "#888", marginTop: "1px" }}>{ex.category} · {ex.defaultReps} · {ex.defaultSets} sets</div>
                   </div>
-                  <div style={{ padding: "4px 10px", backgroundColor: "#fdecea", border: "1px solid #f6d4d0", borderRadius: "6px", fontSize: "11px", fontWeight: "700", color: "#ec5a4d" }}>+ Add</div>
+                  <div style={{ padding: "4px 10px", backgroundColor: "#e8f3fb", border: "1px solid #cfe6f7", borderRadius: "6px", fontSize: "11px", fontWeight: "700", color: "#2f9be0" }}>+ Add</div>
                 </div>
               ))}
             </div>
@@ -409,10 +409,10 @@ const WeeklyGoalsBuilder = ({ goals, setGoals }) => {
       <div style={{ display: "flex", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
         <input value={newGoalText} onChange={e => setNewGoalText(e.target.value)} placeholder="Add a new goal for this week..." onKeyDown={e => e.key === "Enter" && addGoal()}
           style={{ flex: 1, minWidth: "180px", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none" }}
-          onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+          onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
         <select value={newGoalCat} onChange={e => setNewGoalCat(e.target.value)}
           style={{ padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "12px", color: "#555", backgroundColor: "#f9f9f9", outline: "none", cursor: "pointer" }}
-          onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")}>
+          onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")}>
           <option>Clinical</option>
           <option>Rehabilitation</option>
         </select>
@@ -431,7 +431,7 @@ const WeeklyGoalsBuilder = ({ goals, setGoals }) => {
           {clinicalGoals.length > 0 && (
             <div style={{ marginBottom: "14px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                <div style={{ width: "4px", height: "16px", backgroundColor: "#ec5a4d", borderRadius: "2px" }} />
+                <div style={{ width: "4px", height: "16px", backgroundColor: "#2f9be0", borderRadius: "2px" }} />
                 <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>Clinical Goals</span>
               </div>
               {clinicalGoals.map(g => {
@@ -542,17 +542,17 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
           <button onClick={onBack}
             style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", backgroundColor: "#fff", border: "1.5px solid #e0e0e0", borderRadius: "8px", cursor: "pointer" }}
-            onMouseEnter={e => (e.currentTarget.style.borderColor = "#ec5a4d")}
+            onMouseEnter={e => (e.currentTarget.style.borderColor = "#2f9be0")}
             onMouseLeave={e => (e.currentTarget.style.borderColor = "#e0e0e0")}>
             <ArrowLeft size={17} style={{ color: "#555" }} />
           </button>
           <div>
-            <div style={{ fontSize: "11px", color: "#ec5a4d", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>Create Session</div>
+            <div style={{ fontSize: "11px", color: "#2f9be0", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>Create Session</div>
             <h1 style={{ fontSize: "18px", fontWeight: "800", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>Assessment — {player?.name || "Player"}</h1>
           </div>
         </div>
         <div style={{ padding: "7px 14px", backgroundColor: "#f5f5f5", border: "1px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", fontWeight: "600", color: "#555" }}>
-          Date: <span style={{ color: "#ec5a4d" }}>{today}</span>
+          Date: <span style={{ color: "#2f9be0" }}>{today}</span>
         </div>
       </div>
 
@@ -567,7 +567,7 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
           <Label>On Examination</Label>
           <TextArea value={onExamination} onChange={setOnExamination} placeholder="Enter examination findings" rows={4} />
         </div>
-        <button style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 18px", backgroundColor: "#ec5a4d", color: "#fff", border: "none", borderRadius: "7px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}>
+        <button style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 18px", backgroundColor: "#2f9be0", color: "#fff", border: "none", borderRadius: "7px", fontSize: "13px", fontWeight: "700", cursor: "pointer" }}>
           <span>👤</span> Pain Assessment
         </button>
       </div>
@@ -645,7 +645,7 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
             { key: "workout", label: "Quick Exercises",  icon: Target       },
           ].map(tab => (
             <button key={tab.key} onClick={() => setSessionTab(tab.key)}
-              style={{ display: "flex", alignItems: "center", gap: "6px", padding: "10px 18px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: sessionTab === tab.key ? "#ec5a4d" : "#888", borderBottom: sessionTab === tab.key ? "2px solid #ec5a4d" : "2px solid transparent", marginBottom: "-2px", transition: "all 0.15s" }}>
+              style={{ display: "flex", alignItems: "center", gap: "6px", padding: "10px 18px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "700", backgroundColor: "transparent", color: sessionTab === tab.key ? "#2f9be0" : "#888", borderBottom: sessionTab === tab.key ? "2px solid #2f9be0" : "2px solid transparent", marginBottom: "-2px", transition: "all 0.15s" }}>
               <tab.icon size={14} /> {tab.label}
             </button>
           ))}
@@ -664,13 +664,13 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
                 <Label>Program Name</Label>
                 <input value={programName} onChange={e => setProgramName(e.target.value)} placeholder="e.g. Shoulder Rehab Phase 1"
                   style={{ width: "100%", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-                  onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+                  onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
               </div>
               <div>
                 <Label>Program Notes</Label>
                 <input value={programNotes} onChange={e => setProgramNotes(e.target.value)} placeholder="e.g. Light mobility only"
                   style={{ width: "100%", padding: "9px 12px", border: "1.5px solid #e0e0e0", borderRadius: "7px", fontSize: "13px", color: "#333", backgroundColor: "#f9f9f9", outline: "none", boxSizing: "border-box" }}
-                  onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+                  onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
               </div>
             </div>
             <ProgramBuilder programs={programExercises} setPrograms={setProgramExercises} />
@@ -692,7 +692,7 @@ const PhysioSessionForm = ({ player, report, onBack, onSave }) => {
       <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px", padding: "16px 22px", backgroundColor: "#fff", borderRadius: "10px", border: "1px solid #e8e8e8", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
         <button onClick={onBack}
           style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "10px 20px", backgroundColor: "#fff", color: "#555", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.color = "#2f9be0"; }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
         ><ArrowLeft size={15} /> Cancel</button>
 

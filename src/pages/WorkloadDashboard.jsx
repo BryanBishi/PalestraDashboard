@@ -53,7 +53,7 @@ const WorkloadDashboard = ({ currentSections }) => {
     };
   }, [currentSections]);
 
-  const COLORS = ["#ec5a4d", "#ffc107", "#4caf50", "#2196f3", "#9c27b0"];
+  const COLORS = ["#2f9be0", "#ffc107", "#4caf50", "#2196f3", "#9c27b0"];
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -152,7 +152,7 @@ const WorkloadDashboard = ({ currentSections }) => {
             marginBottom: "16px",
           }}
         >
-          <TrendingUp size={18} style={{ color: "#ec5a4d" }} />
+          <TrendingUp size={18} style={{ color: "#2f9be0" }} />
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#222" }}>
             Weekly Workload
           </h3>
@@ -174,9 +174,9 @@ const WorkloadDashboard = ({ currentSections }) => {
               <Line
                 type="monotone"
                 dataKey="load"
-                stroke="#ec5a4d"
+                stroke="#2f9be0"
                 strokeWidth={2}
-                dot={{ fill: "#ec5a4d", r: 4 }}
+                dot={{ fill: "#2f9be0", r: 4 }}
               />
               <Line
                 type="monotone"
@@ -223,7 +223,7 @@ const WorkloadDashboard = ({ currentSections }) => {
             marginBottom: "16px",
           }}
         >
-          <TrendingUp size={18} style={{ color: "#ec5a4d" }} />
+          <TrendingUp size={18} style={{ color: "#2f9be0" }} />
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#222" }}>
             Planned vs Reported
           </h3>
@@ -243,7 +243,7 @@ const WorkloadDashboard = ({ currentSections }) => {
                 }}
               />
               <Legend wrapperStyle={{ fontSize: "12px" }} />
-              <Bar dataKey="planned" fill="#ec5a4d" />
+              <Bar dataKey="planned" fill="#2f9be0" />
               <Bar dataKey="reported" fill="#4caf50" />
             </BarChart>
           </ResponsiveContainer>
@@ -281,7 +281,7 @@ const WorkloadDashboard = ({ currentSections }) => {
             marginBottom: "16px",
           }}
         >
-          <TrendingUp size={18} style={{ color: "#ec5a4d" }} />
+          <TrendingUp size={18} style={{ color: "#2f9be0" }} />
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#222" }}>
             Distribution of Exercises
           </h3>

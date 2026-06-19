@@ -107,11 +107,11 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
       style={{
         width: compact ? '64px' : '260px',
         minWidth: compact ? '64px' : '260px',
-        backgroundColor: '#0c0d10',
+        backgroundColor: '#0d2a63',
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        borderRight: '1px solid #23262d',
+        borderRight: '1px solid #1f3f8a',
         userSelect: 'none',
         transition: 'width 0.2s ease',
         overflow: 'hidden',
@@ -121,7 +121,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
       <div
         style={{
           padding: compact ? '22px 0 18px 0' : '22px 28px 18px 28px',
-          borderBottom: '1px solid #23262d',
+          borderBottom: '1px solid #1f3f8a',
           display: 'flex',
           alignItems: 'center',
           justifyContent: compact ? 'center' : 'flex-start',
@@ -167,15 +167,15 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
                   justifyContent: compact ? 'center' : 'flex-start',
                   cursor: 'pointer',
                   backgroundColor: itemActive || (groupActive && isOpen) ? '#ffffff' : 'transparent',
-                  borderLeft: !compact && (groupActive || itemActive) ? '3px solid #ec5a4d' : '3px solid transparent',
-                  borderRight: compact && highlighted ? '3px solid #ec5a4d' : '3px solid transparent',
+                  borderLeft: !compact && (groupActive || itemActive) ? '3px solid #2f9be0' : '3px solid transparent',
+                  borderRight: compact && highlighted ? '3px solid #2f9be0' : '3px solid transparent',
                   transition: 'background 0.15s',
                   gap: compact ? '0' : '10px',
                   position: 'relative',
                 }}
                 onMouseEnter={(e) => {
                   if (!itemActive && !(groupActive && isOpen)) {
-                    e.currentTarget.style.backgroundColor = '#1a1d24'
+                    e.currentTarget.style.backgroundColor = '#16335f'
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -184,14 +184,14 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
                   }
                 }}
               >
-                <Icon size={compact ? 20 : 18} style={{ color: highlighted ? '#ec5a4d' : '#9aa6bd', flexShrink: 0 }} />
+                <Icon size={compact ? 20 : 18} style={{ color: highlighted ? '#2f9be0' : '#9aa6bd', flexShrink: 0 }} />
                 {!compact && (
                   <>
-                    <span style={{ flex: 1, fontSize: '14px', fontWeight: highlighted ? '600' : '400', color: highlighted ? '#ec5a4d' : '#cbd3e0' }}>
+                    <span style={{ flex: 1, fontSize: '14px', fontWeight: highlighted ? '600' : '400', color: highlighted ? '#2f9be0' : '#cbd3e0' }}>
                       {item.label}
                     </span>
                     {hasChildren && (isOpen
-                      ? <ChevronUp size={14} style={{ color: '#ec5a4d' }} />
+                      ? <ChevronUp size={14} style={{ color: '#2f9be0' }} />
                       : <ChevronDown size={14} style={{ color: '#9aa6bd' }} />
                     )}
                   </>
@@ -200,7 +200,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
 
               {/* CHILD ITEMS */}
               {hasChildren && isOpen && !compact && (
-                <div style={{ backgroundColor: '#16181d' }}>
+                <div style={{ backgroundColor: '#123577' }}>
                   {item.children.map((child) => {
                     const ChildIcon = child.icon
                     const childActive = isActive(child.path)
@@ -215,13 +215,13 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
                           padding: '9px 20px 9px 54px',
                           cursor: 'pointer',
                           backgroundColor: childActive ? '#ffffff' : 'transparent',
-                          borderLeft: childActive ? '3px solid #ec5a4d' : '3px solid transparent',
+                          borderLeft: childActive ? '3px solid #2f9be0' : '3px solid transparent',
                         }}
-                        onMouseEnter={(e) => { if (!childActive) e.currentTarget.style.backgroundColor = '#1a1d24' }}
+                        onMouseEnter={(e) => { if (!childActive) e.currentTarget.style.backgroundColor = '#16335f' }}
                         onMouseLeave={(e) => { if (!childActive) e.currentTarget.style.backgroundColor = 'transparent' }}
                       >
-                        <ChildIcon size={15} style={{ color: childActive ? '#ec5a4d' : '#9aa6bd' }} />
-                        <span style={{ fontSize: '13.5px', fontWeight: childActive ? '600' : '400', color: childActive ? '#ec5a4d' : '#cbd3e0' }}>
+                        <ChildIcon size={15} style={{ color: childActive ? '#2f9be0' : '#9aa6bd' }} />
+                        <span style={{ fontSize: '13.5px', fontWeight: childActive ? '600' : '400', color: childActive ? '#2f9be0' : '#cbd3e0' }}>
                           {child.label}
                         </span>
                       </div>
@@ -238,7 +238,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
       <div
         style={{
           padding: compact ? '14px 0' : '14px 24px',
-          borderTop: '1px solid #23262d',
+          borderTop: '1px solid #1f3f8a',
           display: 'flex',
           alignItems: 'center',
           justifyContent: compact ? 'center' : 'flex-start',
@@ -249,7 +249,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
           title={compact ? (role || 'Admin') : undefined}
           style={{
             width: '32px', height: '32px', borderRadius: '50%',
-            backgroundColor: '#ec5a4d',
+            backgroundColor: '#2f9be0',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'white', fontSize: '14px', fontWeight: '700', flexShrink: 0,
           }}
@@ -292,7 +292,7 @@ export default function Sidebar({ activePath = '/', onNavigate = () => {}, role 
           height: '40px',
           borderRadius: '8px',
           border: 'none',
-          backgroundColor: '#ec5a4d',
+          backgroundColor: '#2f9be0',
           color: '#fff',
           display: 'flex',
           alignItems: 'center',

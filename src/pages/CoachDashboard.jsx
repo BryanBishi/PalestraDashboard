@@ -22,21 +22,21 @@ const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
     <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>{title}</h1>
     {sub && <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#2f9be0", borderRadius: "2px", marginTop: "6px" }} />
   </div>
 );
 
 const BackBtn = ({ label, onClick }) => (
   <button onClick={onClick} style={{ display: "flex", alignItems: "center", gap: "6px", background: "none", border: "none", color: "#888", fontSize: "13px", fontWeight: "600", cursor: "pointer", marginBottom: "18px", padding: "0" }}
-    onMouseEnter={e => (e.currentTarget.style.color = "#ec5a4d")}
+    onMouseEnter={e => (e.currentTarget.style.color = "#2f9be0")}
     onMouseLeave={e => (e.currentTarget.style.color = "#888")}
   ><ArrowLeft size={15} /> {label}</button>
 );
 
 const OBtn = ({ children, onClick, style = {}, disabled = false }) => (
-  <button onClick={onClick} disabled={disabled} style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: disabled ? "#e0e0e0" : "#ec5a4d", color: disabled ? "#aaa" : "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: disabled ? "not-allowed" : "pointer", boxShadow: disabled ? "none" : "0 2px 8px rgba(236,90,77,0.28)", ...style }}
-    onMouseEnter={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#d6443a"; }}
-    onMouseLeave={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#ec5a4d"; }}
+  <button onClick={onClick} disabled={disabled} style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "9px 20px", backgroundColor: disabled ? "#e0e0e0" : "#2f9be0", color: disabled ? "#aaa" : "#fff", border: "none", borderRadius: "8px", fontSize: "13px", fontWeight: "700", cursor: disabled ? "not-allowed" : "pointer", boxShadow: disabled ? "none" : "0 2px 8px rgba(47, 155, 224,0.28)", ...style }}
+    onMouseEnter={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#2380c2"; }}
+    onMouseLeave={e => { if (!disabled) e.currentTarget.style.backgroundColor = "#2f9be0"; }}
   >{children}</button>
 );
 
@@ -46,7 +46,7 @@ const InputF = ({ label, value, onChange, placeholder, type = "text" }) => (
   <div>
     <label style={{ fontSize: "11px", fontWeight: "700", color: "#888", display: "block", marginBottom: "4px", letterSpacing: "0.4px", textTransform: "uppercase" }}>{label}</label>
     <input type={type} value={value} onChange={onChange} placeholder={placeholder} style={inputStyle}
-      onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+      onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
   </div>
 );
 
@@ -127,7 +127,7 @@ function GpsWidget({ coach }) {
     <div style={card({ padding: "22px" })}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "18px", flexWrap: "wrap", gap: "10px" }}>
         <div style={{ fontSize: "14px", fontWeight: "700", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}>
-          <Navigation size={15} style={{ color: "#ec5a4d" }} /> GPS Tracking & Geofencing
+          <Navigation size={15} style={{ color: "#2f9be0" }} /> GPS Tracking & Geofencing
         </div>
         {!coach.isOnline ? (
           <button disabled style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "7px 14px", backgroundColor: "#e0e0e0", color: "#aaa", border: "none", borderRadius: "8px", fontSize: "12px", fontWeight: "700", cursor: "not-allowed" }}>
@@ -181,11 +181,11 @@ function GpsWidget({ coach }) {
         <svg width="100%" height="180" style={{ display: "block" }}>
           {[0, 1, 2, 3, 4, 5].map(i => <line key={`h${i}`} x1="0" y1={i * 36} x2="100%" y2={i * 36} stroke="#c8dde8" strokeWidth="0.5" />)}
           {[0, 1, 2, 3, 4, 5, 6, 7, 8].map(i => <line key={`v${i}`} x1={`${i * 12.5}%`} y1="0" x2={`${i * 12.5}%`} y2="180" stroke="#c8dde8" strokeWidth="0.5" />)}
-          <circle cx="50%" cy="90" r="60" fill="rgba(236,90,77,0.08)" stroke="#ec5a4d" strokeWidth="2" strokeDasharray="6 3" />
-          <text x="50%" y="50" textAnchor="middle" fontSize="10" fill="#ec5a4d" fontWeight="700">{coach.academyName || "Zone"}</text>
+          <circle cx="50%" cy="90" r="60" fill="rgba(47, 155, 224,0.08)" stroke="#2f9be0" strokeWidth="2" strokeDasharray="6 3" />
+          <text x="50%" y="50" textAnchor="middle" fontSize="10" fill="#2f9be0" fontWeight="700">{coach.academyName || "Zone"}</text>
           <text x="50%" y="62" textAnchor="middle" fontSize="9" fill="#888">{live.radius || 500}m radius</text>
-          <circle cx="50%" cy="90" r="5" fill="#ec5a4d" />
-          <circle cx="50%" cy="90" r="12" fill="rgba(236,90,77,0.2)" />
+          <circle cx="50%" cy="90" r="5" fill="#2f9be0" />
+          <circle cx="50%" cy="90" r="12" fill="rgba(47, 155, 224,0.2)" />
           {live.lat && (
             <>
               <circle cx={live.inGeofence ? "52%" : "72%"} cy={live.inGeofence ? "88" : "55"} r="7" fill={live.inGeofence ? "#2e7d32" : "#cc3333"} />
@@ -235,7 +235,7 @@ function AttendanceCalendar({ coach, onDayClick }) {
     <div style={card({ padding: "22px" })}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
         <div style={{ fontSize: "14px", fontWeight: "700", color: "#333", display: "flex", alignItems: "center", gap: "7px" }}>
-          <Calendar size={15} style={{ color: "#ec5a4d" }} /> Attendance Calendar
+          <Calendar size={15} style={{ color: "#2f9be0" }} /> Attendance Calendar
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <button onClick={prevMonth} style={{ width: "28px", height: "28px", borderRadius: "7px", border: "1px solid #e0e0e0", backgroundColor: "#fff", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><ChevronLeft size={14} style={{ color: "#555" }} /></button>
@@ -248,7 +248,7 @@ function AttendanceCalendar({ coach, onDayClick }) {
         {[
           { label: "Present", value: presentDays, color: "#2e7d32", bg: "#f0faf0", border: "#b8e6b8" },
           { label: "Absent", value: totalDays - presentDays, color: "#cc3333", bg: "#fff0f0", border: "#ffc5c5" },
-          { label: "Rate", value: totalDays > 0 ? Math.round((presentDays / totalDays) * 100) + "%" : "—", color: "#ec5a4d", bg: "#fdecea", border: "#f6d4d0" },
+          { label: "Rate", value: totalDays > 0 ? Math.round((presentDays / totalDays) * 100) + "%" : "—", color: "#2f9be0", bg: "#e8f3fb", border: "#cfe6f7" },
         ].map(s => (
           <div key={s.label} style={{ flex: 1, padding: "10px", backgroundColor: s.bg, border: `1px solid ${s.border}`, borderRadius: "8px", textAlign: "center" }}>
             <div style={{ fontSize: "18px", fontWeight: "800", color: s.color }}>{s.value}</div>
@@ -279,16 +279,16 @@ function AttendanceCalendar({ coach, onDayClick }) {
               style={{
                 aspectRatio: "1", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                 borderRadius: "8px", cursor: hasData ? "pointer" : "default",
-                backgroundColor: isToday ? "#fdecea" : isPresent ? "#f0faf0" : hasData ? "#fff0f0" : "#fafafa",
-                border: `1.5px solid ${isToday ? "#ec5a4d" : isPresent ? "#b8e6b8" : hasData ? "#ffc5c5" : "#f0f0f0"}`,
+                backgroundColor: isToday ? "#e8f3fb" : isPresent ? "#f0faf0" : hasData ? "#fff0f0" : "#fafafa",
+                border: `1.5px solid ${isToday ? "#2f9be0" : isPresent ? "#b8e6b8" : hasData ? "#ffc5c5" : "#f0f0f0"}`,
                 transition: "all 0.12s", position: "relative",
               }}
               onMouseEnter={e => { if (hasData) e.currentTarget.style.transform = "scale(1.08)"; }}
               onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; }}
             >
-              <span style={{ fontSize: "13px", fontWeight: isToday ? "800" : "600", color: isToday ? "#ec5a4d" : isPresent ? "#2e7d32" : hasData ? "#cc3333" : "#bbb" }}>{day}</span>
+              <span style={{ fontSize: "13px", fontWeight: isToday ? "800" : "600", color: isToday ? "#2f9be0" : isPresent ? "#2e7d32" : hasData ? "#cc3333" : "#bbb" }}>{day}</span>
               {hasActivities && isPresent && (
-                <div style={{ position: "absolute", bottom: "3px", left: "50%", transform: "translateX(-50%)", width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#ec5a4d" }} />
+                <div style={{ position: "absolute", bottom: "3px", left: "50%", transform: "translateX(-50%)", width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "#2f9be0" }} />
               )}
             </div>
           );
@@ -299,8 +299,8 @@ function AttendanceCalendar({ coach, onDayClick }) {
         {[
           { color: "#2e7d32", bg: "#f0faf0", label: "Present" },
           { color: "#cc3333", bg: "#fff0f0", label: "Absent" },
-          { color: "#ec5a4d", bg: "#fdecea", label: "Today" },
-          { color: "#ec5a4d", bg: "#ec5a4d", label: "Has activities", dot: true },
+          { color: "#2f9be0", bg: "#e8f3fb", label: "Today" },
+          { color: "#2f9be0", bg: "#2f9be0", label: "Has activities", dot: true },
         ].map(l => (
           <div key={l.label} style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             {l.dot ? <div style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: l.color }} /> : <div style={{ width: "12px", height: "12px", borderRadius: "4px", backgroundColor: l.bg, border: `1.5px solid ${l.color}` }} />}
@@ -320,14 +320,14 @@ function AddActivityForm({ date, onSave, onCancel }) {
   return (
     <div style={card({ padding: "22px" })}>
       <div style={{ fontSize: "14px", fontWeight: "700", color: "#333", marginBottom: "16px", display: "flex", alignItems: "center", gap: "7px" }}>
-        <Plus size={14} style={{ color: "#ec5a4d" }} /> Add Activity for {date}
+        <Plus size={14} style={{ color: "#2f9be0" }} /> Add Activity for {date}
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px", marginBottom: "12px" }}>
         <InputF label="Time" type="time" value={form.time} onChange={e => set("time", e.target.value)} />
         <div>
           <label style={{ fontSize: "11px", fontWeight: "700", color: "#888", display: "block", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>Type</label>
           <select value={form.type} onChange={e => set("type", e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}
-            onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")}>
+            onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")}>
             {ACTIVITY_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         </div>
@@ -336,7 +336,7 @@ function AddActivityForm({ date, onSave, onCancel }) {
         <label style={{ fontSize: "11px", fontWeight: "700", color: "#888", display: "block", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px" }}>Description</label>
         <textarea value={form.description} onChange={e => set("description", e.target.value)} placeholder="What was covered in this session..." rows={3}
           style={{ ...inputStyle, resize: "none" }}
-          onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+          onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px", marginBottom: "16px" }}>
         <InputF label="Players / Group" value={form.players} onChange={e => set("players", e.target.value)} placeholder="e.g. Arjun Menon, Full Squad" />
@@ -347,7 +347,7 @@ function AddActivityForm({ date, onSave, onCancel }) {
           <Save size={14} /> Save Activity
         </OBtn>
         <button onClick={onCancel} style={{ flex: 1, padding: "10px", backgroundColor: "#fff", color: "#555", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.color = "#2f9be0"; }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
         >Cancel</button>
       </div>
@@ -610,7 +610,7 @@ export default function Coaches() {
         <div style={{ display: "flex", gap: "10px" }}>
           <OBtn onClick={handleAddCoach} style={{ flex: 1, justifyContent: "center" }}><Plus size={14} /> Add Coach</OBtn>
           <button onClick={() => setView(V.LIST)} style={{ flex: 1, padding: "10px", backgroundColor: "#fff", color: "#555", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "13px", fontWeight: "600", cursor: "pointer" }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.color = "#2f9be0"; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
           >Cancel</button>
         </div>
@@ -662,12 +662,12 @@ export default function Coaches() {
             {dayActivities.map((act) => {
               const fb = feedbackMap[act.id] || act.feedback;
               return (
-                <div key={act.id} style={card({ padding: "18px 20px", borderLeft: "4px solid #ec5a4d" })}>
+                <div key={act.id} style={card({ padding: "18px 20px", borderLeft: "4px solid #2f9be0" })}>
                   <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "10px", marginBottom: "8px" }}>
                     <div>
                       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "3px" }}>
                         <span style={{ fontSize: "15px", fontWeight: "700", color: "#222" }}>{act.type}</span>
-                        <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 8px", borderRadius: "20px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0" }}>{act.time}</span>
+                        <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 8px", borderRadius: "20px", backgroundColor: "#e8f3fb", color: "#2f9be0", border: "1px solid #cfe6f7" }}>{act.time}</span>
                         {act.duration && <span style={{ fontSize: "11px", color: "#888" }}>{act.duration}</span>}
                       </div>
                       <div style={{ fontSize: "13px", color: "#444", lineHeight: "1.5" }}>{act.description}</div>
@@ -688,14 +688,14 @@ export default function Coaches() {
                       <div style={{ marginTop: "10px" }}>
                         <textarea value={feedbackInput} onChange={e => setFeedbackInput(e.target.value)} placeholder="Enter client feedback..." rows={2}
                           style={{ ...inputStyle, resize: "none", marginBottom: "8px" }}
-                          onFocus={e => (e.target.style.borderColor = "#ec5a4d")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
+                          onFocus={e => (e.target.style.borderColor = "#2f9be0")} onBlur={e => (e.target.style.borderColor = "#e0e0e0")} />
                         <div style={{ display: "flex", gap: "8px" }}>
                           <OBtn onClick={() => submitFeedback(act.id)} style={{ flex: 1, justifyContent: "center", padding: "7px 14px", fontSize: "12px" }}><Send size={13} /> Send</OBtn>
                           <button onClick={() => setFeedbackFor(null)} style={{ flex: 1, padding: "7px 14px", backgroundColor: "#fff", color: "#555", border: "1.5px solid #e0e0e0", borderRadius: "8px", fontSize: "12px", fontWeight: "600", cursor: "pointer" }}>Cancel</button>
                         </div>
                       </div>
                     ) : (
-                      <button onClick={() => { setFeedbackFor(act.id); setFeedbackInput(""); }} style={{ marginTop: "10px", fontSize: "12px", color: "#ec5a4d", background: "none", border: "none", cursor: "pointer", fontWeight: "600", padding: "0" }}>
+                      <button onClick={() => { setFeedbackFor(act.id); setFeedbackInput(""); }} style={{ marginTop: "10px", fontSize: "12px", color: "#2f9be0", background: "none", border: "none", cursor: "pointer", fontWeight: "600", padding: "0" }}>
                         <MessageSquare size={13} style={{ display: "inline", marginRight: "4px" }} /> Add feedback
                       </button>
                     )
@@ -719,7 +719,7 @@ export default function Coaches() {
 
         {/* Header */}
         <div style={{ ...card({ padding: "24px", marginBottom: "24px" }), display: "flex", alignItems: "flex-start", gap: "20px" }}>
-          <div style={{ width: "80px", height: "80px", borderRadius: "12px", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", fontWeight: "700", color: "#fff", flexShrink: 0 }}>
+          <div style={{ width: "80px", height: "80px", borderRadius: "12px", backgroundColor: "#2f9be0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", fontWeight: "700", color: "#fff", flexShrink: 0 }}>
             {c.avatar}
           </div>
           <div style={{ flex: 1 }}>
@@ -756,10 +756,10 @@ export default function Coaches() {
                 padding: "12px 16px",
                 backgroundColor: "transparent",
                 border: "none",
-                borderBottom: activeTab === tab ? "3px solid #ec5a4d" : "3px solid transparent",
+                borderBottom: activeTab === tab ? "3px solid #2f9be0" : "3px solid transparent",
                 fontSize: "13px",
                 fontWeight: "700",
-                color: activeTab === tab ? "#ec5a4d" : "#888",
+                color: activeTab === tab ? "#2f9be0" : "#888",
                 cursor: "pointer",
                 textTransform: "capitalize",
               }}
@@ -850,7 +850,7 @@ export default function Coaches() {
               onClick={() => setShowOnlyOnline(true)}
               style={{
                 padding: "8px 16px",
-                backgroundColor: showOnlyOnline ? "#ec5a4d" : "#f0f0f0",
+                backgroundColor: showOnlyOnline ? "#2f9be0" : "#f0f0f0",
                 color: showOnlyOnline ? "#fff" : "#666",
                 border: "none",
                 borderRadius: "8px",
@@ -868,7 +868,7 @@ export default function Coaches() {
               onClick={() => setShowOnlyOnline(false)}
               style={{
                 padding: "8px 16px",
-                backgroundColor: !showOnlyOnline ? "#ec5a4d" : "#f0f0f0",
+                backgroundColor: !showOnlyOnline ? "#2f9be0" : "#f0f0f0",
                 color: !showOnlyOnline ? "#fff" : "#666",
                 border: "none",
                 borderRadius: "8px",
@@ -897,7 +897,7 @@ export default function Coaches() {
               onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 1px 4px rgba(0,0,0,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
             >
               <div style={{ display: "flex", gap: "12px", marginBottom: "12px" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "8px", backgroundColor: "#ec5a4d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "700", color: "#fff", flexShrink: 0 }}>
+                <div style={{ width: "48px", height: "48px", borderRadius: "8px", backgroundColor: "#2f9be0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", fontWeight: "700", color: "#fff", flexShrink: 0 }}>
                   {coach.avatar}
                 </div>
                 <div style={{ flex: 1 }}>

@@ -84,7 +84,7 @@ const Heading = ({ title, sub }) => (
   <div style={{ marginBottom: "22px" }}>
     <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#222", marginBottom: "2px", margin: 0, fontFamily: "'Barlow Condensed', sans-serif" }}>{title}</h1>
     {sub && <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>{sub}</p>}
-    <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
+    <div style={{ width: "32px", height: "3px", backgroundColor: "#2f9be0", borderRadius: "2px", marginTop: "6px" }} />
   </div>
 );
 
@@ -95,7 +95,7 @@ const BackBtn = ({ label, onClick }) => (
     fontSize: "13px", fontWeight: "600", cursor: "pointer",
     marginBottom: "18px", padding: "0",
   }}
-    onMouseEnter={e => (e.currentTarget.style.color = "#ec5a4d")}
+    onMouseEnter={e => (e.currentTarget.style.color = "#2f9be0")}
     onMouseLeave={e => (e.currentTarget.style.color = "#888")}
   >
     <ArrowLeft size={15} style={{ color: "inherit" }} /> {label}
@@ -107,7 +107,7 @@ const SectionHeader = ({ icon: Icon, title }) => (
     display: "flex", alignItems: "center", gap: "8px",
     paddingBottom: "12px", borderBottom: "1px solid #f0f0f0", marginBottom: "16px",
   }}>
-    {Icon && <Icon size={15} style={{ color: "#ec5a4d" }} />}
+    {Icon && <Icon size={15} style={{ color: "#2f9be0" }} />}
     <span style={{ fontSize: "13px", fontWeight: "700", color: "#333" }}>{title}</span>
   </div>
 );
@@ -150,7 +150,7 @@ const InputField = ({ label, type = "text", placeholder, value, onChange }) => (
     <input
       type={type} placeholder={placeholder} value={value} onChange={onChange}
       style={textInput}
-      onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
+      onFocus={e => (e.target.style.borderColor = "#2f9be0")}
       onBlur={e  => (e.target.style.borderColor = "#e0e0e0")}
     />
   </div>
@@ -220,7 +220,7 @@ const CreateForm = ({ player, onSave, onCancel }) => {
               <div style={{
                 fontSize: "12px", fontWeight: "700", textAlign: "center",
                 borderRadius: "8px", padding: "8px 10px",
-                backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0",
+                backgroundColor: "#e8f3fb", color: "#2f9be0", border: "1px solid #cfe6f7",
               }}>
                 {meal.name}
               </div>
@@ -229,7 +229,7 @@ const CreateForm = ({ player, onSave, onCancel }) => {
                 value={meal.items}
                 onChange={e => setMeal(i, e.target.value)}
                 style={textInput}
-                onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
+                onFocus={e => (e.target.style.borderColor = "#2f9be0")}
                 onBlur={e  => (e.target.style.borderColor = "#e0e0e0")}
               />
             </div>
@@ -247,11 +247,11 @@ const CreateForm = ({ player, onSave, onCancel }) => {
               <button key={s} onClick={() => toggleS(s)} style={{
                 padding: "6px 14px", borderRadius: "20px", fontSize: "12px",
                 fontWeight: "600", cursor: "pointer", transition: "all 0.15s",
-                border: `1.5px solid ${sel ? "#ec5a4d" : "#e0e0e0"}`,
-                backgroundColor: sel ? "#fdecea" : "#f9f9f9",
-                color: sel ? "#ec5a4d" : "#666",
+                border: `1.5px solid ${sel ? "#2f9be0" : "#e0e0e0"}`,
+                backgroundColor: sel ? "#e8f3fb" : "#f9f9f9",
+                color: sel ? "#2f9be0" : "#666",
               }}
-                onMouseEnter={e => { if (!sel) e.currentTarget.style.borderColor = "#ec5a4d"; }}
+                onMouseEnter={e => { if (!sel) e.currentTarget.style.borderColor = "#2f9be0"; }}
                 onMouseLeave={e => { if (!sel) e.currentTarget.style.borderColor = "#e0e0e0"; }}
               >{s}</button>
             );
@@ -277,7 +277,7 @@ const CreateForm = ({ player, onSave, onCancel }) => {
           onChange={e => set("notes", e.target.value)}
           rows={4}
           style={{ ...textInput, resize: "vertical", minHeight: "80px" }}
-          onFocus={e => (e.target.style.borderColor = "#ec5a4d")}
+          onFocus={e => (e.target.style.borderColor = "#2f9be0")}
           onBlur={e  => (e.target.style.borderColor = "#e0e0e0")}
         />
       </div>
@@ -286,13 +286,13 @@ const CreateForm = ({ player, onSave, onCancel }) => {
       <div style={{ display: "flex", gap: "12px" }}>
         <button onClick={handleSave} style={{
           display: "flex", alignItems: "center", gap: "7px",
-          padding: "11px 24px", backgroundColor: "#ec5a4d",
+          padding: "11px 24px", backgroundColor: "#2f9be0",
           color: "#fff", border: "none", borderRadius: "8px",
           fontSize: "14px", fontWeight: "700", cursor: "pointer",
-          boxShadow: "0 2px 8px rgba(236,90,77,0.3)",
+          boxShadow: "0 2px 8px rgba(47, 155, 224,0.3)",
         }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d6443a")}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
+          onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#2380c2")}
+          onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#2f9be0")}
         >
           Save Plan
         </button>
@@ -301,7 +301,7 @@ const CreateForm = ({ player, onSave, onCancel }) => {
           border: "1.5px solid #e0e0e0", borderRadius: "8px",
           fontSize: "14px", fontWeight: "600", cursor: "pointer",
         }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.color = "#ec5a4d"; }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.color = "#2f9be0"; }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = "#e0e0e0"; e.currentTarget.style.color = "#555"; }}
         >
           Cancel
@@ -323,12 +323,12 @@ const PlanDetail = ({ plan, onBack }) => (
         <p style={{ fontSize: "12px", color: "#888", marginTop: "4px" }}>
           {new Date(plan.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
         </p>
-        <div style={{ width: "32px", height: "3px", backgroundColor: "#ec5a4d", borderRadius: "2px", marginTop: "6px" }} />
+        <div style={{ width: "32px", height: "3px", backgroundColor: "#2f9be0", borderRadius: "2px", marginTop: "6px" }} />
       </div>
       {/* Key stats */}
       <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
         {[
-          { val: plan.calories, unit: "kcal/day",  bg: "#fdecea",  border: "#f6d4d0",  color: "#ec5a4d" },
+          { val: plan.calories, unit: "kcal/day",  bg: "#e8f3fb",  border: "#cfe6f7",  color: "#2f9be0" },
           { val: `${plan.water}L`,  unit: "water/day", bg: "#f0faf0",  border: "#b8e6b8",  color: "#2e7d32" },
           { val: `${plan.sleepTarget}h`, unit: "sleep",  bg: "#eff6ff",  border: "#bfdbfe",  color: "#3b82f6" },
         ].map(s => (
@@ -343,7 +343,7 @@ const PlanDetail = ({ plan, onBack }) => (
     {/* Macro bars */}
     <div style={card({ padding: "22px", marginBottom: "16px" })}>
       <SectionHeader icon={Zap} title="Macro Breakdown" />
-      <MacroBar label="Protein"       value={plan.protein} max={200} unit="g" color="#ec5a4d" />
+      <MacroBar label="Protein"       value={plan.protein} max={200} unit="g" color="#2f9be0" />
       <MacroBar label="Carbohydrates" value={plan.carbs}   max={450} unit="g" color="#3b82f6" />
       <MacroBar label="Fat"           value={plan.fat}     max={120} unit="g" color="#f59e0b" />
       <MacroBar label="Fiber"         value={plan.fiber}   max={50}  unit="g" color="#10b981" />
@@ -361,7 +361,7 @@ const PlanDetail = ({ plan, onBack }) => (
           <div style={{
             fontSize: "11px", fontWeight: "700", padding: "5px 10px",
             borderRadius: "7px", whiteSpace: "nowrap", flexShrink: 0,
-            backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0",
+            backgroundColor: "#e8f3fb", color: "#2f9be0", border: "1px solid #cfe6f7",
           }}>
             {meal.name}
           </div>
@@ -380,8 +380,8 @@ const PlanDetail = ({ plan, onBack }) => (
           {plan.supplements.map(s => (
             <span key={s} style={{
               fontSize: "12px", fontWeight: "600", padding: "4px 12px",
-              borderRadius: "20px", backgroundColor: "#fdecea",
-              color: "#ec5a4d", border: "1px solid #f6d4d0",
+              borderRadius: "20px", backgroundColor: "#e8f3fb",
+              color: "#2f9be0", border: "1px solid #cfe6f7",
             }}>{s}</span>
           ))}
         </div>
@@ -426,11 +426,11 @@ const PlayerDetail = ({ player: init, allPlayers, setAllPlayers, onBack }) => {
         <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
           <div style={{
             width: "52px", height: "52px", borderRadius: "50%", flexShrink: 0,
-            backgroundColor: player.injury ? "#fff0f0" : "#fdecea",
-            border: `2px solid ${player.injury ? "#ffc5c5" : "#f6d4d0"}`,
+            backgroundColor: player.injury ? "#fff0f0" : "#e8f3fb",
+            border: `2px solid ${player.injury ? "#ffc5c5" : "#cfe6f7"}`,
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: "14px", fontWeight: "800",
-            color: player.injury ? "#cc3333" : "#ec5a4d",
+            color: player.injury ? "#cc3333" : "#2f9be0",
           }}>
             {player.number}
           </div>
@@ -450,13 +450,13 @@ const PlayerDetail = ({ player: init, allPlayers, setAllPlayers, onBack }) => {
           </div>
           <button onClick={() => setInnerView(V_CREATE)} style={{
             display: "flex", alignItems: "center", gap: "7px",
-            padding: "10px 18px", backgroundColor: "#ec5a4d",
+            padding: "10px 18px", backgroundColor: "#2f9be0",
             color: "#fff", border: "none", borderRadius: "8px",
             fontSize: "13px", fontWeight: "700", cursor: "pointer",
-            boxShadow: "0 2px 8px rgba(236,90,77,0.28)", flexShrink: 0,
+            boxShadow: "0 2px 8px rgba(47, 155, 224,0.28)", flexShrink: 0,
           }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d6443a")}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ec5a4d")}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#2380c2")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#2f9be0")}
           >
             <Plus size={15} /> New Plan
           </button>
@@ -476,7 +476,7 @@ const PlayerDetail = ({ player: init, allPlayers, setAllPlayers, onBack }) => {
           <p style={{ fontSize: "13px", color: "#aaa", marginTop: "4px" }}>Create the first plan for this player</p>
           <button onClick={() => setInnerView(V_CREATE)} style={{
             marginTop: "16px", padding: "10px 22px",
-            backgroundColor: "#ec5a4d", color: "#fff",
+            backgroundColor: "#2f9be0", color: "#fff",
             border: "none", borderRadius: "8px",
             fontSize: "13px", fontWeight: "700", cursor: "pointer",
           }}>
@@ -489,7 +489,7 @@ const PlayerDetail = ({ player: init, allPlayers, setAllPlayers, onBack }) => {
             <div key={plan.id}
               onClick={() => { setActivePlan(plan); setInnerView(V_DETAIL); }}
               style={card({ padding: "18px 20px", cursor: "pointer", transition: "all 0.15s" })}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "#ec5a4d"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(236,90,77,0.12)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#2f9be0"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(47, 155, 224,0.12)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8e8e8"; e.currentTarget.style.boxShadow = "0 1px 4px rgba(0,0,0,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
             >
               {/* Plan title row */}
@@ -506,7 +506,7 @@ const PlayerDetail = ({ player: init, allPlayers, setAllPlayers, onBack }) => {
               {/* Macro pills */}
               <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginBottom: plan.supplements?.length ? "8px" : "0" }}>
                 {[
-                  { label: `${plan.calories} kcal`, color: "#ec5a4d", bg: "#fdecea", border: "#f6d4d0" },
+                  { label: `${plan.calories} kcal`, color: "#2f9be0", bg: "#e8f3fb", border: "#cfe6f7" },
                   { label: `P: ${plan.protein}g`,   color: "#2e7d32", bg: "#f0faf0", border: "#b8e6b8" },
                   { label: `C: ${plan.carbs}g`,     color: "#3b82f6", bg: "#eff6ff", border: "#bfdbfe" },
                   { label: `F: ${plan.fat}g`,       color: "#d97706", bg: "#fffbeb", border: "#fde68a" },
@@ -564,7 +564,7 @@ const NutritionDashboard = () => {
       {/* Summary strip */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "14px", marginBottom: "22px" }}>
         {[
-          { label: "Total Players", value: players.length, icon: Users,         color: "#ec5a4d" },
+          { label: "Total Players", value: players.length, icon: Users,         color: "#2f9be0" },
           { label: "With Plans",    value: withPlans,      icon: CheckCircle2,  color: "#2e7d32" },
           { label: "Needs Plan",    value: needsPlan,      icon: AlertCircle,   color: "#f9a825" },
         ].map(s => (
@@ -583,7 +583,7 @@ const NutritionDashboard = () => {
       {/* Player list */}
       <div style={card({ overflow: "hidden" })}>
         <div style={{ padding: "14px 22px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", gap: "7px" }}>
-          <Users size={15} style={{ color: "#ec5a4d" }} />
+          <Users size={15} style={{ color: "#2f9be0" }} />
           <span style={{ fontSize: "14px", fontWeight: "700", color: "#333" }}>{players.length} Players</span>
         </div>
 
@@ -603,11 +603,11 @@ const NutritionDashboard = () => {
             {/* Number badge */}
             <div style={{
               width: "40px", height: "40px", borderRadius: "50%", flexShrink: 0,
-              backgroundColor: player.injury ? "#fff0f0" : "#fdecea",
-              border: `1.5px solid ${player.injury ? "#ffc5c5" : "#f6d4d0"}`,
+              backgroundColor: player.injury ? "#fff0f0" : "#e8f3fb",
+              border: `1.5px solid ${player.injury ? "#ffc5c5" : "#cfe6f7"}`,
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: "12px", fontWeight: "800",
-              color: player.injury ? "#cc3333" : "#ec5a4d",
+              color: player.injury ? "#cc3333" : "#2f9be0",
             }}>
               {player.number}
             </div>
@@ -630,7 +630,7 @@ const NutritionDashboard = () => {
             {/* Plan count + arrow */}
             <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
               {player.plans.length > 0 ? (
-                <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 9px", borderRadius: "20px", backgroundColor: "#fdecea", color: "#ec5a4d", border: "1px solid #f6d4d0" }}>
+                <span style={{ fontSize: "11px", fontWeight: "700", padding: "2px 9px", borderRadius: "20px", backgroundColor: "#e8f3fb", color: "#2f9be0", border: "1px solid #cfe6f7" }}>
                   {player.plans.length} plan{player.plans.length > 1 ? "s" : ""}
                 </span>
               ) : (

@@ -26,7 +26,7 @@ export default function PlaceholderPage({ title }) {
             width: '60px',
             height: '60px',
             borderRadius: '12px',
-            backgroundColor: '#fdecea',
+            backgroundColor: '#e8f3fb',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -46,7 +46,7 @@ export default function PlaceholderPage({ title }) {
           style={{
             marginTop: '20px',
             padding: '10px 24px',
-            backgroundColor: '#ec5a4d',
+            backgroundColor: '#2f9be0',
             color: 'white',
             border: 'none',
             borderRadius: '7px',

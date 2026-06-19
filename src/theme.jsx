@@ -6,23 +6,23 @@ import { ArrowLeft } from "lucide-react";
 
 // ── Palette (Palaestra — shared with the Player Portal) ───────────────────────
 export const C = {
-  ink: "#0c0d10",
-  charcoal: "#191d24",
+  ink: "#0d2a63",
+  charcoal: "#0f2f6e",
 
-  coral: "#ec5a4d",
-  coralDark: "#d6443a",
-  coralTint: "#fdecea",
-  coralTintBorder: "#f6d4d0",
+  coral: "#2f9be0",
+  coralDark: "#2380c2",
+  coralTint: "#e8f3fb",
+  coralTintBorder: "#cfe6f7",
 
   // back-compat keys (kept so existing references adopt the new palette):
-  navy: "#ec5a4d",        // primary action → coral
-  navyHover: "#d6443a",
-  navyLight: "#d6443a",
-  navyTint: "#fdecea",
-  navyTintBorder: "#f6d4d0",
-  red: "#ec5a4d",         // accent → coral
-  redHover: "#d6443a",
-  redTint: "#fdecea",
+  navy: "#2f9be0",        // primary action → coral
+  navyHover: "#2380c2",
+  navyLight: "#2380c2",
+  navyTint: "#e8f3fb",
+  navyTintBorder: "#cfe6f7",
+  red: "#2f9be0",         // accent → coral
+  redHover: "#2380c2",
+  redTint: "#e8f3fb",
 
   blue: "#16306e",
   gold: "#c79a2f",
@@ -31,9 +31,9 @@ export const C = {
   greenTint: "#e7f6ed",
   greenBorder: "#bfe3bf",
 
-  danger: "#d6443a",
-  dangerTint: "#fdecea",
-  dangerBorder: "#f6d4d0",
+  danger: "#cc3333",
+  dangerTint: "#fdecec",
+  dangerBorder: "#f3c9c5",
 
   warn: "#d98a0b",
   warnTint: "#fdf2dd",
@@ -71,10 +71,10 @@ export const card = (x = {}) => ({
 
 // ── Button ───────────────────────────────────────────────────────────────────
 const BTN_VARIANTS = {
-  primary: { bg: C.coral, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(236,90,77,0.25)" },
-  accent: { bg: C.coral, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(236,90,77,0.25)" },
-  danger: { bg: C.danger, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(214,68,58,0.22)" },
-  dark: { bg: C.ink, hov: "#23262d", fg: "#fff", glow: "none" },
+  primary: { bg: C.coral, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(47, 155, 224,0.25)" },
+  accent: { bg: C.coral, hov: C.coralDark, fg: "#fff", glow: "0 2px 8px rgba(47, 155, 224,0.25)" },
+  danger: { bg: C.danger, hov: "#b82d2d", fg: "#fff", glow: "0 2px 8px rgba(204,51,51,0.22)" },
+  dark: { bg: C.ink, hov: "#1f3f8a", fg: "#fff", glow: "none" },
   ghost: { bg: "#ffffff", hov: "#fafafa", fg: C.text, glow: "none" },
 };
 
